@@ -1,6 +1,15 @@
 # web-elements-loader
 CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery + xml4jQuery
 
+# Deployment URL
+`set-base-url.mjs` sets URL for deployed build by overriding of basePath in polymer.json. Examples:
+
+    node set-base-url.mjs /path-in-server/
+    node set-base-url.mjs https://cdn.xml4jquery.com/web-elements-loader/build/
+    node set-base-url.mjs https://cdn.osgiserver.io/o/polymer13-vaadin15-portlet/web-elements-loader/build/
+
+Without arguments the URL set to `/web-elements-loader/build/`
+
 # Polymer App Toolbox - Starter Kit
 
 [![Build Status](https://travis-ci.org/Polymer/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/Polymer/polymer-starter-kit)

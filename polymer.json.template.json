@@ -29,8 +29,7 @@
       },
       "bundle": false,
       "addServiceWorker": false
-    },
-    {
+    },{
       "name": "esm-debug",
       "basePath": "/web-elements-loader/build/esm-debug",
       "browserCapabilities": [
