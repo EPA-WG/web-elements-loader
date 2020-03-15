@@ -12,7 +12,8 @@
   ],
   "builds": [
     {
-      "name": "esm-bundled",
+      "name": "esm-unbundled",
+      "basePath": "/web-elements-loader/build/esm-unbundled",
       "browserCapabilities": [
         "es2015",
         "modules"
@@ -26,29 +27,30 @@
       "html": {
         "minify": true
       },
-      "bundle": true,
-      "addServiceWorker": true
-    },
-    {
-      "name": "es6-bundled",
+      "bundle": false,
+      "addServiceWorker": false
+    },{
+      "name": "esm-debug",
+      "basePath": "/web-elements-loader/build/esm-debug",
       "browserCapabilities": [
-        "es2015"
+        "es2015",
+        "modules"
       ],
       "js": {
-        "minify": true,
-        "transformModulesToAmd": true
+        "minify": false
       },
       "css": {
-        "minify": true
+        "minify": false
       },
       "html": {
-        "minify": true
+        "minify": false
       },
-      "bundle": true,
-      "addServiceWorker": true
+      "bundle": false,
+      "addServiceWorker": false
     },
     {
       "name": "es5-bundled",
+      "basePath": "/web-elements-loader/build/es5-bundled",
       "js": {
         "minify": true,
         "compile": true,
@@ -60,8 +62,8 @@
       "html": {
         "minify": true
       },
-      "bundle": true,
-      "addServiceWorker": true
+      "bundle": false,
+      "addServiceWorker": false
     }
   ],
   "moduleResolution": "node",
