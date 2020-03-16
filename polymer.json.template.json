@@ -2,7 +2,8 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.js",
   "sources": [
-    "images/**/*"
+    "images/**/*",
+    "demo/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
@@ -29,7 +30,8 @@
       },
       "bundle": false,
       "addServiceWorker": false
-    },{
+    },
+    {
       "name": "esm-debug",
       "basePath": "/web-elements-loader/build/esm-debug",
       "browserCapabilities": [

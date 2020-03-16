@@ -74,8 +74,9 @@ LoadCollection extends PolymerElement
         const OK = Promise.resolve(1);
         this.promise = Promise.all( this.initDependencies().map( p=> p || OK) )
             .catch( err=>
-            {   debugger;
-                console.error( this.status ="error", this.is, err )
+            {
+                // debugger;
+                // console.error( this.status ="error", this.is, err )
             })
             .finally( x=> this.status="loaded" );
     }
