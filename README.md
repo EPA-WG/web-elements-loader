@@ -1,6 +1,9 @@
 # web-elements-loader
 CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery + xml4jQuery
 
+# ToDo
+* demo page
+
 # Deployment URL
 `set-base-url.mjs` sets URL for deployed build by overriding of basePath in polymer.json. Examples:
 
