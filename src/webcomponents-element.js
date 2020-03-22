@@ -1,6 +1,8 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 import "@polymer/iron-ajax";
+import "./load-polymer-elements";
 import "./load-iron-elements";
+import "./load-neon-animation";
 import "./load-paper-behaviors";
 import "./load-paper-elements";
 import "./load-vaadin-elements";
@@ -25,10 +27,12 @@ class WebcomponentsElement extends PolymerElement
     <h2>Web Components Collections Loader</h2>
     <i>Components are pulled as lazy loaded dependencies.</i>
 </template>
-<load-paper-behaviors disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-paper-behaviors>
-<load-paper-elements  disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-paper-elements>
-<load-iron-elements   disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-iron-elements>
-<load-vaadin-elements disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-vaadin-elements>
+<load-polymer-elements  disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-polymer-elements>
+<!--<load-paper-behaviors   disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-paper-behaviors>-->
+<load-paper-elements    disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-paper-elements>
+<load-neon-animation    disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-neon-animation>
+<load-iron-elements     disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-iron-elements>
+<!--<load-vaadin-elements   disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-vaadin-elements>-->
     `;
     }
 
@@ -41,8 +45,13 @@ class WebcomponentsElement extends PolymerElement
     }
 
     ready()
-    {   super.ready();
-        Promise.all( [...this.shadowRoot.querySelectorAll(".load-collection")].map( el=>el.promise ) )
+    {
+        super.ready();
+        this.importDependencies();
+    }
+    importDependencies()
+    {
+        return Promise.all( [...this.shadowRoot.querySelectorAll(".load-collection")].map( el=>el.promise ) )
             .then(x=>
             {   this.status = "ready";
                 document.dispatchEvent( new CustomEvent("webcomponents-element-ready", {target:this}));

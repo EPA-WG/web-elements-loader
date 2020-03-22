@@ -2,10 +2,14 @@
 CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery + xml4jQuery
 
 # ToDo
-* demo page
+demo page
+* paper-elements
+* neon-animation
+* vaadin
 
 # Deployment URL
-`set-base-url.mjs` sets URL for deployed build by overriding of basePath in polymer.json. Examples:
+`set-base-url.mjs` should be run before the build in order to define the URL for deployed build 
+by overriding of basePath in polymer.json. Examples:
 
     node set-base-url.mjs /path-in-server/
     node set-base-url.mjs https://cdn.xml4jquery.com/web-elements-loader/build/

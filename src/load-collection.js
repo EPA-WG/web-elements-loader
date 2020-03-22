@@ -42,8 +42,10 @@ LoadCollection extends PolymerElement
             <template is="dom-if" if="[[ packages ]]" >
                 <template is="dom-repeat" items="[[ blend(dependencies,packages) ]]" as="pkg">
                     <div>                        
-                       <input type="checkbox" disabled$="[[disabled]]"  on-change="onSelect" id="cb-[[ pkg.name ]]"
-                        checked="{{ pkg.active }}"                         
+                       <input type="checkbox" disabled$="[[disabled]]"  
+                            on-change="onSelect" id="cb-[[ pkg.name ]]"
+                            value="[[pkg.name]]"
+                            checked="{{ pkg.active }}"                         
                         />
                        <a href="[[ docs(pkg) ]]" target="_blank" >[[pkg.name]]</a>
                             [[ pkg.version ]]
@@ -61,7 +63,7 @@ LoadCollection extends PolymerElement
     {
         return  { disabled: String
                 , dependencies: Array
-                ,    selection: { type:String, notify:true}
+                ,    selection: { type:String, notify:true, observer:'_onSelectionChanged' }
                 ,       active: { type:Boolean, value:true }
                 ,      visible: { type:Boolean, value:false }
                 };
@@ -70,6 +72,7 @@ LoadCollection extends PolymerElement
     {   super.ready();
         if( !this.active )
             return this.status = "inactive";
+        this.pkg2imp={};
         this.status = "loading";
         const OK = Promise.resolve(1);
         this.promise = Promise.all( this.initDependencies().map( p=> p || OK) )
@@ -92,6 +95,8 @@ LoadCollection extends PolymerElement
     onSelect(ev)
     {
         this.dependencies.find(d=>d.name===ev.target.id.substring(3)).active = ev.target.checked;
+        if( ev.target.checked )
+            this.pkg2imp[ ev.target.value ]();
         this._updateSelect();
     }
     _updateSelect()
@@ -108,14 +113,21 @@ LoadCollection extends PolymerElement
         // return  [   '@polymer/paper-drawer-panel'
         //         ].includes(pkg)
     }
-    initModule( pkg )
-    {   let active =  !this.isDisabledByDefault(pkg) && this.checkedAttr(pkg);
+    initModule( imp )
+    {   let  pkg = (""+imp).split('"')[1]
+                    .replace(/(.*node_modules\/)/ ,'')
+                    .replace(/\.js/ ,'')
+        , active =  !this.isDisabledByDefault(pkg) && this.checkedAttr(pkg);
         this.dependencies.push({ name:pkg,active, tag:pkg.split('/').pop() });
-        return active;
+        this.pkg2imp[pkg] = imp;
+        return active && imp();
     }
     checkedAttr(pkg)
     {
-        return ( !this.selection || this.selection ==='all' || this.selection.split(',').includes(pkg) )?'checked' : ''
+        return ( !this.selection || this.selection ==='all'
+                 || this.selection.split(',')
+                        .map( x=>x.replace(/\s/g,'') )
+                        .includes(pkg) )?'checked' : ''
     }
     mod( pkg ){ return pkg.split('/').pop(); }
     getTag(){ return this.localName }
@@ -136,6 +148,12 @@ LoadCollection extends PolymerElement
         return dependencies;
     }
     // toJson(packages){return JSON.stringify(packages.dependencies)}
+    _onSelectionChanged(val)
+    {
+        // debugger;
+
+    }
+
 }
 
 window.customElements.define( LoadCollection.is, LoadCollection); // for extending by custom collections via

@@ -13,12 +13,12 @@ class LoadPaperBehaviors extends LoadCollection
     static get is(){ return 'load-paper-behaviors'}
 
     initDependencies()
-    {   const init= m => this.initModule(m);
+    {   const init= i => this.initModule(i);
         return [
-        init("@polymer/paper-behaviors/paper-button-behavior"          ) && import( "@polymer/paper-behaviors/paper-button-behavior"           ),
-        init("@polymer/paper-behaviors/paper-checked-element-behavior" ) && import( "@polymer/paper-behaviors/paper-checked-element-behavior"  ),
-        init("@polymer/paper-behaviors/paper-inky-focus-behavior"      ) && import( "@polymer/paper-behaviors/paper-inky-focus-behavior"       ),
-        init("@polymer/paper-behaviors/paper-ripple-behavior"          ) && import( "@polymer/paper-behaviors/paper-ripple-behavior"           ),
+        init(x=>import( "@polymer/paper-behaviors/paper-button-behavior"           )),
+        init(x=>import( "@polymer/paper-behaviors/paper-checked-element-behavior"  )),
+        init(x=>import( "@polymer/paper-behaviors/paper-inky-focus-behavior"       )),
+        init(x=>import( "@polymer/paper-behaviors/paper-ripple-behavior"           )),
         ]
     }
 }
