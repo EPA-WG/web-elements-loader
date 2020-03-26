@@ -1,7 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
 
-import './webcomponents-element';
+import './web-elemens-loader';
 import './my-icons.js';
 
 class MyApp extends PolymerElement {
@@ -16,7 +16,7 @@ class MyApp extends PolymerElement {
           Edit
         </paper-button>
 
-       <webcomponents-element visible="true"></webcomponents-element>
+       <web-elemens-loader visible="true"></web-elemens-loader>
     `;
   }
 

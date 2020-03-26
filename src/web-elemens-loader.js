@@ -8,7 +8,7 @@ import "./load-paper-elements";
 import "./load-vaadin-elements";
 
 /**
- * `webcomponents-element`
+ * `web-elemens-loader`
  * Container of Polymer Elements and Vaadin web components pulled as lazy loaded dependencies.
  *
  * @customElement
@@ -54,7 +54,7 @@ class WebcomponentsElement extends PolymerElement
         return Promise.all( [...this.shadowRoot.querySelectorAll(".load-collection")].map( el=>el.promise ) )
             .then(x=>
             {   this.status = "ready";
-                document.dispatchEvent( new CustomEvent("webcomponents-element-ready", {target:this}));
+                document.dispatchEvent( new CustomEvent("web-elemens-loader-ready", {target:this}));
             })
     }
     onCollectionChanged()
@@ -67,4 +67,4 @@ class WebcomponentsElement extends PolymerElement
     }
 }
 
-window.customElements.define( 'webcomponents-element', WebcomponentsElement );
+window.customElements.define( 'web-elemens-loader', WebcomponentsElement );

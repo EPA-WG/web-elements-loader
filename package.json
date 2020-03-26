@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "description": "A starting point for Polymer apps",
   "author": "The Polymer Authors",
-  "license": "BSD-3-Clause",
+  "license": "Apache 2.0",
   "scripts": {
     "start": "polymer serve",
     "build": "cross-env NODE_OPTIONS=--max_old_space_size=4098 polymer build && node post-build.mjs",
