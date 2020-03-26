@@ -4,7 +4,6 @@
   "description": "A starting point for Polymer apps",
   "author": "The Polymer Authors",
   "license": "BSD-3-Clause",
-  "repository": "Polymer/polymer-starter-kit",
   "scripts": {
     "start": "polymer serve",
     "build": "cross-env NODE_OPTIONS=--max_old_space_size=4098 polymer build && node post-build.mjs",
@@ -57,6 +56,7 @@
     "@polymer/paper-item": "^3.0.1",
     "@polymer/paper-listbox": "^3.0.1",
     "@polymer/paper-material": "^3.0.1",
+    "@polymer/paper-menu": "^3.0.0-pre.6",
     "@polymer/paper-menu-button": "^3.0.1",
     "@polymer/paper-progress": "^3.0.1",
     "@polymer/paper-radio-button": "^3.0.1",
@@ -69,17 +69,17 @@
     "@polymer/paper-toggle-button": "^3.0.1",
     "@polymer/paper-toolbar": "^3.0.1",
     "@polymer/paper-tooltip": "^3.0.1",
-    "@polymer/polymer": "^3.3.1",
+    "@polymer/polymer": "^3.0.0",
     "@vaadin/vaadin": "^15.0.0",
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/test-fixture": "^4.0.2",
     "cross-env": "^7.0.2",
-    "polymer-cli": "^1.7.1",
-    "wct-browser-legacy": "^1.0.0"
-  },
-  "engines": {
-    "node": ">=8.0"
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "wct-mocha": "^1.0.1"
   }
 }

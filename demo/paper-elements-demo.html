@@ -127,6 +127,7 @@
     paper-listbox {
         width: 100px;
     }
+    paper-icon-item{ --iron-icon-width: max-content; }
 
     paper-toolbar {
         background-color: var(--paper-pink-a200);
@@ -297,9 +298,15 @@
 
             <div>
                 <paper-listbox  class="list" selected="0">
-                    <paper-item>Inbox</paper-item>
-                    <paper-item disabled>Starred</paper-item>
-                    <paper-item>Sent mail</paper-item>
+                    <paper-icon-item>
+                        <iron-icon icon="inbox" item-icon></iron-icon>
+                        Inbox
+                    </paper-icon-item>
+                    <paper-icon-item>
+                        <iron-icon icon="star" item-icon></iron-icon>
+                        Starred
+                    </paper-icon-item>
+                    <paper-icon-item disabled>Sent mail</paper-icon-item>
                 </paper-listbox>
             </div>
 
@@ -427,34 +434,42 @@
 @neon-animation/animations/fade-out-animation,
 @polymer/iron-icon/iron-icon,
 @polymer/iron-icons/iron-icons,
-@polymer/paper-fab,
-@polymer/paper-tabs,
-@polymer/paper-tabs/paper-tab,
+@polymer/iron-icons/communication-icons,
 @polymer/iron-flex-layout/iron-flex-layout-classes,
-@polymer/paper-toolbar,
-@polymer/paper-button,
-@polymer/paper-icon-button,
+@polymer/paper-badge/paper-badge,
+@polymer/paper-button/paper-button,
+@polymer/paper-icon-button/paper-icon-button,
+@polymer/paper-card/paper-card,
+@polymer/paper-checkbox/paper-checkbox,
+@polymer/paper-dialog/paper-dialog,
 @polymer/paper-dropdown-menu/paper-dropdown-menu,
-@polymer/paper-spinner/paper-spinner,
-@polymer/paper-progress,
-@polymer/paper-checkbox,
-@polymer/paper-input,
+@polymer/paper-fab/paper-fab,
+@polymer/paper-input/paper-input,
 @polymer/paper-input/paper-textarea,
-@polymer/paper-slider,
+@polymer/paper-input/paper-input-error,
+@polymer/paper-listbox/paper-listbox,
 @polymer/paper-material,
-@polymer/paper-radio-button,
-@polymer/paper-radio-group,
-@polymer/paper-toggle-button,
-@polymer/paper-toast,
-@polymer/paper-listbox,
-@polymer/paper-item,
+@polymer/paper-menu-button/paper-menu-button,
+@polymer/paper-progress/paper-progress,
+@polymer/paper-radio-button/paper-radio-button,
+@polymer/paper-radio-group/paper-radio-group,
+@polymer/paper-ripple/paper-ripple,
+@polymer/paper-slider/paper-slider,
+@polymer/paper-spinner/paper-spinner,
 @polymer/paper-styles/paper-styles,
+@polymer/paper-tabs/paper-tabs,
+@polymer/paper-tabs/paper-tab,
+@polymer/paper-tabs/paper-tabs-icons,
+@polymer/paper-toast/paper-toast,
+@polymer/paper-toggle-button/paper-toggle-button,
+@polymer/paper-toolbar/paper-toolbar,
+@polymer/paper-tooltip/paper-tooltip,
+@polymer/paper-item/paper-icon-item,
+@polymer/paper-item/paper-item-body,
+@polymer/paper-item/paper-icon-item,
 @polymer/app-layout/app-layout,
 @polymer/app-layout/app-header-layout/app-header-layout,
 @polymer/app-layout/app-toolbar/app-toolbar,
-@polymer/paper-dialog,
-@polymer/paper-tooltip,
-@polymer/paper-badge,
             `;
         </script>
     </template>

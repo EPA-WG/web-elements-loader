@@ -15,7 +15,7 @@ LoadCollection extends PolymerElement
     constructor()
     {   super();
         this.dependencies=[];
-        this.wcRoot= location.port==="8081" ? '' : '/o/polymer-vaadin-portlet/webcomponents';
+        this.wcRoot= ["8000","8081"].includes(location.port) ? '' : '/o/polymer-vaadin-portlet/webcomponents';
     }
 
     static get template()
