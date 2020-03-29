@@ -6,24 +6,19 @@ formatted CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery +
 * [Paper Elements](https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/demo/paper-elements-demo.html) 
 ( [legacy browsers](https://cdn.xml4jquery.com/web-elements-loader/build/es5-bundled/demo/paper-elements-demo.html) )
 
-# API 
-`web-elements-loader` is a helper for lazy load of modules list. 
-## Attributes
-* `selection` comma separated list of modules for load lazily. Only modules compiled with this `web-elements-loader` 
-project could be used. UI allows to see several sets of modules and load by checking the box against module name. 
-* `visible` enables UI for development. If attribute is not presented, web component UI is not rendered ( production use )
-* `disabled` makes UI read-only, useful for non-developer role in CMS.
-## methods
-* `importDependencies()` loads the selected modules, return Promise
-## events
-* `"web-elemens-loader-ready"` Custom Event is fired when all modules are loaded.
+# Use
+* plain esm import
+* via scriptlet
+* via  `[web-elements-loader](src/web-elements-loader.md)` web component
 
 # ToDo
 demo page
 * neon-animation
 * vaadin
 
-# Deployment URL
+# Make your own CDN
+1. add your dependencies by extending `LoadCollection` as in [load-polymer-elements.js](src/load-polymer-elements.js)
+2. Set Deployment URL
 `set-base-url.mjs` should be run before the build in order to define the URL for deployed build 
 by overriding of basePath in polymer.json. Examples:
 
@@ -32,6 +27,9 @@ by overriding of basePath in polymer.json. Examples:
     node set-base-url.mjs https://cdn.osgiserver.io/o/polymer13-vaadin15-portlet/web-elements-loader/build/
 
 Without arguments the URL set to `/web-elements-loader/build/`
+
+3. `npm run build` 
+4. deploy content of `build/` folder into URL defined in step # 2 
 
 # Polymer App Toolbox - Starter Kit
 
@@ -61,12 +59,6 @@ Install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
 [npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)).
 
     npm install -g polymer-cli@next
-
-##### Initialize project from template
-
-    mkdir my-app
-    cd my-app
-    polymer init polymer-3-starter-kit
 
 ### Start the development server
 

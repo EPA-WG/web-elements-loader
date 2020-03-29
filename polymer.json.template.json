@@ -1,7 +1,7 @@
 {
   "npm": true,
   "entrypoint": "index.html",
-  "shell": "src/my-app.js",
+  "shell": "src/web-elemens-loader.js",
   "sources": [
     "images/**/*",
     "demo/**/*"

@@ -10,7 +10,7 @@ buildNames.map( build=>
         ,   basePath = builds.find( b=> b.name == build ).basePath;
 
         stub = stub.substring( stub.indexOf("<script>") )
-            .replace( /(\<\/head\>|\<body\>|\<\/body\>|\<\/html\>)/g ,"")
+            .replace( /(\<html\>|\<head\>|\<\/head\>|\<body\>|\<\/body\>|\<\/html\>)/g ,"")
             .replace( /src\=\"node_modules/g ,`src="${basePath}/node_modules`)
             .replace( /src\=\"src/g ,`src="${basePath}/src`)
             .replace( /define\(\w*\[\w*\'src/g ,`define(['${basePath}/src`)
@@ -19,6 +19,7 @@ buildNames.map( build=>
         fs.writeFileSync( stubName, stub );
     });
 
+// prefix demo/* with build/*/index.html
 readdirSync(`./demo`)
 .map( name =>
 {   const txt = fs.readFileSync(`./demo/${name}`).toString();
@@ -30,3 +31,5 @@ readdirSync(`./demo`)
         fs.writeFileSync( fName, stub + txt );
     })
 });
+
+fs.copyFileSync('package-lock.json', 'build/package-lock.json');

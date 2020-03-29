@@ -1,6 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import { wrap } from "@polymer/polymer/lib/utils/wrap";
-
+import pkginfo from '../packages.js';
 /**
  * `load-iron-elements`
  * Container of  Iron Elements pulled as lazy loaded dependencies.
@@ -15,7 +14,7 @@ LoadCollection extends PolymerElement
     constructor()
     {   super();
         this.dependencies=[];
-        this.wcRoot= ["8000","8081"].includes(location.port) ? '' : '/o/polymer-vaadin-portlet/webcomponents';
+        this.packages = pkginfo;
     }
 
     static get template()
@@ -32,13 +31,7 @@ LoadCollection extends PolymerElement
     </style>
     <fieldset class$="[[status]]">            
         <details>      
-            <summary><input type="checkbox" disabled$="[[disabled]]" title="toggle all"on-change="onToggleAll" /> &lt;[[getTag()]]&gt;</summary>     
-            <iron-ajax auto
-                url="[[wcRoot]]/package-lock.json" 
-                handle-as="json"
-                last-response="{{packages}}"
-            ></iron-ajax>
-            
+            <summary><input type="checkbox" disabled$="[[disabled]]" title="toggle all"on-change="onToggleAll" /> &lt;[[getTag()]]&gt;</summary>                 
             <template is="dom-if" if="[[ packages ]]" >
                 <template is="dom-repeat" items="[[ blend(dependencies,packages) ]]" as="pkg">
                     <div>                        
@@ -117,7 +110,7 @@ LoadCollection extends PolymerElement
     {   let  pkg = (""+imp).split('"')[1]
                     .replace(/(.*node_modules\/)/ ,'')
                     .replace(/\.js/ ,'')
-        , active =  !this.isDisabledByDefault(pkg) && this.checkedAttr(pkg);
+        , active =  this.checkedAttr(pkg) || !this.isDisabledByDefault(pkg);
         this.dependencies.push({ name:pkg,active, tag:pkg.split('/').pop() });
         this.pkg2imp[pkg] = imp;
         return active && imp();

@@ -8,6 +8,7 @@
     "start": "polymer serve",
     "build": "cross-env NODE_OPTIONS=--max_old_space_size=4098 polymer build && node post-build.mjs",
     "lint": "polymer lint",
+    "postinstall": "echo export>packages.js && echo default>>packages.js && cat package-lock.json>>packages.js",
     "test": "polymer test",
     "test:integration": "polymer build # test that psk builds without error with the CLI"
   },

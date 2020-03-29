@@ -1,0 +1,158 @@
+<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="module" src="../src/web-elemens-loader.js"></script>
+<dom-bind id="bindContext">
+    <template>
+
+    <h2>neon-animated-pages</h2>
+
+
+<style is="custom-style">
+    html, body { font-family: "Roboto"; margin: 0; }
+
+    paper-tabs { background-color: steelblue; color:#FFF; }
+    paper-tab.iron-selected { color: yellow; }
+    neon-animated-pages{ min-height: 10rem;}
+    neon-animatable{ color: white;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+        @apply(--paper-font-display4);
+    }
+    neon-animatable:nth-child(1) { background: var(--paper-red-500);      }
+    neon-animatable:nth-child(2) { background: var(--paper-blue-500);     }
+    neon-animatable:nth-child(3) { background: var(--paper-orange-500);   }
+    neon-animatable:nth-child(4) { background: var(--paper-green-500);    }
+    neon-animatable:nth-child(5) { background: var(--paper-purple-500);   }
+    paper-radio-button { padding: 0; min-width: 15em; }
+</style>
+<paper-tabs id="pageTabs" selected="{{ selectedPage }}" style="margin: 0 32px">
+    <paper-tab>page 1</paper-tab>
+    <paper-tab>page 2</paper-tab>
+    <paper-tab>page 3</paper-tab>
+    <paper-tab>page 4</paper-tab>
+    <paper-tab>page 5</paper-tab>
+</paper-tabs>
+
+<neon-animated-pages id="animatedPages"
+        entry-animation="[[entryAnimation]]"
+        exit-animation="[[exitAnimation]]"
+        selected="[[selectedPage]]">
+    <neon-animatable> 1 </neon-animatable>
+    <neon-animatable> 2 </neon-animatable>
+    <neon-animatable> 3 </neon-animatable>
+    <neon-animatable> 4 </neon-animatable>
+    <neon-animatable> 5 </neon-animatable>
+</neon-animated-pages>
+        <div  class="container flex">
+            <label >    Entry animation:[[entryAnimation]]  </label>
+            <paper-radio-group selected="{{ entryAnimation }}"  on-paper-radio-group-changed="redrawPages">
+                <paper-radio-button name="fade-in-animation"            >fade-in-animation          </paper-radio-button>
+                <paper-radio-button name="fade-out-animation"           >fade-out-animation         </paper-radio-button>
+                <paper-radio-button name="opaque-animation"             >opaque-animation           </paper-radio-button>
+                <paper-radio-button name="reverse-animation"            >ripple-animation           </paper-radio-button>
+                <paper-radio-button name="reverse-ripple-animation"     >reverse-ripple-animation   </paper-radio-button>
+                <paper-radio-button name="scale-down-animation"         >scale-down-animation       </paper-radio-button>
+                <paper-radio-button name="scale-up-animation"           >scale-up-animation         </paper-radio-button>
+                <paper-radio-button name="slide-down-animation"         >slide-down-animation       </paper-radio-button>
+                <paper-radio-button name="slide-from-bottom-animation"  >slide-from-bottom-animation</paper-radio-button>
+                <paper-radio-button name="slide-from-left-animation"    >slide-from-left-animation  </paper-radio-button>
+                <paper-radio-button name="slide-from-right-animation"   >slide-from-right-animation </paper-radio-button>
+                <paper-radio-button name="slide-from-top-animation"     >slide-from-top-animation   </paper-radio-button>
+                <paper-radio-button name="slide-left-animation"         >slide-left-animation       </paper-radio-button>
+                <paper-radio-button name="slide-right-animation"        >slide-right-animation      </paper-radio-button>
+                <paper-radio-button name="slide-up-animation"           >slide-up-animation         </paper-radio-button>
+                <paper-radio-button name="transform-animation"          >transform-animation        </paper-radio-button>
+            </paper-radio-group>
+            <label >    Exit animation:[[exitAnimation]]    </label>
+            <paper-radio-group selected="{{ exitAnimation }}"   on-paper-radio-group-changed="redrawPages">
+                <paper-radio-button name="fade-in-animation"            >fade-in-animation          </paper-radio-button>
+                <paper-radio-button name="fade-out-animation"           >fade-out-animation         </paper-radio-button>
+                <paper-radio-button name="opaque-animation"             >opaque-animation           </paper-radio-button>
+                <paper-radio-button name="reverse-animation"            >ripple-animation           </paper-radio-button>
+                <paper-radio-button name="reverse-ripple-animation"     >reverse-ripple-animation   </paper-radio-button>
+                <paper-radio-button name="scale-down-animation"         >scale-down-animation       </paper-radio-button>
+                <paper-radio-button name="scale-up-animation"           >scale-up-animation         </paper-radio-button>
+                <paper-radio-button name="slide-down-animation"         >slide-down-animation       </paper-radio-button>
+                <paper-radio-button name="slide-from-bottom-animation"  >slide-from-bottom-animation</paper-radio-button>
+                <paper-radio-button name="slide-from-left-animation"    >slide-from-left-animation  </paper-radio-button>
+                <paper-radio-button name="slide-from-right-animation"   >slide-from-right-animation </paper-radio-button>
+                <paper-radio-button name="slide-from-top-animation"     >slide-from-top-animation   </paper-radio-button>
+                <paper-radio-button name="slide-left-animation"         >slide-left-animation       </paper-radio-button>
+                <paper-radio-button name="slide-right-animation"        >slide-right-animation      </paper-radio-button>
+                <paper-radio-button name="slide-up-animation"           >slide-up-animation         </paper-radio-button>
+                <paper-radio-button name="transform-animation"          >transform-animation        </paper-radio-button>
+            </paper-radio-group>
+        </div>
+        <p>Suggested: scale-up/down, fade-in/out, slide-from-right/slide-left</p>
+<hr/>
+        <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
+        <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
+        <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
+
+        <web-elemens-loader visible="true" id="webcomponentsElement" selection="{{sel}}"></web-elemens-loader>
+        <script>
+            webcomponentsElement.selection = `
+web-animations-js/web-animations-next-lite.min,
+@polymer/paper-tabs,
+@polymer/paper-tabs/paper-tab,
+@polymer/paper-styles/paper-styles,
+@polymer/iron-flex-layout/iron-flex-layout,
+@polymer/paper-styles/typography,
+@polymer/paper-styles/color,
+@polymer/neon-animation/neon-animated-pages,
+@polymer/neon-animation/neon-animatable,
+@polymer/neon-animation/neon-animation,
+@polymer/neon-animation/animations/fade-in-animation,
+@polymer/neon-animation/animations/fade-out-animation,
+@polymer/neon-animation/animations/opaque-animation,
+@polymer/neon-animation/animations/ripple-animation,
+@polymer/neon-animation/animations/reverse-ripple-animation,
+@polymer/neon-animation/animations/scale-down-animation,
+@polymer/neon-animation/animations/scale-up-animation,
+@polymer/neon-animation/animations/slide-down-animation,
+@polymer/neon-animation/animations/slide-from-bottom-animation,
+@polymer/neon-animation/animations/slide-from-left-animation,
+@polymer/neon-animation/animations/slide-from-right-animation,
+@polymer/neon-animation/animations/slide-from-top-animation,
+@polymer/neon-animation/animations/slide-left-animation,
+@polymer/neon-animation/animations/slide-right-animation,
+@polymer/neon-animation/animations/slide-up-animation,
+@polymer/neon-animation/animations/transform-animation,
+
+@polymer/iron-icon/iron-icon,
+@polymer/iron-icons/iron-icons,
+@polymer/iron-icons/communication-icons,
+@polymer/iron-flex-layout/iron-flex-layout-classes,
+@polymer/paper-button/paper-button,
+@polymer/paper-icon-button/paper-icon-button,
+@polymer/paper-card/paper-card,
+@polymer/paper-checkbox/paper-checkbox,
+@polymer/paper-dialog/paper-dialog,
+@polymer/paper-dropdown-menu/paper-dropdown-menu,
+@polymer/paper-fab/paper-fab,
+@polymer/paper-input/paper-input,
+@polymer/paper-input/paper-textarea,
+@polymer/paper-input/paper-input-error,
+@polymer/paper-listbox/paper-listbox,
+@polymer/paper-material,
+@polymer/paper-menu-button/paper-menu-button,
+@polymer/paper-radio-button/paper-radio-button,
+@polymer/paper-radio-group/paper-radio-group,
+@polymer/paper-toolbar/paper-toolbar,
+@polymer/paper-item/paper-icon-item,
+@polymer/paper-item/paper-item-body,
+@polymer/paper-item/paper-icon-item,
+@polymer/app-layout/app-layout,
+@polymer/app-layout/app-header-layout/app-header-layout,
+@polymer/app-layout/app-toolbar/app-toolbar,
+            `;
+        </script>
+    </template>
+</dom-bind>
+<script>
+    // initial values
+    bindContext.selectedPage=0;
+    bindContext.entryAnimation ='scale-up-animation'   ;   'fade-in-animation' ;
+    bindContext.exitAnimation  = 'scale-down-animation';   'fade-out-animation';
+    bindContext.redrawPages = x=>animatedPages.connectedCallback();
+
+</script>

@@ -38,6 +38,7 @@ class LoadNeonAnimation extends LoadCollection
         init(x=>import('@polymer/neon-animation/animations/fade-in-animation'            )),
         init(x=>import('@polymer/neon-animation/animations/fade-out-animation'           )),
         init(x=>import('@polymer/neon-animation/animations/opaque-animation'             )),
+        init(x=>import('@polymer/neon-animation/animations/ripple-animation'     )),
         init(x=>import('@polymer/neon-animation/animations/reverse-ripple-animation'     )),
         init(x=>import('@polymer/neon-animation/animations/scale-down-animation'         )),
         init(x=>import('@polymer/neon-animation/animations/scale-up-animation'           )),
