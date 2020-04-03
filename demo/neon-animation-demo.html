@@ -3,10 +3,15 @@
 <dom-bind id="bindContext">
     <template>
 
-    <h2> neon-animated-pages </h2>
+        <app-toolbar>
+            <a href="./"><paper-icon-button icon="arrow-upward" ></paper-icon-button></a>
+            neon-animated-pages demo
+        </app-toolbar>
+    <br/>
 
 <style is="custom-style">
-    html, body { font-family: "Roboto"; margin: 0; }
+    html, body { font-family: "Roboto"; margin: 0; padding: 0; }
+    app-toolbar, app-toolbar a { color: white; background-color: var(--google-blue-500); }
 
     paper-tabs { background-color: steelblue; color:#FFF; }
     paper-tab.iron-selected { color: yellow; }
@@ -95,7 +100,6 @@
                     #listView { @apply --layout-vertical; }
                     #listView .main { @apply --layout-flex; @apply --layout-scroll; }
                     #listView iron-icon { color: var(--google-grey-500); }
-                    #listView app-toolbar { color: white; background-color: var(--google-blue-500); }
                     #pages{overflow: scroll; height: 20em;}
                 </style>
                 <app-toolbar>

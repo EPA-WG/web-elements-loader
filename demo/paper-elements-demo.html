@@ -9,6 +9,8 @@
         margin: 0;
         height: 100%;
     }
+    app-toolbar, app-toolbar a { color: white; background-color: var(--google-blue-500); }
+    app-header{ left:0!important; right: 0!important; padding: 0!important; }
     h1 {
         font-weight: 300;
     }
@@ -254,6 +256,9 @@
 <app-header-layout mode="cover" class="pink">
     <app-header slot="header" class="paper-header">
         <app-toolbar>
+            <a href="./">
+                <paper-icon-button icon="arrow-upward" id="menu-btn"></paper-icon-button>
+            </a>
             <paper-icon-button icon="menu" id="menu-btn"></paper-icon-button>
             <paper-tooltip for="menu-btn">Refresh</paper-tooltip>
             <span class="flex" style="font-size:25px;">Polymer material design element demos</span>
