@@ -5,6 +5,8 @@ formatted CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery +
 # Demo
 * [Paper Elements](https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/demo/paper-elements-demo.html) 
 ( [legacy browsers](https://cdn.xml4jquery.com/web-elements-loader/build/es5-bundled/demo/paper-elements-demo.html) )
+* [Neon Animations](https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/demo/neon-animation-demo.html) 
+( [legacy browsers](https://cdn.xml4jquery.com/web-elements-loader/build/es5-bundled/demo/neon-animation-demo.html) )
 
 # Use
 * plain esm import
