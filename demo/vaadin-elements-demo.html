@@ -13,6 +13,7 @@
                         overflow: auto;
                     }
             iron-icon{ margin-left: 1rem;}
+            .h-flex{ display: flex }
         </style>
         <fieldset>
             <legend> VISUALIZATION & INTERACTION </legend>
@@ -26,7 +27,8 @@
                 </div>
 
                 <div class="tab-sec">
-                    <h4>Basic</h4>
+                <div style=" margin: .5rem 0;overflow: auto;">
+                    <b>Basic</b>
                     <vaadin-accordion>
                         <vaadin-accordion-panel>
                             <div slot="summary">Personal Information</div>
@@ -50,7 +52,7 @@
                             <span>Not yet implemented</span>
                         </vaadin-accordion-panel>
                     </vaadin-accordion>
-                </div>
+                </div></div>
                 <div class="tab-sec">
                     <b> Small Panels</b>
                     <vaadin-accordion>
@@ -487,17 +489,49 @@
         </fieldset>
         <fieldset>
             <legend> FORM INPUTS </legend>
-            <vaadin-button>Button</vaadin-button>
-            <vaadin-button disabled>Disabled</vaadin-button>
-            <vaadin-button>
-                <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>
-                Edit
-            </vaadin-button>
+            <div class="tab-sec">
+                <b> Button
+                    <a href="https://vaadin.com/components/vaadin-button" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-button>Button</vaadin-button>
+                    <vaadin-button disabled>Disabled</vaadin-button>
+                    <vaadin-button>
+                        <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>
+                        Edit
+                    </vaadin-button>
 
-            <vaadin-button>
-                <iron-icon icon="lumo:arrow-right" slot="suffix"></iron-icon>
-                Next
-            </vaadin-button>
+                    <vaadin-button>
+                        <iron-icon icon="lumo:arrow-right" slot="suffix"></iron-icon>
+                        Next
+                    </vaadin-button>
+                </div>
+            </div>
+            <div class="tab-sec">
+                <b> Checkbox
+                    <a href="https://vaadin.com/components/vaadin-checkbox" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <vaadin-checkbox value="Option" checked>Option</vaadin-checkbox>
+                <div class="h-flex">
+                    <vaadin-checkbox-group label="Group value:[[cbGrVal]]" theme="vertical" style="text-align: start"
+                        value="{{ cbGrVal }}"
+                        required  auto-validate
+                        error-message="Please choose one option"
+                    >
+                        <vaadin-checkbox value="1" checked ><i>Uncheck for validation</i></vaadin-checkbox>
+                        <vaadin-checkbox value="2"                  >Option two     </vaadin-checkbox>
+                        <vaadin-checkbox value="3" disabled         >disabled       </vaadin-checkbox>
+                        <vaadin-checkbox value="4" indeterminate    >indeterminate  </vaadin-checkbox>
+                    </vaadin-checkbox-group>
+                    <vaadin-checkbox-group label="Disabled group" theme="vertical" style="text-align: start" disabled>
+                    <vaadin-checkbox value="1" checked  >Option one</vaadin-checkbox>
+                    <vaadin-checkbox value="2"          >Option two</vaadin-checkbox>
+                    <vaadin-checkbox value="3" disabled >Option three</vaadin-checkbox>
+                </vaadin-checkbox-group>
+                </div>
+            </div>
             <br/>
             <vaadin-progress-bar indeterminate value="0"></vaadin-progress-bar>
 
