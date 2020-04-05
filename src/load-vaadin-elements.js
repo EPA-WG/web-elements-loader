@@ -30,6 +30,7 @@ class LoadVaadinElement extends LoadCollection
     {   const init= i => this.initModule(i);
         return [
         init(x=>import('@vaadin/vaadin/vaadin')),
+        init(x=>import('@vaadin/vaadin-element-mixin/vaadin-element-mixin')),
         // @vaadin/vaadin aggregation
         init(x=>import("@vaadin/vaadin-core/vaadin-core"                            )),
         init(x=>import("@vaadin/vaadin-board/vaadin-board"                          )),

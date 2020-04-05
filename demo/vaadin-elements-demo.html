@@ -1,20 +1,22 @@
+<!DOCTYPE html>
 <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="module" src="../src/web-elemens-loader.js"></script>
 <dom-bind>
     <template>
         <style>
             vaadin-accordion { margin-left: 3rem;  padding: 1rem; }
-            vaadin-details vaadin-details, vaadin-accordion vaadin-accordion{ background-color: azure; padding: 1rem; }
+            vaadin-details vaadin-details, vaadin-accordion vaadin-accordion{  padding: 1rem; }
             .min-dim{  min-width: 0; padding: 0; margin: 0; }
             .flag{ height: 2rem; }
-            .tab-sec{   display: inline-flex; flex-direction: column; width: 18rem; height: 13rem; margin: 1rem;
+            .tab-sec{   display: inline-flex; flex-direction: column; width: 18rem; height: 14rem; margin: 1rem;
                         border: 1px solid teal; border-radius: 1rem; text-align: center; padding: 0 0 1rem 0;
+                        overflow: auto;
                     }
             iron-icon{ margin-left: 1rem;}
         </style>
         <fieldset>
             <legend> VISUALIZATION & INTERACTION </legend>
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:accordion-menu"></iron-icon>
                     Accordion
@@ -22,87 +24,86 @@
                         <iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon>
                     </a>
                 </div>
-                <vaadin-accordion>
-                    <vaadin-accordion-panel >
-                        <div slot="summary"> Basic </div>
-                        <vaadin-accordion>
-                            <vaadin-accordion-panel>
-                                <div slot="summary">Personal Information</div>
-                                <vaadin-vertical-layout>
-                                    <vaadin-text-field label="Name" theme="small"></vaadin-text-field>
-                                    <vaadin-text-field label="Phone" theme="small"></vaadin-text-field>
-                                    <vaadin-text-field label="Email" theme="small"></vaadin-text-field>
-                                </vaadin-vertical-layout>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel>
-                                <div slot="summary">Billing Address</div>
-                                <vaadin-vertical-layout>
-                                    <vaadin-text-field label="Address" theme="small"></vaadin-text-field>
-                                    <vaadin-text-field label="City" theme="small"></vaadin-text-field>
-                                    <vaadin-text-field label="State" theme="small"></vaadin-text-field>
-                                    <vaadin-text-field label="Zip Code" theme="small"></vaadin-text-field>
-                                </vaadin-vertical-layout>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel disabled>
-                                <div slot="summary">Payment</div>
-                                <span>Not yet implemented</span>
-                            </vaadin-accordion-panel>
-                        </vaadin-accordion>
-                    </vaadin-accordion-panel>
-                    <vaadin-accordion-panel >
-                        <div slot="summary"> Small Panels </div>
-                        <vaadin-accordion>
-                            <vaadin-accordion-panel theme="small">
-                                <div slot="summary">Panel 1</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel theme="small">
-                                <div slot="summary">Panel 2</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel theme="small">
-                                <div slot="summary">Panel 3</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                        </vaadin-accordion>
-                    </vaadin-accordion-panel>
-                    <vaadin-accordion-panel >
-                        <div slot="summary"> Filled Panels </div>
-                        <vaadin-accordion>
-                            <vaadin-accordion-panel theme="filled">
-                                <div slot="summary">Panel 1</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel theme="filled">
-                                <div slot="summary">Panel 2</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel theme="filled" disabled>
-                                <div slot="summary">Panel 3</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                        </vaadin-accordion>
-                    </vaadin-accordion-panel>
-                    <vaadin-accordion-panel >
-                        <div slot="summary"> Reverse Panels </div>
-                        <vaadin-accordion>
-                            <vaadin-accordion-panel theme="reverse">
-                                <div slot="summary">Panel 1</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel theme="reverse">
-                                <div slot="summary">Panel 2</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                            <vaadin-accordion-panel theme="reverse">
-                                <div slot="summary">Panel 3</div>
-                                <div>Panel content</div>
-                            </vaadin-accordion-panel>
-                        </vaadin-accordion>
-                    </vaadin-accordion-panel>
-                </vaadin-accordion>
+
+                <div class="tab-sec">
+                    <h4>Basic</h4>
+                    <vaadin-accordion>
+                        <vaadin-accordion-panel>
+                            <div slot="summary">Personal Information</div>
+                            <vaadin-vertical-layout>
+                                <vaadin-text-field label="Name" theme="small"></vaadin-text-field>
+                                <vaadin-text-field label="Phone" theme="small"></vaadin-text-field>
+                                <vaadin-text-field label="Email" theme="small"></vaadin-text-field>
+                            </vaadin-vertical-layout>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel>
+                            <div slot="summary">Billing Address</div>
+                            <vaadin-vertical-layout>
+                                <vaadin-text-field label="Address" theme="small"></vaadin-text-field>
+                                <vaadin-text-field label="City" theme="small"></vaadin-text-field>
+                                <vaadin-text-field label="State" theme="small"></vaadin-text-field>
+                                <vaadin-text-field label="Zip Code" theme="small"></vaadin-text-field>
+                            </vaadin-vertical-layout>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel disabled>
+                            <div slot="summary">Payment</div>
+                            <span>Not yet implemented</span>
+                        </vaadin-accordion-panel>
+                    </vaadin-accordion>
+                </div>
+                <div class="tab-sec">
+                    <b> Small Panels</b>
+                    <vaadin-accordion>
+                        <vaadin-accordion-panel theme="small">
+                            <div slot="summary">Panel 1</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel theme="small">
+                            <div slot="summary">Panel 2</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel theme="small">
+                            <div slot="summary">Panel 3</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                    </vaadin-accordion>
+                </div>
+                <div class="tab-sec">
+                    <b> Filled Panels</b>
+                    <vaadin-accordion>
+                        <vaadin-accordion-panel theme="filled">
+                            <div slot="summary">Panel 1</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel theme="filled">
+                            <div slot="summary">Panel 2</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel theme="filled" disabled>
+                            <div slot="summary">Panel 3</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                    </vaadin-accordion>
+                </div>
+                <div class="tab-sec">
+                    <b> Reverse Panels </b>
+                    <vaadin-accordion>
+                        <vaadin-accordion-panel theme="reverse">
+                            <div slot="summary">Panel 1</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel theme="reverse">
+                            <div slot="summary">Panel 2</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                        <vaadin-accordion-panel theme="reverse">
+                            <div slot="summary">Panel 3</div>
+                            <div>Panel content</div>
+                        </vaadin-accordion-panel>
+                    </vaadin-accordion>
+                </div>
             </vaadin-details>
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:button"></iron-icon>
                     Button
@@ -124,7 +125,7 @@
                 </vaadin-button>
             </vaadin-details>
 
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:menu"></iron-icon>
                     Context Menu
@@ -144,7 +145,7 @@
                     <p>Another paragraph with the context menu that can be opened with <b>right click</b> or with <b>long touch.</b></p>
                 </vaadin-context-menu>
             </vaadin-details>
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:file-start"></iron-icon>
 
@@ -153,17 +154,21 @@
                         <iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon>
                     </a>
                 </div>
-                <vaadin-details opened="{{ detailsDemoOpened }}">
-                    <div slot="summary">Expandable Details. opened=[[ detailsDemoOpened ]]</div>
-                    Toggle using mouse, Enter and Space keys.
-                </vaadin-details>
-                <vaadin-details disabled opened>
-                    <div slot="summary">Disabled heading</div>
-                    Always visible content.
-                </vaadin-details>
+                <div class="tab-sec">
+                    <vaadin-details opened="{{ detailsDemoOpened }}">
+                        <div slot="summary">Expandable. opened=[[ detailsDemoOpened ]]</div>
+                        Toggle using mouse, Enter and Space keys.
+                    </vaadin-details>
+                </div>
+                <div class="tab-sec">
+                    <vaadin-details disabled opened>
+                        <div slot="summary">Disabled heading</div>
+                        Always visible content.
+                    </vaadin-details>
+                </div>
             </vaadin-details>
 
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary"> <iron-icon icon="vaadin:modal"></iron-icon> Dialog &amp; notification </div>
                 <div class="tab-sec">
                     <h4>Dialog
@@ -251,7 +256,7 @@
                 </div>
             </vaadin-details>
 
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:grid"></iron-icon>
                     Grid
@@ -302,7 +307,7 @@
                 </vaadin-grid>
             </vaadin-details>
 
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:vaadin-h"></iron-icon>
                     Icons
@@ -351,7 +356,7 @@
 
             </vaadin-details>
 
-            <vaadin-details ZZZopened >
+            <vaadin-details ZZZ opened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:tabs"></iron-icon>
                     Tabs
@@ -519,7 +524,8 @@
 @vaadin/vaadin-progress-bar,
 @vaadin/vaadin-tabs,
 @polymer/iron-pages,
-        "
+@vaadin/vaadin-element-mixin/vaadin-element-mixin,
+"
         ></web-elemens-loader>
     </template>
 </dom-bind>
