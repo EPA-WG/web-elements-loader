@@ -7,6 +7,9 @@
             vaadin-details vaadin-details, vaadin-accordion vaadin-accordion{ background-color: azure; padding: 1rem; }
             .min-dim{  min-width: 0; padding: 0; margin: 0; }
             .flag{ height: 2rem; }
+            .tab-sec{   display: inline-flex; flex-direction: column; width: 18rem; height: 13rem; margin: 1rem;
+                        border: 1px solid teal; border-radius: 1rem; text-align: center; padding: 0 0 1rem 0;
+                    }
             iron-icon{ margin-left: 1rem;}
         </style>
         <fieldset>
@@ -161,61 +164,91 @@
             </vaadin-details>
 
             <vaadin-details ZZZopened >
-                <div slot="summary"> <iron-icon icon="vaadin:modal"></iron-icon> Dialog
-                    <a href="https://vaadin.com/components/vaadin-dialog" target="help" >
-                        <iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon>
-                    </a>
+                <div slot="summary"> <iron-icon icon="vaadin:modal"></iron-icon> Dialog &amp; notification </div>
+                <div class="tab-sec">
+                    <h4>Dialog
+                        <a href="https://vaadin.com/components/vaadin-dialog" target="help"
+                            ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                    </h4>
+                    <vaadin-dialog aria-label="simple" opened="[[demoDialogShown]]">
+                        <template>
+                            This simple dialog will close by pressing the Esc key,
+                            or by a mouse click anywhere outside the dialog area
+                        </template>
+                    </vaadin-dialog>
+                    <paper-button toggles raised active="{{ demoDialogShown }}"
+                        ><iron-icon icon="vaadin:expand-full"></iron-icon> Simple
+                    </paper-button>
+
+                    <vaadin-dialog aria-label="simple" opened="{{ demoDialog2Shown }}">
+                        <template>
+                            <style>
+                                header{ margin-bottom: 1rem; }
+                            </style>
+                            <iron-ajax url="https://baconipsum.com/api/?type=all-meat&paras=20"
+                                       last-response="{{dialogText}}" auto handle-as="text"></iron-ajax>
+                            <header>
+                                <label>
+                                    <input type="checkbox" checked="{{demoDialog2Shown::change}}" style="display: none" />
+                                    <iron-icon icon="vaadin:close-circle"></iron-icon>
+                                </label>
+                                Alice in Wonderland
+                            </header>
+                            <main style="max-height: 80vh;min-height:10rem; overflow: auto">[[dialogText]]</main>
+                        </template>
+                    </vaadin-dialog>
+                    <paper-button toggles raised active="{{ demoDialog2Shown }}"  >
+                        <iron-icon icon="vaadin:expand-full"></iron-icon> Scrollable &amp; button
+                    </paper-button>
+                    <style>
+                        .dialog-message {
+                            font: italic 24pt serif;
+                            background: #fff;
+                            color: #000;
+                            padding: 1em;
+                            border: .25em solid #000;
+                        }
+                    </style>
+                    <vaadin-dialog aria-label="styled" opened="{{ demoDialog3Shown }}">
+                        <template>
+                            <div class="dialog-message">I am styled from the parent scope and can be closed by pressing the Esc key,
+                                or by a mouse click anywhere outside the dialog area</div>
+                        </template>
+                    </vaadin-dialog>
+                    <paper-button toggles raised active="{{ demoDialog3Shown }}"  >
+                        <iron-icon icon="vaadin:expand-full"></iron-icon> Styled by parent
+                    </paper-button>
                 </div>
-                <vaadin-dialog aria-label="simple" opened="[[demoDialogShown]]">
-                    <template>
-                        This simple dialog will close by pressing the Esc key,
-                        or by a mouse click anywhere outside the dialog area
-                    </template>
-                </vaadin-dialog>
-                <paper-button toggles raised active="{{ demoDialogShown }}"  >
-                    <iron-icon icon="vaadin:expand-full"></iron-icon> Simple
-                </paper-button>
+                <div class="tab-sec">
+                    <h4> Notification
+                        <a href="https://vaadin.com/components/vaadin-notification" target="help"
+                            ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                    </h4>
 
-                <vaadin-dialog aria-label="simple" opened="{{ demoDialog2Shown }}">
-                    <template>
-                        <style>
-                            header{ margin-bottom: 1rem; }
-                        </style>
-                        <iron-ajax url="https://baconipsum.com/api/?type=all-meat&paras=20"
-                                   last-response="{{dialogText}}" auto handle-as="text"></iron-ajax>
-                        <header>
-                            <label>
-                                <input type="checkbox" checked="{{demoDialog2Shown::change}}" style="display: none" />
-                                <iron-icon icon="vaadin:close-circle"></iron-icon>
-                            </label>
-                            Alice in Wonderland
-                        </header>
-                        <main style="max-height: 80vh;min-height:10rem; overflow: auto">[[dialogText]]</main>
+                    <vaadin-notification duration="4000"  opened="{{ demoDialog4Shown }}" >
+                        <template>
+                            <div>
+                                <h5>Notice</h5>
+                                The content of this notification is defined with Polymer template
+                            </div>
+                        </template>
+                    </vaadin-notification>
+                    <paper-button toggles raised active="{{ demoDialog4Shown }}"  >
+                        <iron-icon icon="vaadin:expand-full"></iron-icon> Notification
+                    </paper-button>
 
-                    </template>
-                </vaadin-dialog>
-                <paper-button toggles raised active="{{ demoDialog2Shown }}"  >
-                    <iron-icon icon="vaadin:expand-full"></iron-icon> Scrollable &amp; button
-                </paper-button>
-                <style>
-                    .dialog-message {
-                        font: italic 24pt serif;
-                        background: #fff;
-                        color: #000;
-                        padding: 1em;
-                        border: .25em solid #000;
-                    }
-                </style>
-                <vaadin-dialog aria-label="styled" opened="{{ demoDialog3Shown }}">
-                    <template>
-                        <div class="dialog-message">I am styled from the parent scope and can be closed by pressing the Esc key,
-                            or by a mouse click anywhere outside the dialog area</div>
-                    </template>
-                </vaadin-dialog>
-                <paper-button toggles raised active="{{ demoDialog3Shown }}"  >
-                    <iron-icon icon="vaadin:expand-full"></iron-icon> Styled by parent
-                </paper-button>
-
+                    <vaadin-notification duration="4000"  opened="{{ demoDialog5Shown }}" position="top-end">
+                        <template>
+                            <div>
+                                <h5>Notice</h5>
+                                This notification is shown in the top right corner
+                            </div>
+                        </template>
+                    </vaadin-notification>
+                    <paper-button toggles raised active="{{ demoDialog5Shown }}"  >
+                        <iron-icon icon="vaadin:expand-full"></iron-icon> Notification top right
+                    </paper-button>
+                </div>
             </vaadin-details>
 
             <vaadin-details ZZZopened >
@@ -269,7 +302,7 @@
                 </vaadin-grid>
             </vaadin-details>
 
-            <vaadin-details opened >
+            <vaadin-details ZZZopened >
                 <div slot="summary">
                     <iron-icon icon="vaadin:vaadin-h"></iron-icon>
                     Icons
@@ -290,10 +323,162 @@
                 <iron-icon icon="vaadin:copy"           ></iron-icon>
             </vaadin-details>
 
+            <vaadin-details opened >
+                <div slot="summary">
+                    <iron-icon icon="vaadin:menu"></iron-icon>
+                    Menu Bar
+                    <a href="https://vaadin.com/components/vaadin-menu-bar" target="help" >
+                        <iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon>
+                    </a>
+                </div>
+                <div class="tab-sec">
+                    <h4>Ups, no declarative sample</h4>
+                    <a href="https://vaadin.com/components/vaadin-menu-bar" target="help"
+                        ><vaadin-button>
+                            Samples with JS initialization
+                        <iron-icon icon="vaadin:share"  ></iron-icon>
+                    </vaadin-button></a>
+                </div>
+                <vaadin-menu-bar theme="primary">
+                    <vaadin-menu-item><iron-icon icon="vaadin:home"></iron-icon> Home    </vaadin-menu-item>
+                    <vaadin-menu-bar-submenu>
+                        <vaadin-menu-item> item 1 </vaadin-menu-item>
+                        <vaadin-menu-item> item 2 </vaadin-menu-item>
 
+                    </vaadin-menu-bar-submenu>
+                    <vaadin-menu-item> Cart <iron-icon icon="vaadin:cart"></iron-icon> </vaadin-menu-item>
+                </vaadin-menu-bar>
 
+            </vaadin-details>
 
-
+            <vaadin-details ZZZopened >
+                <div slot="summary">
+                    <iron-icon icon="vaadin:tabs"></iron-icon>
+                    Tabs
+                    <a href="https://vaadin.com/components/vaadin-tabs" target="help" >
+                        <iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon>
+                    </a>
+                </div>
+                <div class="tab-sec">
+                    <h4>Horizontal</h4>
+                    <vaadin-tabs  selected="{{tabpage}}">
+                        <vaadin-tab>Tab one</vaadin-tab>
+                        <vaadin-tab>Tab two</vaadin-tab>
+                        <vaadin-tab>Tab three</vaadin-tab>
+                    </vaadin-tabs>
+                    <iron-pages selected="[[tabpage]]">
+                        <page><h3 data-scroll-id="page-1">Page 1</h3>Hello World    </page>
+                        <page><h3 data-scroll-id="page-2">Page 2</h3>Hi All         </page>
+                        <page><h3 data-scroll-id="page-3">Page 3</h3>Good Morning   </page>
+                    </iron-pages>
+                </div>
+                <div class="tab-sec">
+                    <h4> Scrollable horizontal tabs </h4>
+                    <vaadin-tabs>
+                        <vaadin-tab><iron-icon icon="lumo:user"></iron-icon> Tab one    </vaadin-tab>
+                        <vaadin-tab><iron-icon icon="lumo:cog" ></iron-icon> Tab two    </vaadin-tab>
+                        <vaadin-tab><iron-icon icon="lumo:bell"></iron-icon> Tab three  </vaadin-tab>
+                        <vaadin-tab>Tab four</vaadin-tab>
+                        <vaadin-tab>Tab five</vaadin-tab>
+                        <vaadin-tab>Tab six</vaadin-tab>
+                        <vaadin-tab>Tab seven</vaadin-tab>
+                        <vaadin-tab>Tab eight</vaadin-tab>
+                        <vaadin-tab>Tab nine</vaadin-tab>
+                        <vaadin-tab>Tab ten</vaadin-tab>
+                        <vaadin-tab>Tab eleven</vaadin-tab>
+                        <vaadin-tab>Tab twelve</vaadin-tab>
+                        <vaadin-tab>Tab thirteen</vaadin-tab>
+                        <vaadin-tab>Tab fourteen</vaadin-tab>
+                        <vaadin-tab>Tab fifteen</vaadin-tab>
+                    </vaadin-tabs>
+                </div>
+                <div class="tab-sec">
+                    <h4> Disabled tab </h4>
+                    <vaadin-tabs>
+                        <vaadin-tab>Tab one</vaadin-tab>
+                        <vaadin-tab>Tab two</vaadin-tab>
+                        <vaadin-tab disabled>Disabled tab</vaadin-tab>
+                        <vaadin-tab>Tab four</vaadin-tab>
+                        <vaadin-tab>Tab five</vaadin-tab>
+                    </vaadin-tabs>
+                </div>
+                <div class="tab-sec">
+                    <h4>Pre-selected tab</h4>
+                    <vaadin-tabs selected="1">
+                        <vaadin-tab>Tab one</vaadin-tab>
+                        <vaadin-tab>Tab two</vaadin-tab>
+                        <vaadin-tab>Tab three</vaadin-tab>
+                    </vaadin-tabs>
+                </div>
+                <div class="tab-sec">
+                    <h4> Links </h4>
+                    <vaadin-tabs>
+                        <vaadin-tab>
+                            <a href="https://vaadin.com/components/vaadin-tabs/install" tabindex="-1" target="_blank" rel="noopener">
+                                Installation
+                                <iron-icon icon="vaadin:link"></iron-icon>
+                            </a>
+                        </vaadin-tab>
+                        <vaadin-tab>
+                            <a href="https://vaadin.com/components/vaadin-tabs/html-api" tabindex="-1" target="_blank" rel="noopener">
+                                API docs
+                                <iron-icon icon="vaadin:link"></iron-icon>
+                            </a>
+                        </vaadin-tab>
+                    </vaadin-tabs>
+                    <style>
+                        iron-icon {
+                            box-sizing: border-box;
+                            padding: 4px;
+                        }
+                    </style>
+                </div>
+                <div class="tab-sec">
+                    <h4> Vertical </h4>
+                    <vaadin-tabs orientation="vertical" style="height: 7em">
+                        <vaadin-tab>Tab one</vaadin-tab>
+                        <vaadin-tab>Tab two</vaadin-tab>
+                        <vaadin-tab>Tab three</vaadin-tab>
+                    </vaadin-tabs>
+                </div>
+                <div class="tab-sec">
+                    <h4> Scrollable vertical tabs </h4>
+                    <vaadin-tabs orientation="vertical" style="height: 130px;">
+                        <vaadin-tab>Tab one</vaadin-tab>
+                        <vaadin-tab>Tab two</vaadin-tab>
+                        <vaadin-tab>Tab three</vaadin-tab>
+                        <vaadin-tab>Tab four</vaadin-tab>
+                        <vaadin-tab>Tab five</vaadin-tab>
+                        <vaadin-tab>Tab six</vaadin-tab>
+                        <vaadin-tab>Tab seven</vaadin-tab>
+                        <vaadin-tab>Tab eight</vaadin-tab>
+                        <vaadin-tab>Tab nine</vaadin-tab>
+                        <vaadin-tab>Tab ten</vaadin-tab>
+                        <vaadin-tab>Tab eleven</vaadin-tab>
+                        <vaadin-tab>Tab twelve</vaadin-tab>
+                        <vaadin-tab>Tab thirteen</vaadin-tab>
+                        <vaadin-tab>Tab fourteen</vaadin-tab>
+                        <vaadin-tab>Tab fifteen</vaadin-tab>
+                    </vaadin-tabs>
+                </div>
+            </vaadin-details>
+            <vaadin-details opened >
+                <div slot="summary">
+                    <iron-icon icon="vaadin:tree-table"></iron-icon>
+                    Tree Grid
+                    <a href="https://vaadin.com/components/vaadin-tree-grid" target="help" >
+                        <iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon>
+                    </a>
+                </div>
+                <div class="tab-sec">
+                    <h4> Ups, no declarative sample </h4>
+                    <a href="https://vaadin.com/components/vaadin-tree-grid" target="help"
+                        ><vaadin-button>
+                            Samples with JS initialization
+                        <iron-icon icon="vaadin:share"  ></iron-icon>
+                    </vaadin-button></a>
+                </div>
+            </vaadin-details>
         </fieldset>
         <fieldset>
             <legend> FORM INPUTS </legend>
@@ -309,6 +494,7 @@
                 Next
             </vaadin-button>
             <br/>
+            <vaadin-progress-bar indeterminate value="0"></vaadin-progress-bar>
 
         </fieldset>
 <!-- content of this file is appended to index.html during build -->
@@ -329,6 +515,10 @@
 @polymer/iron-ajax,
 @polymer/paper-button,
 @vaadin/vaadin-grid,
+@vaadin/vaadin-menu-bar,
+@vaadin/vaadin-progress-bar,
+@vaadin/vaadin-tabs,
+@polymer/iron-pages,
         "
         ></web-elemens-loader>
     </template>
