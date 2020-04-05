@@ -19,7 +19,7 @@ class LoadVaadinElement extends LoadCollection
                 ,   '@vaadin/vaadin-grid-pro/vaadin-grid-pro'
                 ,   '@vaadin/vaadin-board/vaadin-board'
                 ,   '@vaadin/vaadin-crud/vaadin-crud'
-                ,   '@vaadin/vaadin-charts/vaadin-charts'
+                ,   '@vaadin/vaadin-charts/vaadin-chart'
                 ,   '@vaadin/vaadin-confirm-dialog/vaadin-confirm-dialog'
                 ,   '@vaadin/vaadin-cookie-consent/vaadin-cookie-consent'
                 ,   '@vaadin/vaadin-rich-text-editor/vaadin-rich-text-editor'
@@ -34,7 +34,7 @@ class LoadVaadinElement extends LoadCollection
         // @vaadin/vaadin aggregation
         init(x=>import("@vaadin/vaadin-core/vaadin-core"                            )),
         init(x=>import("@vaadin/vaadin-board/vaadin-board"                          )),
-        init(x=>import("@vaadin/vaadin-charts/vaadin-charts"                        )),
+        init(x=>import("@vaadin/vaadin-charts/vaadin-chart"                        )),
         init(x=>import("@vaadin/vaadin-confirm-dialog/vaadin-confirm-dialog"        )),
         init(x=>import("@vaadin/vaadin-cookie-consent/vaadin-cookie-consent"        )),
         init(x=>import("@vaadin/vaadin-crud/vaadin-crud"                            )),
