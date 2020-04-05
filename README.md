@@ -14,25 +14,38 @@ formatted CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery +
 * via  `[web-elements-loader](src/web-elements-loader.md)` web component
 
 # ToDo
+* load-lit-elements , set TBD
+* load- stencilJs/ionic
 demo page
-* neon-animation
 * vaadin
+* lit-element
+CDN use
+* samples
+* guide
 
 # Make your own CDN
 1. add your dependencies by extending `LoadCollection` as in [load-polymer-elements.js](src/load-polymer-elements.js)
-2. Set Deployment URL
+2. import your collection in web-elemens-loader.js and add tag to UI
+3. Set Deployment URL
 `set-base-url.mjs` should be run before the build in order to define the URL for deployed build 
 by overriding of basePath in polymer.json. Examples:
 
-    node set-base-url.mjs /path-in-server/
+    node set-base-url.mjs /web-elements-loader/build/
+    
     node set-base-url.mjs https://cdn.xml4jquery.com/web-elements-loader/build/
+    
     node set-base-url.mjs https://cdn.osgiserver.io/o/polymer13-vaadin15-portlet/web-elements-loader/build/
 
 Without arguments the URL set to `/web-elements-loader/build/`
 
-3. `npm run build` 
-4. deploy content of `build/` folder into URL defined in step # 2 
+4. `npm run build` 
+5. deploy content of `build/` folder into URL defined in step # 2 
+JS and HTML bootstrap in CDN are ready to be used.
+# CDN use
 
+TODO
+
+ 
 # Polymer App Toolbox - Starter Kit
 
 [![Build Status](https://travis-ci.org/Polymer/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/Polymer/polymer-starter-kit)

@@ -14,30 +14,31 @@ class LoadVaadinElement extends LoadCollection
     docs(pkg){ let n=pkg.name.split('/').pop(); return `https://github.com/vaadin/${ n }` }
     isDisabledByDefault(pkg)
     {
-        return  [   '@vaadin/vaadin'
-                ,   '@vaadin/vaadin-core'
-                ,   '@vaadin/vaadin-grid-pro'
-                ,   '@vaadin/vaadin-board'
-                ,   '@vaadin/vaadin-crud'
-                ,   '@vaadin/vaadin-charts'
-                ,   '@vaadin/vaadin-confirm-dialog'
-                ,   '@vaadin/vaadin-cookie-consent'
-                ,   '@vaadin/vaadin-rich-text-editor'
+        return  [   '@vaadin/vaadin/vaadin'
+                ,   '@vaadin/vaadin-core/vaadin-core'
+                ,   '@vaadin/vaadin-grid-pro/vaadin-grid-pro'
+                ,   '@vaadin/vaadin-board/vaadin-board'
+                ,   '@vaadin/vaadin-crud/vaadin-crud'
+                ,   '@vaadin/vaadin-charts/vaadin-charts'
+                ,   '@vaadin/vaadin-confirm-dialog/vaadin-confirm-dialog'
+                ,   '@vaadin/vaadin-cookie-consent/vaadin-cookie-consent'
+                ,   '@vaadin/vaadin-rich-text-editor/vaadin-rich-text-editor'
+                ,   '@vaadin/vaadin-app-layout/vaadin-app-layout'
                 ].includes(pkg)
     }
     initDependencies()
     {   const init= i => this.initModule(i);
         return [
-        init(x=>import('@vaadin/vaadin')),
+        init(x=>import('@vaadin/vaadin/vaadin')),
         // @vaadin/vaadin aggregation
-        init(x=>import('@vaadin/vaadin-core'             )),
-        init(x=>import('@vaadin/vaadin-board'            )),
-        init(x=>import('@vaadin/vaadin-charts'           )),
-        init(x=>import('@vaadin/vaadin-confirm-dialog'   )),
-        init(x=>import('@vaadin/vaadin-cookie-consent'   )),
-        init(x=>import('@vaadin/vaadin-crud'             )),
-        init(x=>import('@vaadin/vaadin-grid-pro'         )),
-        init(x=>import('@vaadin/vaadin-rich-text-editor' )),
+        init(x=>import("@vaadin/vaadin-core/vaadin-core"                            )),
+        init(x=>import("@vaadin/vaadin-board/vaadin-board"                          )),
+        init(x=>import("@vaadin/vaadin-charts/vaadin-charts"                        )),
+        init(x=>import("@vaadin/vaadin-confirm-dialog/vaadin-confirm-dialog"        )),
+        init(x=>import("@vaadin/vaadin-cookie-consent/vaadin-cookie-consent"        )),
+        init(x=>import("@vaadin/vaadin-crud/vaadin-crud"                            )),
+        init(x=>import("@vaadin/vaadin-grid-pro/vaadin-grid-pro"                    )),
+        init(x=>import("@vaadin/vaadin-rich-text-editor/vaadin-rich-text-editor"    )),
 
         // @vaadin/vaadin README.md
         init( x=>import("@vaadin/vaadin-accordion"      )),
@@ -71,7 +72,6 @@ class LoadVaadinElement extends LoadCollection
         init( x=>import("@vaadin/vaadin-lumo-styles"    )),
         init( x=>import("@vaadin/vaadin-material-styles")),
 
-        init( x=>import("@vaadin/vaadin-grid-pro"       )),
         init( x=>import("@vaadin/vaadin-overlay"        )),
         ]
     }

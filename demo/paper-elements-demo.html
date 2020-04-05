@@ -396,10 +396,19 @@
         <section class="layout horizontal center">
 
             <div style="margin-right: 24px">
-                <paper-button tabindex="0" raised>raised</paper-button>
-                <paper-button tabindex="0" raised disabled>disabled</paper-button>
-                <paper-button tabindex="0" raised class="green colorful"><iron-icon icon="check"></iron-icon>ok</paper-button>
-                <paper-button tabindex="0" raised class="red colorful"><iron-icon icon="clear"></iron-icon>cancel</paper-button>
+                <paper-button raised>raised</paper-button>
+                <paper-button raised disabled>disabled</paper-button>
+                <paper-button raised class="green colorful"><iron-icon icon="check"></iron-icon>ok</paper-button>
+                <paper-button raised class="red colorful"><iron-icon icon="clear"></iron-icon>cancel</paper-button>
+
+                <paper-button toggles raised class="green">toggles</paper-button>
+
+                <custom-style>
+                    <style>
+                        paper-button.green { background-color: var(--paper-green-500);color: white; }
+                        paper-button.green[active] { background-color: var(--paper-red-500); }
+                    </style>
+                </custom-style>
             </div>
 
             <div class="layout horizontal center" style="margin-right: 24px">
