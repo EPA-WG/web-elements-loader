@@ -9,6 +9,7 @@ formatted CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery +
 ( [legacy browsers](https://cdn.xml4jquery.com/web-elements-loader/build/es5-bundled/demo/neon-animation-demo.html) )
 * [Vaadin Elements](https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/demo/vaadin-elements-demo.html) 
 ( [legacy browsers](https://cdn.xml4jquery.com/web-elements-loader/build/es5-bundled/demo/vaadin-elements-demo.html) )
+* Play on [JsFiddle](https://jsfiddle.net/suns2015/jms15kn2/)
 * Suggested set TBD 
 
 # Use

@@ -532,6 +532,31 @@
                 </vaadin-checkbox-group>
                 </div>
             </div>
+            <div class="tab-sec">
+                <b> Combo Box
+                    <a href="https://vaadin.com/components/combo-box" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+
+                <iron-ajax url='data:text/json;charset=utf-8,
+                                [{"label": "Hydrogen", "value": "H"}
+                                ,{"label": "Oxygen"  , "value": "O"}
+                                ,{"label": "Carbon"  , "value": "C"}
+                                ]'
+                           last-response="{{lifeElements}}" auto handle-as="json"></iron-ajax>
+                <vaadin-combo-box id="cbDemo"
+                        label="Label, value:[[cbDemoValue]]"
+                        placeholder="Placeholder"
+                        items="[[lifeElements]]"
+                        value="{{ cbDemoValue }}"
+                >
+                    <template>
+                        [[index]]: [[item.label]] <b>[[item.value]]</b>
+                    </template>
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Disabled"  disabled value="H" items="[[lifeElements]]"></vaadin-combo-box>
+                <vaadin-combo-box label="Read-only" readonly value="O" items="[[lifeElements]]"></vaadin-combo-box>
+            </div>
             <br/>
             <vaadin-progress-bar indeterminate value="0"></vaadin-progress-bar>
 
@@ -559,6 +584,7 @@
 @vaadin/vaadin-tabs,
 @polymer/iron-pages,
 @vaadin/vaadin-element-mixin/vaadin-element-mixin,
+@vaadin/vaadin-combo-box,
 "
         ></web-elemens-loader>
     </template>
