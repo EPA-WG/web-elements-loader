@@ -13,7 +13,18 @@
                         overflow: auto;
                     }
             iron-icon{ margin-left: 1rem;}
-            .h-flex{ display: flex }
+            .h-flex{ display: flex; flex-wrap: wrap; }
+            vaadin-date-picker{ width: 9em }
+            vaadin-text-field{ width: 8em }
+            vaadin-password-field{ width: 8em }
+            .tab-sec>div>vaadin-time-picker{ width: 9em }
+            vaadin-progress-bar { display: inline-block; width:45%;}
+            .block  {   display: flex; align-items: center; justify-content: center;
+                        width: 9em; height: 4em;
+                        background-color: rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.1);
+                    }
+            vaadin-horizontal-layout { display: inline-flex; width: 13rem; border: 1px solid teal;}
+            vaadin-vertical-layout { margin: 0 1rem 0 0; }
         </style>
         <fieldset>
             <legend> VISUALIZATION & INTERACTION </legend>
@@ -507,6 +518,17 @@
                         Next
                     </vaadin-button>
                 </div>
+                <b> Progress Bar
+                    <a href="https://vaadin.com/components/vaadin-progress-bar" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-progress-bar value="0.3"  ></vaadin-progress-bar>
+                    <vaadin-progress-bar theme="contrast" value="0.35" >Contrast</vaadin-progress-bar>
+                    <vaadin-progress-bar theme="success" value="0.45">Success</vaadin-progress-bar>
+                    <vaadin-progress-bar theme="error" value="0.55">Error</vaadin-progress-bar>
+                    <vaadin-progress-bar indeterminate value="0"></vaadin-progress-bar>
+                </div>
             </div>
             <div class="tab-sec">
                 <b> Checkbox
@@ -557,9 +579,313 @@
                 <vaadin-combo-box label="Disabled"  disabled value="H" items="[[lifeElements]]"></vaadin-combo-box>
                 <vaadin-combo-box label="Read-only" readonly value="O" items="[[lifeElements]]"></vaadin-combo-box>
             </div>
-            <br/>
-            <vaadin-progress-bar indeterminate value="0"></vaadin-progress-bar>
+            <div class="tab-sec">
+                <b> Custom Field
+                    <a href="https://vaadin.com/components/vaadin-custom-field" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <vaadin-custom-field label="Phone number, value:[[ customElementDemo ]]"
+                                     value="{{ customElementDemo }}"
+                                    >
+                    <vaadin-select style="width: 6em;" placeholder="Code" value="+358">
+                        <template>
+                            <vaadin-list-box>
+                                <vaadin-item>+358</vaadin-item>
+                                <vaadin-item> +46</vaadin-item>
+                                <vaadin-item> +34</vaadin-item>
+                            </vaadin-list-box>
+                        </template>
+                    </vaadin-select>
+                    <vaadin-text-field prevent-invalid-input pattern="[0-9]*" maxlength="4" placeholder="Area" style="width: 5em;"></vaadin-text-field>
+                    <vaadin-text-field prevent-invalid-input pattern="[0-9]*" maxlength="8" placeholder="Subscriber"
+                                       required  auto-validate
+                    ></vaadin-text-field>
+                </vaadin-custom-field>
+                <vaadin-custom-field theme="small" label="small theme">
+                    <vaadin-select theme="small" style="width: 6em;" placeholder="Code" value="+358">
+                        <template>
+                            <vaadin-list-box>
+                                <vaadin-item>+358</vaadin-item>
+                                <vaadin-item>+46</vaadin-item>
+                                <vaadin-item>+34</vaadin-item>
+                            </vaadin-list-box>
+                        </template>
+                    </vaadin-select>
+                    <vaadin-text-field theme="small" prevent-invalid-input pattern="[0-9]*" maxlength="4" placeholder="Area" style="width: 4em;"></vaadin-text-field>
+                    <vaadin-text-field theme="small" prevent-invalid-input pattern="[0-9]*" maxlength="8" placeholder="Subscriber" style="width: 8em;"></vaadin-text-field>
+                </vaadin-custom-field>
+            </div>
+            <div class="tab-sec">
+                <b> Date Picker
+                    <a href="https://vaadin.com/components/date-picker" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-date-picker label="required"  placeholder="Placeholder"
+                        required  auto-validate error-message="Please choose a date"
+                    ></vaadin-date-picker>
+                    <vaadin-date-picker label="disabled"    disabled                    ></vaadin-date-picker>
+                    <vaadin-date-picker readonly label="Read-only, small" value="1990-01-28"  theme="small" ></vaadin-date-picker>
+                    <vaadin-date-picker label="2019 only"
+                                        min="2019-01-01" max="2019-12-31" initial-position="2019-11-11"
 
+                    ></vaadin-date-picker>
+                </div>
+            </div>
+            <div class="tab-sec">
+                <b> Text Field
+                    <a href="https://vaadin.com/components/vaadin-email-field/html-examples/text-field-basic-demos" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-text-field label="Label"></vaadin-text-field>
+                    <vaadin-text-field placeholder="Placeholder"></vaadin-text-field>
+                    <vaadin-text-field value="Value"></vaadin-text-field>
+                    <vaadin-text-field value="disabled" disabled></vaadin-text-field>
+                    <vaadin-text-field autoselect label="Autoselect" value="focus selected"></vaadin-text-field>
+                    <vaadin-text-field clear-button-visible label="clear button" value="abc"></vaadin-text-field>
+                </div>
+            </div>
+            <div class="tab-sec">
+                <b> Password Field
+                    <a href="https://vaadin.com/components/vaadin-email-field/html-examples/password-field-demos" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-password-field label="Password" placeholder="Enter password" value="secret1"></vaadin-password-field>
+                    <vaadin-password-field label="Hide reveal" value="secret1" reveal-button-hidden></vaadin-password-field>
+                </div>
+                <br/>
+                <b> Email Field
+                    <a href="https://vaadin.com/components/vaadin-email-field/html-examples/email-field-demos" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-email-field label="Email address" name="email" error-message="Please enter a valid email address" clear-button-visible></vaadin-email-field>
+                </div>
+            </div>
+            <div class="tab-sec">
+                <b> Number Field
+                    <a href="https://vaadin.com/components/vaadin-text-field/html-examples/number-field-demos" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-number-field label="Years of expertise"></vaadin-number-field>
+                    <vaadin-number-field has-controls label="Has controls"></vaadin-number-field>
+                    <vaadin-number-field value="1" min="1" max="10" has-controls label="1 to 10"></vaadin-number-field>
+                    <vaadin-number-field step="0.2" min="0" max="10" has-controls label="increment .2"></vaadin-number-field>
+                </div>
+            </div>
+            <div class="tab-sec">
+                <b> Integer Field
+                    <a href="https://vaadin.com/components/vaadin-text-field/html-examples/number-field-demos" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <vaadin-integer-field min="0" max="10" has-controls ></vaadin-integer-field>
+                <br/>
+                <b> Text Area
+                    <a href="https://vaadin.com/components/vaadin-text-field/html-examples/text-area-demos" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <vaadin-text-area label="Description" placeholder="Write here ..."></vaadin-text-area>
+            </div>
+            <div class="tab-sec">
+                <b> Prefix and suffix
+                    <a href="https://vaadin.com/components/vaadin-text-field/html-examples/text-field-prefix-suffix-demos" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-text-field label="Dollars" value="1000" style="width: 6em;">
+                        <div slot="prefix">$</div>
+                    </vaadin-text-field>
+
+                    <vaadin-text-field label="Euros" value="1000" theme="align-right" style="width: 6em;">
+                        <div slot="suffix">€</div>
+                    </vaadin-text-field>
+                    <vaadin-text-field placeholder="Search" label="search" >
+                        <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
+                    </vaadin-text-field>
+                </div>
+            </div>
+            <div class="tab-sec">
+                <b> Validation
+                    <a href="https://vaadin.com/components/vaadin-text-field/html-examples/text-field-validators-demos" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-text-field pattern="[A-Z]{2}\d{3,4}" label="Flight number" error-message="Not a valid flight number"></vaadin-text-field>
+                    <div>2 uppercase followed by 3 or 4 numbers.</div>
+                    <vaadin-text-field prevent-invalid-input pattern="[a-zA-Z0-9_.]{0,20}" label="prevent-invalid-input" ></vaadin-text-field>
+                    <div>Alphanumeric, underscores and dots.</div>
+                </div>
+            </div>
+            <div class="tab-sec">
+                <b> Time Picker
+                    <a href="https://vaadin.com/components/vaadin-time-picker" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <div>
+                    <vaadin-time-picker label="hh:mm"></vaadin-time-picker>
+                    <vaadin-time-picker placeholder="Clear Button" value="10:10" clear-button-visible></vaadin-time-picker>
+                </div>
+                <vaadin-time-picker step="0.5" min="09:00" max="17:00" label="Lunch time (hh:mm:ss.fff)"></vaadin-time-picker>
+            </div>
+            <div class="tab-sec">
+                <b> File Upload
+                    <a href="https://vaadin.com/components/vaadin-upload" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+
+                <iron-ajax url='data:text/json;charset=utf-8,
+                                [{"name": "Don Quixote.pdf", "progress": 100, "complete": true}
+                                ,{"name": "Hamlet.pdf", "progress": 100, "complete": true}
+                                ]'
+                           last-response="{{uploadList}}" auto handle-as="json"></iron-ajax>
+
+                <vaadin-upload accept="application/pdf"
+                               files="[[uploadList]]">
+                    <iron-icon slot="drop-label-icon" icon="description"></iron-icon>
+                    <span slot="drop-label">Drop favourite Novels here</span>
+                </vaadin-upload>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend> Layouts </legend>
+            <div>
+                <b> Form layout
+                    <a href="https://vaadin.com/components/vaadin-form-layout/html-examples" target="help"
+                    ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                </b>
+                <vaadin-form-layout>
+                    <vaadin-text-field label="First Name" value="Jane"></vaadin-text-field>
+                    <vaadin-text-field label="Last Name" value="Doe"></vaadin-text-field>
+                    <vaadin-text-field label="Email" value="jane.doe@example.com"></vaadin-text-field>
+                    <vaadin-date-picker label="Birthday" value="1993-06-23"></vaadin-date-picker>
+                    <vaadin-text-area label="Bio" colspan="2" value="My name is Jane."></vaadin-text-area>
+                </vaadin-form-layout>
+            </div>
+            <hr/>
+            <div>
+                <b> Form Item </b>
+                <vaadin-form-layout>
+
+                    <vaadin-form-item>
+                        <label slot="label" for="firstname">First Name</label>
+                        <input id="firstname" class="full-width" value="Jane">
+                    </vaadin-form-item>
+
+                    <vaadin-form-item>
+                        <label slot="label" for="lastname">Last Name</label>
+                        <input id="lastname" class="full-width" value="Doe">
+                    </vaadin-form-item>
+
+                    <vaadin-form-item>
+                        <label slot="label" for="email">Email</label>
+                        <input id="email" class="full-width" value="jane.doe@example.com">
+                    </vaadin-form-item>
+
+                    <vaadin-form-item>
+                        <label slot="label">
+                            Date of Birth
+                        </label>
+
+                        <label>
+                            <input placeholder="YYYY" size="4"> -
+                            <input placeholder="MM" size="2"> -
+                            <input placeholder="DD" size="2">
+                            <em>Example: 1900-01-01</em>
+                        </label>
+                    </vaadin-form-item>
+
+                </vaadin-form-layout>
+            </div>
+            <hr/>
+            <b> Form Item </b>
+            <vaadin-form-layout>
+
+                <vaadin-form-item colspan="2">
+                    <label slot="label" for="abstract">Conference Abstract</label>
+                    <textarea id="abstract" rows="6" class="full-width" style="display: inline-flex; vertical-align: top;"></textarea>
+                </vaadin-form-item>
+
+            </vaadin-form-layout>
+
+            <hr/>
+            <b> Split Layout
+                <a href="https://vaadin.com/components/vaadin-split-layout" target="help"
+                ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+            </b>
+            <vaadin-split-layout>
+                <div style="background-color: lightblue">First content element</div>
+                <vaadin-split-layout orientation="vertical">
+                    <div  style="background-color: lightskyblue">Second content element</div>
+                    <div  style="background-color: lightsteelblue">Third content element</div>
+                </vaadin-split-layout>
+            </vaadin-split-layout>
+
+            <hr/>
+            <div class="h-flex">
+                <vaadin-vertical-layout>
+                    <b> Ordered layout
+                        <a href="https://vaadin.com/components/vaadin-ordered-layout" target="help"
+                        ><iron-icon icon="vaadin:question-circle" slot="prefix"></iron-icon></a>
+                    </b>
+                    <div class="block">Vertical Item 1</div>
+                    <div class="block">Item 2</div>
+                    <div class="block">Item 3</div>
+                </vaadin-vertical-layout>
+                <vaadin-vertical-layout theme="spacing">
+                    <b> Spacing Variations </b>
+                    <vaadin-horizontal-layout theme="spacing-xs">
+                        <div class="block">spacing-xs</div>
+                        <div class="block">Item 2</div>
+                        <div class="block">Item 3</div>
+                    </vaadin-horizontal-layout>
+
+                    <vaadin-horizontal-layout theme="spacing-s">
+                        <div class="block">spacing-s</div>
+                        <div class="block">Item 2</div>
+                        <div class="block">Item 3</div>
+                    </vaadin-horizontal-layout>
+
+                    <vaadin-horizontal-layout theme="spacing-l">
+                        <div class="block">spacing-l</div>
+                        <div class="block">Item 2</div>
+                        <div class="block">Item 3</div>
+                    </vaadin-horizontal-layout>
+
+                    <vaadin-horizontal-layout theme="spacing-xl">
+                        <div class="block">spacing-xl</div>
+                        <div class="block">Item 2</div>
+                        <div class="block">Item 3</div>
+                    </vaadin-horizontal-layout>
+
+                </vaadin-vertical-layout>
+                <vaadin-vertical-layout>
+                    <b> Horizontal Layout </b>
+                    <vaadin-horizontal-layout>
+                        <div class="block">Horizontal Item 1</div>
+                        <div class="block">Item 2</div>
+                        <div class="block">Item 3</div>
+                    </vaadin-horizontal-layout>
+                    <vaadin-horizontal-layout theme="margin">
+                        <div class="block">Margin</div>
+                        <div class="block">around</div>
+                        <div class="block">Item 3</div>
+                    </vaadin-horizontal-layout>
+                    <vaadin-horizontal-layout theme="padding">
+                        <div class="block">Padding</div>
+                        <div class="block">around</div>
+                        <div class="block">Item 3</div>
+                    </vaadin-horizontal-layout>
+                    <vaadin-horizontal-layout theme="spacing">
+                        <div class="block">Spacing</div>
+                        <div class="block">Between</div>
+                        <div class="block">Items  </div>
+                    </vaadin-horizontal-layout>
+                </vaadin-vertical-layout>
+            </div>
         </fieldset>
 <!-- content of this file is appended to index.html during build -->
         <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
@@ -585,6 +911,20 @@
 @polymer/iron-pages,
 @vaadin/vaadin-element-mixin/vaadin-element-mixin,
 @vaadin/vaadin-combo-box,
+@vaadin/vaadin-custom-field,
+@vaadin/vaadin-text-field,
+@vaadin/vaadin-text-field/vaadin-text-area,
+@vaadin/vaadin-text-field/vaadin-password-field,
+@vaadin/vaadin-text-field/vaadin-number-field,
+@vaadin/vaadin-text-field/vaadin-integer-field,
+@vaadin/vaadin-text-field/vaadin-email-field
+@vaadin/vaadin-list-box,
+@vaadin/vaadin-select,
+@vaadin/vaadin-date-picker,
+@vaadin/vaadin-time-picker,
+@vaadin/vaadin-upload,
+@vaadin/vaadin-form-layout/vaadin-form-item,
+@vaadin/vaadin-ordered-layout,
 "
         ></web-elemens-loader>
     </template>
