@@ -6,13 +6,20 @@
 
         <app-toolbar>
             <a href="./"><paper-icon-button icon="vaadin:arrow-backward" ></paper-icon-button></a>
-            neon-animated-pages from CDN demo
+            <span>neon-animated-pages from CDN demo</span>
+            <span></span>
+            <a title="git source"
+               href="https://github.com/EPA-WG/web-elements-loader/blob/master/demo/neon-animation-demo.html" >
+                <img src="octocat.svg"/>
+            </a>
         </app-toolbar>
     <br/>
 
 <style is="custom-style">
     html, body { font-family: "Roboto"; margin: 0; padding: 0; }
     app-toolbar, app-toolbar a { color: white; background-color: var(--google-blue-500); }
+    app-toolbar span:last-of-type{ flex:4; }
+    app-toolbar a:last-of-type img{ height: 2.5rem; width: 2.5rem;}
 
     paper-tabs { background-color: steelblue; color:#FFF; }
     paper-tab.iron-selected { color: yellow; }

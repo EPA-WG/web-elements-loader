@@ -29,12 +29,20 @@
                     }
             vaadin-horizontal-layout { display: inline-flex; width: 13rem; border: 1px solid teal;}
             vaadin-vertical-layout { margin: 0 1rem 0 0; }
+            app-toolbar span:last-of-type{ flex:4; }
+            app-toolbar a:last-of-type img{ height: 2.5rem; width: 2.5rem;}
         </style>
         <app-toolbar>
             <a href="./">
                 <paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button>
             </a>
-            <span class="flex" style="font-size:25px;">Vaadin elements from CDN demo</span>
+            <span style="font-size:25px;">Vaadin elements from CDN demo
+            </span>
+            <span></span>
+            <a  title="git source"
+                href="https://github.com/EPA-WG/web-elements-loader/blob/master/demo/vaadin-elements-demo.html" >
+                <img src="octocat.svg"/>
+            </a>
         </app-toolbar>
         <vaadin-details opened>
             <div slot="summary"> VISUALIZATION & INTERACTION </div>
