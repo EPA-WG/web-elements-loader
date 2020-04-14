@@ -40,6 +40,8 @@ class LoadPaperElement extends LoadCollection
         init(x=>import( "@polymer/paper-fab"                                )),
         init(x=>import( "@polymer/paper-header-panel"                       )),
         init(x=>import( "@polymer/paper-icon-button"                        )),
+        init(x=>import( "@polymer/paper-icon-button/paper-icon-button"      )),
+        init(x=>import( "@polymer/paper-icon-button/paper-icon-button-light")),
 
         init(x=>import( "@polymer/paper-input/paper-input"                  )),
         // init(x=>import( "@polymer/paper-input/paper-input-container"        )),
