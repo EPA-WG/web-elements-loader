@@ -21,6 +21,7 @@ buildNames.map( build=>
 
 // prefix demo/* with build/*/index.html
 readdirSync(`./demo`)
+.filter( name => name.endsWith('.html') )
 .map( name =>
 {   const txt = fs.readFileSync(`./demo/${name}`).toString();
 
@@ -28,7 +29,7 @@ readdirSync(`./demo`)
     {   let  fName = `./build/${build}/demo/${name}`
         , stubName = `./build/${build}/index.html`
         ,     stub = fs.readFileSync(stubName).toString();
-        fs.writeFileSync( fName, stub + txt );
+        fs.writeFileSync( fName, "<!DOCTYPE html>"+stub + txt );
     })
 });
 
