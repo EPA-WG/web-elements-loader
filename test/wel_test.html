@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>wc-test test</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+
+    <script type="module" src="../src/web-elemens-loader.js"></script>
+</head>
+<body>
+
+<test-fixture id="no-selection">
+    <template>
+        <web-elemens-loader selection="none">
+            <paper-button raised>raised</paper-button>
+        </web-elemens-loader>
+    </template>
+</test-fixture>
+<web-elemens-loader id="selBtn1" selection="@polymer/paper-button">
+    <paper-button raised>raised</paper-button>
+</web-elemens-loader>
+<test-fixture id="sel-btn">
+    <template>
+        <web-elemens-loader selection="@polymer/paper-button">
+            <paper-button raised>raised</paper-button>
+        </web-elemens-loader>
+    </template>
+</test-fixture>
+
+<script type="module">
+    let f;
+    const $ = css => f.querySelector( css );
+    suite( 'wc-test', () =>
+    {
+
+        test( 'selection=none should not render content', () =>
+        {
+            f = fixture( 'no-selection' );
+            return f.promise.then( x =>
+            {
+                let el = $( 'paper-button' );
+                assert.equal( el.shadowRoot, null );
+            });
+        });
+        test( 'selection=@polymer/paper-button should render content', () =>
+        {
+            // f = fixture( 'sel-btn' );
+            f = selBtn1;
+            return f.promise.then( x =>
+            {
+                let el = $( 'paper-button' );
+                assert.notEqual( el.shadowRoot, null );
+            });
+        });
+    } );
+</script>
+
+</body>
+</html>
