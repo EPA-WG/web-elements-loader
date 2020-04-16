@@ -3,6 +3,49 @@
 <script type="module" src="../src/web-elemens-loader.js"></script>
 <dom-bind>
     <template>
+        <web-elemens-loader visible="true" id="webcomponentsElement" selection="
+@polymer/paper-styles/paper-styles,
+@polymer/app-layout,
+@polymer/iron-icon,
+@polymer/paper-icon-button,
+@vaadin/vaadin-lumo-styles/icons,
+@vaadin/vaadin-icons,
+@vaadin/vaadin-accordion,
+@vaadin/vaadin-anchor,
+@vaadin/vaadin-context-menu,
+@vaadin/vaadin-details,
+@vaadin/vaadin-dialog,
+@vaadin/vaadin-notification,
+@vaadin/vaadin-checkbox,
+@vaadin/vaadin-checkbox/vaadin-checkbox-group,
+@polymer/iron-ajax,
+@polymer/paper-button,
+@vaadin/vaadin-grid,
+@vaadin/vaadin-menu-bar,
+@vaadin/vaadin-progress-bar,
+@vaadin/vaadin-tabs,
+@polymer/iron-pages,
+@vaadin/vaadin-element-mixin/vaadin-element-mixin,
+@vaadin/vaadin-combo-box,
+@vaadin/vaadin-custom-field,
+@vaadin/vaadin-text-field,
+@vaadin/vaadin-text-field/vaadin-text-area,
+@vaadin/vaadin-text-field/vaadin-password-field,
+@vaadin/vaadin-text-field/vaadin-number-field,
+@vaadin/vaadin-text-field/vaadin-integer-field,
+@vaadin/vaadin-text-field/vaadin-email-field
+@vaadin/vaadin-list-box,
+@vaadin/vaadin-select,
+@vaadin/vaadin-date-picker,
+@vaadin/vaadin-time-picker,
+@vaadin/vaadin-upload,
+@vaadin/vaadin-form-layout,
+@vaadin/vaadin-form-layout/vaadin-form-item,
+@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout,
+@vaadin/vaadin-ordered-layout/vaadin-vertical-layout,
+@vaadin/vaadin-split-layout,
+"
+        >
         <style>
             html, body { font-family: "Roboto"; margin: 0; padding: 0; }
             app-header, app-toolbar a { color: white; background-color: var(--google-blue-500); }
@@ -847,7 +890,7 @@
                     <div class="block">Item 2</div>
                     <div class="block">Item 3</div>
                 </vaadin-vertical-layout>
-                <vaadin-vertical-layout theme="spacing">
+                <vaadin-vertical-layout >
                     <b> Spacing Variations </b>
                     <vaadin-horizontal-layout theme="spacing-xs">
                         <div class="block">spacing-xs</div>
@@ -903,43 +946,7 @@
         <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
         <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
         <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
-        <web-elemens-loader visible="true" id="webcomponentsElement" selection="
-@polymer/paper-styles/paper-styles,
-@polymer/app-layout,
-@vaadin/vaadin-button,
-@polymer/iron-icon,
-@vaadin/vaadin-icons,
-@vaadin/vaadin-accordion,
-@vaadin/vaadin-anchor,
-@vaadin/vaadin-context-menu,
-@vaadin/vaadin-details,
-@vaadin/vaadin-dialog,
-@vaadin/vaadin-checkbox,
-@polymer/iron-ajax,
-@polymer/paper-button,
-@vaadin/vaadin-grid,
-@vaadin/vaadin-menu-bar,
-@vaadin/vaadin-progress-bar,
-@vaadin/vaadin-tabs,
-@polymer/iron-pages,
-@vaadin/vaadin-element-mixin/vaadin-element-mixin,
-@vaadin/vaadin-combo-box,
-@vaadin/vaadin-custom-field,
-@vaadin/vaadin-text-field,
-@vaadin/vaadin-text-field/vaadin-text-area,
-@vaadin/vaadin-text-field/vaadin-password-field,
-@vaadin/vaadin-text-field/vaadin-number-field,
-@vaadin/vaadin-text-field/vaadin-integer-field,
-@vaadin/vaadin-text-field/vaadin-email-field
-@vaadin/vaadin-list-box,
-@vaadin/vaadin-select,
-@vaadin/vaadin-date-picker,
-@vaadin/vaadin-time-picker,
-@vaadin/vaadin-upload,
-@vaadin/vaadin-form-layout/vaadin-form-item,
-@vaadin/vaadin-ordered-layout,
-"
-        >
+
 </web-elemens-loader>
     </template>
 </dom-bind>

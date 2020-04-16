@@ -8,6 +8,12 @@ import "./load-paper-elements";
 import "./load-vaadin-elements";
 
 /**
+ * Current web-elemens-loader version in Semver notation.
+ * @type {string} Semver notation of the current version of Polymer.
+ */
+export const version="0.0.1";
+
+/**
  * `web-elemens-loader`
  * Container of Polymer Elements and Vaadin web components pulled as lazy loaded dependencies.
  *
@@ -20,6 +26,14 @@ class WebcomponentsElement extends PolymerElement
     static get template()
     {
         return html`
+<template is="dom-if" if="[[_inStatus('loading',state)]]">
+    <slot name="loading">loading...</slot>
+</template>
+<template is="dom-if" if="[[_inStatus('ready',state)]]">
+    <slot>
+        <slot name="ready">ready</slot>
+    </slot>
+</template>
 <template is="dom-if" if="[[ visible ]]" >
     <style>
       :host { display: block; }
@@ -41,6 +55,8 @@ class WebcomponentsElement extends PolymerElement
         return  {   selection: { type: String, value: "all", notify:true, reflectToAttribute:true }
                 ,    disabled: { type: String, reflectToAttribute:true }
                 ,     visible: { type:Boolean, reflectToAttribute:true, value:false }
+                ,     version: { type: String, reflectToAttribute:true, value: version, readOnly:true }
+                ,       state: { type: String, reflectToAttribute:true, value: "", readOnly:false }
                 };
     }
 
@@ -49,13 +65,42 @@ class WebcomponentsElement extends PolymerElement
         super.ready();
         this.importDependencies();
     }
+    get promise()
+    {   if( "ready" === this.state )
+            return Promise.resolve(this);
+        return this.promiseNext;
+    }
+    get promiseNext()
+    {   const zs = this;
+        return new Promise( function( resolve, reject )
+        {   zs.addEventListener( 'error' , _onError );
+            zs.addEventListener( 'load'  , _onLoad  );
+                function
+            _onLoad()
+            {   try{ resolve(zs); }
+                finally { releaseEv(); }
+            }
+                function
+            _onError( err )
+            {   try{ reject(err); }
+                finally { releaseEv(); }
+            }
+                function
+            releaseEv()
+            {   zs.removeEventListener('load' , _onLoad  );
+                zs.removeEventListener('error', _onError );
+            }
+        });
+    }
     importDependencies()
-    {
+    {   this.set('state', "loading" );
         return Promise.all( [...this.shadowRoot.querySelectorAll(".load-collection")].map( el=>el.promise ) )
-            .then(x=>
-            {   this.status = "ready";
-                document.dispatchEvent( new CustomEvent("web-elemens-loader-ready", {target:this}));
-            })
+            .then( x=>
+            {
+                this.set('state', "ready" );
+                this.dispatchEvent( new CustomEvent("load", {target:this}));
+            }
+            , err=> console.error( err ) );
     }
     onCollectionChanged()
     {
@@ -65,6 +110,7 @@ class WebcomponentsElement extends PolymerElement
 
         this.set( 'selection',Object.keys(o).join(',') );
     }
+    _inStatus(str){ return str === this.state }
 }
 
 window.customElements.define( 'web-elemens-loader', WebcomponentsElement );

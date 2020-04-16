@@ -68,10 +68,15 @@ LoadCollection extends PolymerElement
         this.pkg2imp={};
         this.status = "loading";
         const OK = Promise.resolve(1);
-        this.promise = Promise.all( this.initDependencies().map( p=> p || OK) )
+        this.selection.split(',')
+            .map( x=>x.replace(/\s/g,'') )
+            .forEach( pkg=> this.pkg2imp[pkg]=0 );
+        this.dependencies = this.initDependencies();
+
+        this.promise = Promise.all( this.loadDependencies().map( p=> p || OK) )
             .catch( err=>
             {
-                // debugger;
+                debugger;
                 // console.error( this.status ="error", this.is, err )
             })
             .finally( x=> this.status="loaded" );
@@ -99,7 +104,16 @@ LoadCollection extends PolymerElement
 
     initDependencies()
     {   // override to load collection dependencies
-        // if( this.initModule("@polymer/iron-ajax"                     ) ) import("@polymer/iron-ajax"                     ).catch(errback);
+        // const init= i => this.initModule(i);
+        // return  [ init(x=>import( "@polymer/paper-badge" ))
+        //         ]
+    }
+    loadDependencies()
+    {
+        return this.selection.split(',')
+            .map( x=>x.replace(/\s/g,'') )
+            .filter( pkg=>this.pkg2imp[pkg] )
+            .map( pkg=>this.pkg2imp[pkg]() )
     }
     isDisabledByDefault(pkg)
     {   // override & return true to avoid package load without explicit enabling in UI
@@ -110,17 +124,21 @@ LoadCollection extends PolymerElement
     {   let  pkg = (""+imp).split('"')[1]
                     .replace(/(.*node_modules\/)/ ,'')
                     .replace(/\.js/ ,'')
-        , active =  this.checkedAttr(pkg) || !this.isDisabledByDefault(pkg);
-        this.dependencies.push({ name:pkg,active, tag:pkg.split('/').pop() });
-        this.pkg2imp[pkg] = imp;
-        return active && imp();
+        ,  alias = this.alias(pkg)
+        , active = this.checkedAttr(pkg) || this.checkedAttr( alias )
+        ,    def = { name:pkg, active, imp, tag:pkg.split('/').pop() };
+        if( active )
+            this.pkg2imp[pkg] = this.pkg2imp[alias] = imp;
+        return def;
     }
+    alias( pkg ){ return pkg.split('/').filter( (x,i,a)=> !(i==a.length-1 && a[i-1]===x) ).join('/') }
     checkedAttr(pkg)
     {
-        return ( !this.selection || this.selection ==='all'
-                 || this.selection.split(',')
-                        .map( x=>x.replace(/\s/g,'') )
-                        .includes(pkg) )?'checked' : ''
+        return  (  pkg in this.pkg2imp
+                || (    (!this.selection || this.selection ==='all')
+                        && !this.isDisabledByDefault(pkg)
+                   )
+                ) ? 'checked' : ''
     }
     mod( pkg ){ return pkg.split('/').pop(); }
     getTag(){ return this.localName }

@@ -102,6 +102,7 @@
     "@polymer/paper-tooltip": "^3.0.1",
     "@polymer/polymer": "^3.3.1",
     "@vaadin/vaadin": "^15.0.4",
+    "@vaadin/vaadin-lumo-styles": "^1.6.0",
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "web-animations-js": "^2.3.2"
   },

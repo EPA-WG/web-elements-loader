@@ -20,4 +20,4 @@ project could be used. UI allows to see several sets of modules and load by chec
 ## methods
 * `importDependencies()` loads the selected modules, return Promise
 ## events
-* `"web-elemens-loader-ready"` Custom Event is fired when all modules are loaded.
+* `"load"` Custom Event is fired when all modules are loaded.
