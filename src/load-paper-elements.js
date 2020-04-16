@@ -20,6 +20,13 @@ class LoadPaperElement extends LoadCollection
     initDependencies()
     {   const init= i => this.initModule(i);
         return [
+        init(x=>import( "@polymer/paper-styles/paper-styles"                              )),
+        init(x=>import( "@polymer/paper-styles/default-theme"                              )),
+        init(x=>import( "@polymer/paper-styles/shadow"                              )),
+        init(x=>import( "@polymer/paper-styles/typography"                              )),
+        init(x=>import( "@polymer/paper-styles/color"                              )),
+        init(x=>import( "@polymer/paper-styles/demo-pages"                              )),
+
         init(x=>import( "@polymer/paper-badge"                              )),
         init(x=>import( "@polymer/paper-button"                             )),
         init(x=>import( "@polymer/paper-card"                               )),

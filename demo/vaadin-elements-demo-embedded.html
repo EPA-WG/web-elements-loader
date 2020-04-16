@@ -3,9 +3,45 @@
 <script type="module" src="../src/web-elemens-loader.js"></script>
 <dom-bind>
     <template>
+        <web-elemens-loader visible="true" id="webcomponentsElement" selection="
+@polymer/app-layout/app-toolbar/app-toolbar,
+@vaadin/vaadin-button,
+@polymer/iron-icon,
+@vaadin/vaadin-icons,
+@vaadin/vaadin-accordion,
+@vaadin/vaadin-anchor,
+@vaadin/vaadin-context-menu,
+@vaadin/vaadin-details,
+@vaadin/vaadin-dialog,
+@vaadin/vaadin-checkbox,
+@polymer/iron-ajax,
+@polymer/paper-button,
+@vaadin/vaadin-grid,
+@vaadin/vaadin-menu-bar,
+@vaadin/vaadin-progress-bar,
+@vaadin/vaadin-tabs,
+@polymer/iron-pages,
+@vaadin/vaadin-element-mixin/vaadin-element-mixin,
+@vaadin/vaadin-combo-box,
+@vaadin/vaadin-custom-field,
+@vaadin/vaadin-text-field,
+@vaadin/vaadin-text-field/vaadin-text-area,
+@vaadin/vaadin-text-field/vaadin-password-field,
+@vaadin/vaadin-text-field/vaadin-number-field,
+@vaadin/vaadin-text-field/vaadin-integer-field,
+@vaadin/vaadin-text-field/vaadin-email-field
+@vaadin/vaadin-list-box,
+@vaadin/vaadin-select,
+@vaadin/vaadin-date-picker,
+@vaadin/vaadin-time-picker,
+@vaadin/vaadin-upload,
+@vaadin/vaadin-form-layout/vaadin-form-item,
+@vaadin/vaadin-ordered-layout,
+"
+        >
         <style>
             html, body { font-family: "Roboto"; margin: 0; padding: 0; }
-            app-header, app-toolbar a { color: white; background-color: var(--google-blue-500); }
+            app-toolbar, app-toolbar a { color: white; background-color: var(--google-blue-500); }
 
             vaadin-accordion { margin-left: 3rem;  padding: 1rem; }
             vaadin-details vaadin-details, vaadin-accordion vaadin-accordion{  padding: 1rem; }
@@ -32,20 +68,18 @@
             app-toolbar span:last-of-type{ flex:4; }
             app-toolbar a:last-of-type img{ height: 2.5rem; width: 2.5rem;}
         </style>
-        <app-header reveals>
-            <app-toolbar>
-                <a href="./">
-                    <paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button>
-                </a>
-                <span style="font-size:25px;">Vaadin elements from CDN demo
-                </span>
-                <span></span>
-                <a  title="git source"
-                    href="https://github.com/EPA-WG/web-elements-loader/blob/master/demo/vaadin-elements-demo.html" >
-                    <img src="octocat.svg"/>
-                </a>
-            </app-toolbar>
-        </app-header>
+        <app-toolbar>
+            <a href="./">
+                <paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button>
+            </a>
+            <span style="font-size:25px;">Vaadin elements from CDN demo
+            </span>
+            <span></span>
+            <a  title="git source"
+                href="https://github.com/EPA-WG/web-elements-loader/blob/master/demo/vaadin-elements-demo.html" >
+                <img src="octocat.svg"/>
+            </a>
+        </app-toolbar>
         <vaadin-details opened>
             <div slot="summary"> VISUALIZATION & INTERACTION </div>
             <vaadin-details ZZZ opened >
@@ -903,43 +937,6 @@
         <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
         <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
         <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
-        <web-elemens-loader visible="true" id="webcomponentsElement" selection="
-@polymer/paper-styles/paper-styles,
-@polymer/app-layout,
-@vaadin/vaadin-button,
-@polymer/iron-icon,
-@vaadin/vaadin-icons,
-@vaadin/vaadin-accordion,
-@vaadin/vaadin-anchor,
-@vaadin/vaadin-context-menu,
-@vaadin/vaadin-details,
-@vaadin/vaadin-dialog,
-@vaadin/vaadin-checkbox,
-@polymer/iron-ajax,
-@polymer/paper-button,
-@vaadin/vaadin-grid,
-@vaadin/vaadin-menu-bar,
-@vaadin/vaadin-progress-bar,
-@vaadin/vaadin-tabs,
-@polymer/iron-pages,
-@vaadin/vaadin-element-mixin/vaadin-element-mixin,
-@vaadin/vaadin-combo-box,
-@vaadin/vaadin-custom-field,
-@vaadin/vaadin-text-field,
-@vaadin/vaadin-text-field/vaadin-text-area,
-@vaadin/vaadin-text-field/vaadin-password-field,
-@vaadin/vaadin-text-field/vaadin-number-field,
-@vaadin/vaadin-text-field/vaadin-integer-field,
-@vaadin/vaadin-text-field/vaadin-email-field
-@vaadin/vaadin-list-box,
-@vaadin/vaadin-select,
-@vaadin/vaadin-date-picker,
-@vaadin/vaadin-time-picker,
-@vaadin/vaadin-upload,
-@vaadin/vaadin-form-layout/vaadin-form-item,
-@vaadin/vaadin-ordered-layout,
-"
-        >
 </web-elemens-loader>
     </template>
 </dom-bind>
