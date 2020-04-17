@@ -122,6 +122,7 @@ LoadCollection extends PolymerElement
     }
     initModule( imp )
     {   let  pkg = (""+imp).split('"')[1]
+                    .replace('./','@epa-wg/web-elemens-loader/')
                     .replace(/(.*node_modules\/)/ ,'')
                     .replace(/\.js/ ,'')
         ,  alias = this.alias(pkg)

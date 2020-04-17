@@ -1,5 +1,5 @@
 {
-  "name": "web-elemens-loader",
+  "name": "@epa-wg/web-elemens-loader",
   "version": "0.0.1",
   "description": "CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery + xml4jQuery",
   "repository": {
