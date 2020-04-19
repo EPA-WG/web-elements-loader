@@ -12,6 +12,8 @@
 @material/mwc-button,
 @material/mwc-button/mwc-button,
 @material/mwc-icon,
+@material/mwc-checkbox,
+@material/mwc-formfield,
 "
         >
         <style>
@@ -154,7 +156,7 @@
                 </div>
             </main>
         </details>
-        <details open>
+        <details>
             <summary>
                 <label>Icons</label>
             </summary>
@@ -189,40 +191,62 @@
                 </div>
             </p>
         </details>
-
         <details open>
             <summary>
-                <label>Icons</label>
+                <label>Checkbox</label>
             </summary>
-            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/icon"
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/checkbox"
                 ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
-            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/icon.html"
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/checkbox.html"
                 ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
-            <a href="https://material.io/resources/icons"
-                ><mwc-button outlined >All material.io icons <img src="material_logo.svg"/> </mwc-button></a>
             <p>
+                <mwc-checkbox>simple</mwc-checkbox>
+                <mwc-checkbox checked           > checked       </mwc-checkbox>
+                <mwc-checkbox indeterminate     > indeterminate </mwc-checkbox>
+                <mwc-checkbox indeterminate     > indeterminate </mwc-checkbox>
+                <mwc-checkbox disabled          > disabled      </mwc-checkbox>
+                <mwc-checkbox></mwc-checkbox>
+            </p>
+            <p>
+                <h2> Styled standard, disabled </h2>
                 <style>
-                    .color-size {
-                        color: mediumaquamarine;
-                        --mdc-icon-size: 4em;
+                    .styled-cb {
+                        background-color: #363636;
+
+                        --mdc-theme-secondary: #ff2929;
+                        --mdc-checkbox-unchecked-color: white;
+                        /* Required for unchecked focus ripple */
+                        --mdc-theme-on-surface: white;
+                        --mdc-checkbox-disabled-color: #adadad;
+                        --mdc-checkbox-mark-color: #363636;
                     }
                 </style>
-                <div class="demo-group">
-                    <mwc-icon>  sentiment_very_dissatisfied   </mwc-icon>
-                    <mwc-icon>  sentiment_dissatisfied        </mwc-icon>
-                    <mwc-icon>  sentiment_neutral             </mwc-icon>
-                    <mwc-icon>  sentiment_satisfied           </mwc-icon>
-                    <mwc-icon>  sentiment_very_satisfied      </mwc-icon>
+                <div class="styled-cb">
+                    <mwc-checkbox></mwc-checkbox>
+                    <mwc-checkbox checked       ></mwc-checkbox>
+                    <mwc-checkbox indeterminate ></mwc-checkbox>
                 </div>
-
-                <h4>color and size</h4>
-                <div class="demo-group color-size">
-                    <mwc-icon> all_out          </mwc-icon>
-                    <mwc-icon> accessibility    </mwc-icon>
-                    <mwc-icon> exit_to_app      </mwc-icon>
-                    <mwc-icon> camera           </mwc-icon>
-                    <mwc-icon> sms              </mwc-icon>
+                <div class="styled-cb">
+                    <mwc-checkbox disabled                  ></mwc-checkbox>
+                    <mwc-checkbox disabled checked          ></mwc-checkbox>
+                    <mwc-checkbox disabled indeterminate    ></mwc-checkbox>
                 </div>
+            </p>
+            <p>
+                <h2> With Form Field </h2>
+                <style>
+                    mwc-formfield { display: block; }
+                    .child-cb { margin-left: 20px; }
+                </style>
+                <mwc-formfield label="Additions">
+                    <mwc-checkbox indeterminate></mwc-checkbox>
+                </mwc-formfield>
+                    <mwc-formfield label="Pickles">
+                    <mwc-checkbox class="child-cb"></mwc-checkbox>
+                </mwc-formfield>
+                <mwc-formfield label="Tomato">
+                    <mwc-checkbox class="child-cb" checked></mwc-checkbox>
+                </mwc-formfield>
             </p>
         </details>
 
