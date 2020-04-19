@@ -32,6 +32,7 @@
             details p{ display: flex; flex-wrap:wrap; }
             mwc-button{ padding: 0.3rem }
             mwc-button img{height: 1.5em; }
+            label { display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
         </style>
 
             <app-toolbar>
@@ -200,12 +201,11 @@
             <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/checkbox.html"
                 ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
             <p>
-                <mwc-checkbox>simple</mwc-checkbox>
-                <mwc-checkbox checked           > checked       </mwc-checkbox>
-                <mwc-checkbox indeterminate     > indeterminate </mwc-checkbox>
-                <mwc-checkbox indeterminate     > indeterminate </mwc-checkbox>
-                <mwc-checkbox disabled          > disabled      </mwc-checkbox>
-                <mwc-checkbox></mwc-checkbox>
+                <label><mwc-checkbox                   ></mwc-checkbox> simple          </label>
+                <label><mwc-checkbox checked           ></mwc-checkbox> checked         </label>
+                <label><mwc-checkbox indeterminate     ></mwc-checkbox> indeterminate   </label>
+                <label><mwc-checkbox disabled          ></mwc-checkbox> disabled        </label>
+                <label><mwc-checkbox></mwc-checkbox></label>
             </p>
             <p>
                 <h2> Styled standard, disabled </h2>
