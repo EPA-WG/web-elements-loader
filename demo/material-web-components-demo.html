@@ -29,6 +29,7 @@
             app-toolbar h1{ flex-grow: 4; }
             details p{ display: flex; flex-wrap:wrap; }
             mwc-button{ padding: 0.3rem }
+            mwc-button img{height: 1.5em; }
         </style>
 
             <app-toolbar>
@@ -45,7 +46,7 @@
                 Material Web Components Catalog
             </a>
         </h3>
-        <details open>
+        <details>
             <summary>
                 <label>Button</label>
             </summary>
@@ -54,16 +55,16 @@
             <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/button.html"
                 ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
             <p>
-                <mwc-button label="standard"                        ></mwc-button>
                 <mwc-button label="icon" icon="alarm"               ></mwc-button>
                 <mwc-button outlined label="outlined"               ></mwc-button>
                 <mwc-button outlined label="outlined" icon="code"   ></mwc-button>
                 <mwc-button raised label="raised"                   ></mwc-button>
+                <mwc-button label="standard"                        ></mwc-button>
                 <mwc-button raised label="raised" icon="code"       ></mwc-button>
                 <mwc-button unelevated label="unelevated"           ></mwc-button>
-                <mwc-button unelevated label="unelevated" icon="code"></mwc-button>
-                <mwc-button dense unelevated label="dense"></mwc-button>
-                <mwc-button dense unelevated label="dense" icon="code"></mwc-button>
+                <mwc-button unelevated label="unelevated" icon="code"   ></mwc-button>
+                <mwc-button dense unelevated label="dense"              ></mwc-button>
+                <mwc-button dense unelevated label="dense" icon="code"  ></mwc-button>
             </p>
             <p>
                 <mwc-button label="trailing icon" icon="code" trailingIcon></mwc-button>
@@ -152,6 +153,77 @@
                     <mwc-button outlined class="width" disabled icon="code" label="width"></mwc-button>
                 </div>
             </main>
+        </details>
+        <details open>
+            <summary>
+                <label>Icons</label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/icon"
+                ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/icon.html"
+                ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <a href="https://material.io/resources/icons"
+                ><mwc-button outlined >All material.io icons <img src="material_logo.svg"/> </mwc-button></a>
+            <p>
+                <style>
+                    .color-size {
+                        color: mediumaquamarine;
+                        --mdc-icon-size: 4em;
+                    }
+                </style>
+                <div class="demo-group">
+                    <mwc-icon>  sentiment_very_dissatisfied   </mwc-icon>
+                    <mwc-icon>  sentiment_dissatisfied        </mwc-icon>
+                    <mwc-icon>  sentiment_neutral             </mwc-icon>
+                    <mwc-icon>  sentiment_satisfied           </mwc-icon>
+                    <mwc-icon>  sentiment_very_satisfied      </mwc-icon>
+                </div>
+
+                <h4>color and size</h4>
+                <div class="demo-group color-size">
+                    <mwc-icon> all_out          </mwc-icon>
+                    <mwc-icon> accessibility    </mwc-icon>
+                    <mwc-icon> exit_to_app      </mwc-icon>
+                    <mwc-icon> camera           </mwc-icon>
+                    <mwc-icon> sms              </mwc-icon>
+                </div>
+            </p>
+        </details>
+
+        <details open>
+            <summary>
+                <label>Icons</label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/icon"
+                ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/icon.html"
+                ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <a href="https://material.io/resources/icons"
+                ><mwc-button outlined >All material.io icons <img src="material_logo.svg"/> </mwc-button></a>
+            <p>
+                <style>
+                    .color-size {
+                        color: mediumaquamarine;
+                        --mdc-icon-size: 4em;
+                    }
+                </style>
+                <div class="demo-group">
+                    <mwc-icon>  sentiment_very_dissatisfied   </mwc-icon>
+                    <mwc-icon>  sentiment_dissatisfied        </mwc-icon>
+                    <mwc-icon>  sentiment_neutral             </mwc-icon>
+                    <mwc-icon>  sentiment_satisfied           </mwc-icon>
+                    <mwc-icon>  sentiment_very_satisfied      </mwc-icon>
+                </div>
+
+                <h4>color and size</h4>
+                <div class="demo-group color-size">
+                    <mwc-icon> all_out          </mwc-icon>
+                    <mwc-icon> accessibility    </mwc-icon>
+                    <mwc-icon> exit_to_app      </mwc-icon>
+                    <mwc-icon> camera           </mwc-icon>
+                    <mwc-icon> sms              </mwc-icon>
+                </div>
+            </p>
         </details>
 
 
