@@ -27,6 +27,11 @@
 @material/mwc-radio,
 @material/mwc-switch,
 @material/mwc-icon-button-toggle,
+@material/mwc-linear-progress,
+@material/mwc-list,
+@material/mwc-list/mwc-list-item,
+@material/mwc-list/mwc-check-list-item,
+@material/mwc-list/mwc-radio-list-item,
 "
         >
         <style>
@@ -253,7 +258,7 @@
             <p>
                 <h2> With Form Field </h2>
                 <style>
-                    mwc-formfield { display: block; }
+                    mwc-formfield { display: block; margin-right: 2rem;}
                     .child-cb { margin-left: 20px; }
                 </style>
                 <mwc-formfield label="Additions">
@@ -618,9 +623,9 @@
                 <mwc-icon-button icon="code" class="color-ib"></mwc-icon-button>
             </p>
         </details>
-        <details open>
+        <details>
             <summary>
-                <label> <mwc-icon>add_circle</mwc-icon> Icon Button Toggle</label>
+                <label> <mwc-icon>toggle_off</mwc-icon> Icon Button Toggle</label>
             </summary>
             <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/icon-button-toggle"
             ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
@@ -647,6 +652,233 @@
 
                 <mwc-icon-button-toggle class="color-ibt" onicon="sentiment_very_satisfied" officon="sentiment_very_dissatisfied"></mwc-icon-button-toggle>
             </p>
+        </details>
+        <details>
+            <summary>
+                <label> <mwc-icon>star_half</mwc-icon> Linear Progress </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/linear-progress"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/linear-progress.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <p>
+                <style>
+                    mwc-linear-progress { width: 50%; margin: auto; }
+                    .demo-progress-bar {
+                        --mdc-theme-primary: red;
+                        --mdc-linear-progress-buffer-color: orange;
+                        --mdc-linear-progress-buffering-dots-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffcdd2'/%3E%3C/svg%3E");
+                    }
+                </style>
+                <paper-button toggles raised active="{{ progress1 }}" > Toggle </paper-button>
+                <mwc-linear-progress closed="[[progress1]]"></mwc-linear-progress>
+                <h3>linear-progress: reverse</h3>
+                <mwc-linear-progress reverse="" class="demo-progress-bar"></mwc-linear-progress>
+                <h3>linear-progress: determinate</h3>
+                <mwc-linear-progress determinate="" progress="0.5" buffer="1"></mwc-linear-progress>
+                <h3>linear-progress: determinate buffer</h3>
+                <mwc-linear-progress determinate="" progress="0.3" buffer="0.7" class="demo-progress-bar"></mwc-linear-progress>
+                <h3>linear-progress: determinate buffer reverse</h3>
+                <mwc-linear-progress determinate="" reverse="" progress="0.2" buffer="0.6"></mwc-linear-progress>
+            </p>
+        </details>
+        <details open>
+            <summary>
+                <label> <mwc-icon>view_comfy</mwc-icon> List </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/list"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/list.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <main class="flex-grid">
+                <style>
+                    mwc-list { border: 1px solid lightgray; max-width: 400px; margin-bottom: 8px; margin-right: 2rem; }
+                    .inverted { color: white; background-color: gray; }
+                </style>
+                <section>
+                    <h4>Basic</h4>
+
+                    <mwc-list id="basic">
+                        <mwc-list-item selected>Item 0</mwc-list-item>
+                        <mwc-list-item>Item 1</mwc-list-item>
+                        <mwc-list-item>Item 2</mwc-list-item>
+                        <mwc-list-item>Item 3</mwc-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Multi</h4>
+                    <mwc-list multi id="multi">
+                        <mwc-list-item selected>Item 0</mwc-list-item>
+                        <mwc-list-item>Item 1</mwc-list-item>
+                        <mwc-list-item selected>Item 2</mwc-list-item>
+                        <mwc-list-item>Item 3</mwc-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Activatable</h4>
+                    <mwc-list activatable id="activatable">
+                        <mwc-list-item>Item 0</mwc-list-item>
+                        <mwc-list-item selected activated>Item 1</mwc-list-item>
+                        <mwc-list-item>Item 2</mwc-list-item>
+                        <mwc-list-item>Item 3</mwc-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Non-interactive</h4>
+
+                    <mwc-list noninteractive>
+                        <mwc-list-item>Item 0</mwc-list-item>
+                        <mwc-list-item>Item 1</mwc-list-item>
+                        <mwc-list-item>Item 2</mwc-list-item>
+                        <mwc-list-item>Item 3</mwc-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Checklist</h4>
+
+                    <mwc-list multi id="checklist">
+                        <mwc-check-list-item selected>Item 0</mwc-check-list-item>
+                        <mwc-check-list-item>Item 1</mwc-check-list-item>
+                        <mwc-check-list-item left selected>Item 2 (left)</mwc-check-list-item>
+                        <mwc-check-list-item left>Item 3 (left)</mwc-check-list-item>
+                        <mwc-check-list-item disabled><span>disabled</span></mwc-check-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Radio list</h4>
+                    <mwc-list id="radio">
+                        <mwc-radio-list-item group="a" selected>Item 0</mwc-radio-list-item>
+                        <mwc-radio-list-item group="a">Item 1</mwc-radio-list-item>
+                        <li divider padded role="separator"></li>
+                        <mwc-radio-list-item left group="a">Item 2 (left)</mwc-radio-list-item>
+                        <mwc-radio-list-item left group="a">Item 3 (left)</mwc-radio-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Multi Radio list (with divider)</h4>
+                    <mwc-list multi id="multiRadio">
+                        <mwc-radio-list-item group="b">Item 0</mwc-radio-list-item>
+                        <mwc-radio-list-item group="b" selected>Item 1</mwc-radio-list-item>
+                        <li divider role="separator"></li>
+                        <mwc-radio-list-item group="c" selected>Item 2</mwc-radio-list-item>
+                        <mwc-radio-list-item group="c">Item 3</mwc-radio-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Two-line (padded dividers)</h4>
+                    <mwc-list id="multiRadio" multi>
+                        <mwc-list-item twoline>
+                            <span>Item 0</span>
+                            <span slot="secondary">Secondary line</span>
+                        </mwc-list-item>
+                        <li divider padded role="separator"></li>
+                        <mwc-list-item twoline>
+                            <span>Item 1</span>
+                            <span slot="secondary">Secondary line</span>
+                        </mwc-list-item>
+                        <li divider padded role="separator"></li>
+                        <mwc-list-item twoline>
+                            <span>Item 2</span>
+                            <span slot="secondary">Secondary line</span>
+                        </mwc-list-item>
+                        <li divider padded role="separator"></li>
+                        <mwc-list-item twoline>
+                            <span>Item 3</span>
+                            <span slot="secondary">Secondary line</span>
+                        </mwc-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Graphics (inset dividers)</h4>
+
+                    <mwc-list id="graphics" multi>
+                        <mwc-list-item twoline graphic="avatar" noninteractive hasMeta>
+                            <span>Non-interactive two line avatar graphic</span>
+                            <span slot="secondary">email@domain.tld</span>
+                            <span slot="graphic" class="material-icons inverted">folder</span>
+                            <span slot="meta" class="material-icons">info</span>
+                        </mwc-list-item>
+                        <li divider role="separator"></li>
+                        <mwc-list-item graphic="icon" hasMeta>
+                            <span>Icon graphic</span>
+                            <span slot="graphic" class="material-icons inverted">folder</span>
+                            <span slot="meta" class="material-icons">info</span>
+                        </mwc-list-item>
+                        <li divider inset role="separator"></li>
+                        <mwc-list-item graphic="medium" hasMeta>
+                            <span>medium graphic</span>
+                            <span slot="graphic" class="material-icons inverted">folder</span>
+                            <span slot="meta" class="material-icons">info</span>
+                        </mwc-list-item>
+                        <li divider inset role="separator"></li>
+                        <mwc-list-item graphic="large" hasMeta>
+                            <span>large graphic</span>
+                            <span slot="graphic" class="material-icons inverted">folder</span>
+                            <span slot="meta" class="material-icons">info</span>
+                        </mwc-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Styled</h4>
+                    <style>
+                        #styled {
+                            --mdc-theme-primary: red;
+                            --mdc-list-vertical-padding: 0px;
+                            --mdc-list-side-padding: 0px;
+                        }
+                    </style>
+
+                    <mwc-list activatable id="styled">
+                        <mwc-list-item selected>Item 0</mwc-list-item>
+                        <mwc-list-item>Item 1</mwc-list-item>
+                        <mwc-list-item>Item 2</mwc-list-item>
+                        <mwc-list-item>Item 3</mwc-list-item>
+                    </mwc-list>
+                </section>
+                <section>
+                    <h4>Styled (Ripple Disabled)</h4>
+                    <style>
+                        /* disable ripple */
+                        #styledr {
+                            --mdc-ripple-color: transparent;
+                        }
+
+                        #styledr > * {
+                            transition: background-color .2s, color .2s;
+                        }
+
+                        #styledr [selected] {
+                            background-color: rgb(33, 33, 33);
+                            color: white;
+                        }
+
+                        #styledr [mwc-list-item]:not([selected]):hover,
+                        #styledr [mwc-list-item]:not([selected]):focus {
+                            background-color: rgba(33, 33, 33, 0.3);
+                        }
+
+                        #styledr [mwc-list-item]:not([selected]):active {
+                            background-color: rgba(33, 33, 33, 0.4);
+                        }
+
+                        #styledr [mwc-list-item][selected]:hover,
+                        #styledr [mwc-list-item][selected]:focus {
+                            background-color: rgba(33, 33, 33, 0.9);
+                        }
+
+                        #styledr [mwc-list-item][selected]:active {
+                            background-color: rgba(33, 33, 33, 0.8);
+                        }
+                    </style>
+
+                    <mwc-list id="styledr">
+                        <mwc-list-item selected>Item 0</mwc-list-item>
+                        <mwc-list-item>Item 1</mwc-list-item>
+                        <mwc-list-item>Item 2</mwc-list-item>
+                        <mwc-list-item>Item 3</mwc-list-item>
+                    </mwc-list>
+                </section>
+            </main>
         </details>
 
 
