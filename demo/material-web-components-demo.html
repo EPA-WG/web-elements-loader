@@ -21,6 +21,7 @@
 @material/mwc-drawer,
 @material/mwc-top-app-bar,
 @material/mwc-icon-button,
+@material/mwc-fab,
 "
         >
         <style>
@@ -41,7 +42,7 @@
             mwc-button{ padding: 0.3rem }
             mwc-button img{height: 1.5em; }
             label { display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
-            summary { padding: 0.3rem; }
+            summary, mwc-fab { padding: 0.3rem; }
         </style>
 
             <app-toolbar>
@@ -444,7 +445,7 @@
                 </mwc-dialog>
             </main>
         </details>
-        <details open>
+        <details>
             <summary>
                 <label> <mwc-icon>assignment_returned</mwc-icon> Drawer </label>
             </summary>
@@ -517,6 +518,21 @@
                     </div>
                 </mwc-drawer>
             </section>
+        </details>
+        <details open>
+            <summary>
+                <label> <mwc-icon>add_circle</mwc-icon> Floating Action Button</label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/fab"
+                ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/fab.html"
+                ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <p>
+                <mwc-fab icon="edit"></mwc-fab>
+                <mwc-fab icon="add" mini=""></mwc-fab>
+                <mwc-fab icon="shopping_cart" extended="" label="Add To Cart"></mwc-fab>
+                <mwc-fab icon="share" class="blackAndWhite"></mwc-fab>
+            </p>
         </details>
 
 
