@@ -14,6 +14,9 @@
 @material/mwc-icon,
 @material/mwc-checkbox,
 @material/mwc-formfield,
+@material/mwc-dialog,
+@material/mwc-ripple,
+@polymer/paper-button,
 "
         >
         <style>
@@ -51,7 +54,7 @@
         </h3>
         <details>
             <summary>
-                <label>Button</label>
+                <label> <mwc-icon>crop_16_9</mwc-icon> Button</label>
             </summary>
             <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/button"
                 ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
@@ -159,7 +162,7 @@
         </details>
         <details>
             <summary>
-                <label>Icons</label>
+                <label> <mwc-icon>filter_vintage</mwc-icon> Icons</label>
             </summary>
             <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/icon"
                 ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
@@ -192,9 +195,9 @@
                 </div>
             </p>
         </details>
-        <details open>
+        <details>
             <summary>
-                <label>Checkbox</label>
+                <label> <mwc-icon>check_box</mwc-icon> Checkbox</label>
             </summary>
             <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/checkbox"
                 ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
@@ -249,7 +252,192 @@
                 </mwc-formfield>
             </p>
         </details>
+        <details open>
+            <summary>
+                <label> <mwc-icon>flip_to_front</mwc-icon> dialog </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/dialog"
+                ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/dialog.html"
+                ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <main>
+                <paper-button toggles raised active="{{ demoDialog1 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Basic
+                </paper-button>
+                <mwc-dialog id="dialog1" heading="Dialog header" open="{{ demoDialog1 }}">
+                    Dialog body text
+                    <mwc-button slot="primaryAction"    dialogAction="ok"       >Action 2</mwc-button>
+                    <mwc-button slot="secondaryAction"  dialogAction="cancel"   >Action 1</mwc-button>
+                </mwc-dialog>
 
+                <paper-button toggles raised active="{{ demoDialog2 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Actions
+                </paper-button>
+                <mwc-dialog id="dialog2" heading="Actions" open="{{ demoDialog2 }}">
+                    <p>
+                        By setting the dialogAction="my-action" attribute on any element projected into
+                        mwc-dialog, you can close the dialog by clicking on that element. The
+                        dialog will then fire a non-bubbling "closing" event and a non-bubbling
+                        "closed" event with an event detail of {action: "my-action"}
+                    </p>
+                    <mwc-button slot="primaryAction" dialogAction="customAction">This has action</mwc-button>
+                    <mwc-button slot="secondaryAction">this does not</mwc-button>
+                </mwc-dialog>
+
+                <paper-button toggles raised active="{{ demoDialog3 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Scrollable
+                </paper-button>
+                <mwc-dialog id="dialog3" heading="My Title" open="{{ demoDialog3 }}">
+                    <p>
+                        Really long text will scroll. Really long text will scroll. Really long text will scroll. Really
+                        long text will scroll. Really long text will scroll. Really long text will scroll. Really long text
+                        will scroll. Really long text will scroll. Really long text will scroll. Really long text will
+                        scroll. Really long text will scroll. Really long text will scroll. Really long text will scroll.
+                        Really long text will scroll. Really long text will scroll. Really long text will scroll. Really
+                        long text will scroll. Really long text will scroll. Really long text will scroll. Really long text
+                        will scroll. Really long text will scroll. Really long text will scroll. Really long text will
+                        scroll. Really long text will scroll. Really long text will scroll. Really long text will scroll.
+                        Really long text will scroll. Really long text will scroll. Really long text will scroll. Really
+                        long text will scroll. Really long text will scroll. Really log text will scroll. Really log text
+                        will scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll. Really log
+                        text will scroll. Really log text will scroll. Really log text will scroll. Really log text will
+                        scroll. Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                        Really log text will scroll. Really log text will scroll. Really log text will scroll.
+                    </p>
+                    <mwc-button slot="primaryAction" dialogAction="close">Close this!</mwc-button>
+                </mwc-dialog>
+
+                <paper-button toggles raised active="{{ demoDialog4 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Hide Actions
+                </paper-button>
+                <mwc-dialog id="dialog4" heading="Hide Actions" open="{{ demoDialog4 }}">
+                    <p>
+                        If you don't have actions, you may want to set the "hideActions" property.
+                        This property will remove extra whitespace at the bottom of this dialog.
+                        This button will toggle that whitespace:
+                    </p>
+                    <mwc-button raised id="toggleActions">Toggle hideActions</mwc-button>
+                    <div>
+                        mwc-dialog.hideActions is currently:
+                        <span id="hideActionVal"> false </span>
+                    </div>
+                </mwc-dialog>
+
+                <style>
+                    #dialog5 {
+                        --mdc-theme-surface: orange;
+                        --mdc-dialog-scrim-color: rgba(35, 47, 52, .32);
+                        --mdc-dialog-heading-ink-color: #232F34;
+                        --mdc-dialog-content-ink-color: #232F34;
+                        --mdc-dialog-scroll-divider-color: transparent;
+                        --mdc-dialog-min-width: 500px;
+                        --mdc-dialog-max-width: 700px;
+                        --mdc-dialog-max-height: 350px;
+                        --mdc-dialog-shape-radius: 0px;
+
+                        /* color buttons */
+                        --mdc-theme-primary: green;
+                    }
+                </style>
+
+                <paper-button toggles raised active="{{ demoDialog5 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Styled
+                </paper-button>
+                <mwc-dialog id="dialog5" heading="Styled" class="styled" open="{{ demoDialog5 }}">
+                    <div>These are the current styles applied to this dialog</div>
+                    <pre>
+    --mdc-theme-surface: orange;
+    --mdc-dialog-scrim-color: rgba(35, 47, 52, .32);
+    --mdc-dialog-heading-ink-color: #232F34;
+    --mdc-dialog-content-ink-color: #232F34;
+    --mdc-dialog-scroll-divider-color: transparent;
+    --mdc-dialog-min-width: 500px;
+    --mdc-dialog-max-width: 700px;
+    --mdc-dialog-max-height: 350px;
+    --mdc-dialog-shape-radius: 0px;
+
+    /* color buttons */
+    --mdc-theme-primary: green;
+            </pre>
+                    <mwc-button slot="primaryAction" dialogAction="close">
+                        Too stylish for me!
+                    </mwc-button>
+                </mwc-dialog>
+
+                <paper-button toggles raised active="{{ demoDialog6 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Stacked
+                </paper-button>
+                <mwc-dialog id="dialog6" heading="Stacked" stacked open="{{ demoDialog6 }}">
+                    <div>
+                        This is what happens when you set the stacked property on mwc-dialog.
+                        Notice that the primary action is now on top.
+                    </div>
+                    <mwc-button slot="primaryAction" dialogAction="close">
+                        Primary
+                    </mwc-button>
+                    <mwc-button slot="secondaryAction" dialogAction="close">
+                        Secondary
+                    </mwc-button>
+                </mwc-dialog>
+
+                <paper-button toggles raised active="{{ demoDialog7 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Initial Focus
+                </paper-button>
+                <mwc-dialog id="dialog7" heading="Initial Focus" open="{{ demoDialog7 }}">
+                    <div>
+                        In this example we set "dialogInitialFocus" on the mwc-textfield.
+                        When this dialog opens, it is auto-focused.
+                    </div>
+                    <mwc-textfield
+                            label="i am auto-focused"
+                            dialogInitialFocus>
+                    </mwc-textfield>
+                    <mwc-button slot="primaryAction" dialogAction="close">
+                        Primary
+                    </mwc-button>
+                    <mwc-button slot="secondaryAction" dialogAction="close">
+                        Secondary
+                    </mwc-button>
+                </mwc-dialog>
+            </main>
+        </details>
 
 <!-- content of this file is appended to index.html during build -->
         <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>

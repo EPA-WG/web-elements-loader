@@ -24,6 +24,8 @@ class LoadMaterialWC extends LoadCollection
         init(x=>import('@material/mwc-button/mwc-button')),
         init(x=>import('@material/mwc-checkbox')),
         init(x=>import('@material/mwc-formfield')),
+        init(x=>import('@material/mwc-dialog')),
+        init(x=>import('@material/mwc-ripple')),
         ]
     }
 
