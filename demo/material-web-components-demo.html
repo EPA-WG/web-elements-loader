@@ -22,6 +22,10 @@
 @material/mwc-top-app-bar,
 @material/mwc-icon-button,
 @material/mwc-fab,
+@material/mwc-formfield,
+@material/mwc-slider,
+@material/mwc-radio,
+@material/mwc-switch,
 "
         >
         <style>
@@ -43,6 +47,9 @@
             mwc-button img{height: 1.5em; }
             label { display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
             summary, mwc-fab { padding: 0.3rem; }
+            .flex-grid{ display: flex; flex-wrap:wrap; }
+            .flex-grid section{ margin: 0.3rem }
+            section>h4 { background: aliceblue;padding: 0.5rem 1rem;margin: 0;border-radius: 3rem 0;}
         </style>
 
             <app-toolbar>
@@ -519,7 +526,8 @@
                 </mwc-drawer>
             </section>
         </details>
-        <details open>
+
+        <details>
             <summary>
                 <label> <mwc-icon>add_circle</mwc-icon> Floating Action Button</label>
             </summary>
@@ -533,6 +541,60 @@
                 <mwc-fab icon="shopping_cart" extended="" label="Add To Cart"></mwc-fab>
                 <mwc-fab icon="share" class="blackAndWhite"></mwc-fab>
             </p>
+        </details>
+        <details open>
+            <summary>
+                <label> <mwc-icon>ballot</mwc-icon> Formfield </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/formfield"
+                ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/formfield.html"
+                ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <main class="flex-grid">
+                <section>
+                    <h4> Checkbox </h4>
+
+                    <mwc-formfield label="This is a checkbox.">
+                        <mwc-checkbox></mwc-checkbox>
+                    </mwc-formfield>
+                </section>
+                <section>
+                    <h4>Align End</h4>
+                    <mwc-formfield alignend="" label="This is a checkbox.">
+                        <mwc-checkbox></mwc-checkbox>
+                    </mwc-formfield>
+                </section>
+                <section>
+                    <h4>Native Element</h4>
+                    <mwc-formfield alignend="" label="Enter a date.">
+                        <input type="date">
+                    </mwc-formfield>
+                </section>
+                <section>
+                    <h4>Switch</h4>
+                    <mwc-formfield label="This is a switch.">
+                        <mwc-switch></mwc-switch>
+                    </mwc-formfield>
+                </section>
+                <section>
+                    <h4>Radio Button</h4>
+                    <mwc-formfield label="This is a radio.">
+                        <mwc-radio id="one" name="a"></mwc-radio>
+                    </mwc-formfield>
+                    <mwc-formfield label="This is a radio.">
+                        <mwc-radio id="two" name="a" checked=""></mwc-radio>
+                    </mwc-formfield>
+                    <mwc-formfield label="This is a radio.">
+                        <mwc-radio id="three" name="a"></mwc-radio>
+                    </mwc-formfield>
+                </section>
+                <section>
+                    <h4>Slider</h4>
+                    <mwc-formfield label="This is a slider.">
+                      <mwc-slider></mwc-slider>
+                    </mwc-formfield>
+                </section>
+            </main>
         </details>
 
 

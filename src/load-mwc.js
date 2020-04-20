@@ -31,6 +31,10 @@ class LoadMaterialWC extends LoadCollection
         init(x=>import('@material/mwc-top-app-bar'      )),
         init(x=>import('@material/mwc-icon-button'      )),
         init(x=>import('@material/mwc-fab'              )),
+        init(x=>import('@material/mwc-formfield'        )),
+        init(x=>import('@material/mwc-slider'           )),
+        init(x=>import('@material/mwc-radio'            )),
+        init(x=>import('@material/mwc-switch'           )),
         ]
     }
 
