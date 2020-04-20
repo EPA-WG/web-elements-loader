@@ -20,21 +20,22 @@ class LoadMaterialWC extends LoadCollection
     initDependencies()
     {   const init= i => this.initModule(i);
         return [
-        init(x=>import('@material/mwc-icon/mwc-icon'    )),
-        init(x=>import('@material/mwc-button/mwc-button')),
-        init(x=>import('@material/mwc-checkbox'         )),
-        init(x=>import('@material/mwc-formfield'        )),
-        init(x=>import('@material/mwc-dialog'           )),
-        init(x=>import('@material/mwc-ripple'           )),
-        init(x=>import('@material/mwc-textfield'        )),
-        init(x=>import('@material/mwc-drawer'           )),
-        init(x=>import('@material/mwc-top-app-bar'      )),
-        init(x=>import('@material/mwc-icon-button'      )),
-        init(x=>import('@material/mwc-fab'              )),
-        init(x=>import('@material/mwc-formfield'        )),
-        init(x=>import('@material/mwc-slider'           )),
-        init(x=>import('@material/mwc-radio'            )),
-        init(x=>import('@material/mwc-switch'           )),
+        init(x=>import('@material/mwc-icon/mwc-icon'        )),
+        init(x=>import('@material/mwc-button/mwc-button'    )),
+        init(x=>import('@material/mwc-checkbox'             )),
+        init(x=>import('@material/mwc-formfield'            )),
+        init(x=>import('@material/mwc-dialog'               )),
+        init(x=>import('@material/mwc-ripple'               )),
+        init(x=>import('@material/mwc-textfield'            )),
+        init(x=>import('@material/mwc-drawer'               )),
+        init(x=>import('@material/mwc-top-app-bar'          )),
+        init(x=>import('@material/mwc-icon-button'          )),
+        init(x=>import('@material/mwc-fab'                  )),
+        init(x=>import('@material/mwc-formfield'            )),
+        init(x=>import('@material/mwc-slider'               )),
+        init(x=>import('@material/mwc-radio'                )),
+        init(x=>import('@material/mwc-switch'               )),
+        init(x=>import('@material/mwc-icon-button-toggle'   )),
         ]
     }
 
