@@ -17,6 +17,10 @@
 @material/mwc-dialog,
 @material/mwc-ripple,
 @polymer/paper-button,
+@material/mwc-textfield,
+@material/mwc-drawer,
+@material/mwc-top-app-bar,
+@material/mwc-icon-button,
 "
         >
         <style>
@@ -26,16 +30,18 @@
             body{font-family: 'Roboto', sans-serif; margin: 0 }
             body>*>*{ padding: 0 0.5rem }
 
-            app-toolbar
+            app-toolbar, header
             {   color: white; background-color: var(--google-blue-500); min-height: 3rem; display: flex;
                 justify-content: space-between; align-items:center;
             }
+            header h3{ flex-grow: 4; padding-left: 1rem }
             img{ height: 2rem }
             app-toolbar h1{ flex-grow: 4; }
             details p{ display: flex; flex-wrap:wrap; }
             mwc-button{ padding: 0.3rem }
             mwc-button img{height: 1.5em; }
             label { display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
+            summary { padding: 0.3rem; }
         </style>
 
             <app-toolbar>
@@ -252,7 +258,7 @@
                 </mwc-formfield>
             </p>
         </details>
-        <details open>
+        <details>
             <summary>
                 <label> <mwc-icon>flip_to_front</mwc-icon> dialog </label>
             </summary>
@@ -438,6 +444,81 @@
                 </mwc-dialog>
             </main>
         </details>
+        <details open>
+            <summary>
+                <label> <mwc-icon>assignment_returned</mwc-icon> Drawer </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/drawer"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/drawer.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <section>
+                <mwc-drawer>
+                    <div> <p>Drawer Content!</p> </div>
+                    <div slot="appContent">
+                        <header> <h3>Standard</h3> </header>
+                        <div> <p>Main Content!</p> </div>
+                    </div>
+                </mwc-drawer>
+                <hr/>
+                <mwc-drawer hasHeader>
+                    <span slot="title">Drawer Title</span>
+                    <span slot="subtitle">subtitle</span>
+                    <div> <p>Drawer content!</p> </div>
+                    <div slot="appContent">
+                        <header> <h3>Standard with Header</h3> </header>
+                        <div> <p>Main Content!</p> </div>
+                    </div>
+                </mwc-drawer>
+                <hr/>
+                <mwc-drawer hasHeader type="dismissible" open="{{ demoDrawer3 }}">
+                    <span slot="title"   >Drawer Title </span>
+                    <span slot="subtitle">subtitle     </span>
+                    <div>
+                        <p>Drawer content!</p>
+                        <mwc-icon-button icon="gesture"></mwc-icon-button>
+                        <mwc-icon-button icon="gavel"  ></mwc-icon-button>
+                    </div>
+                    <div slot="appContent">
+                        <header>
+                            <paper-button toggles active="{{ demoDrawer3 }}" slot="navigationIcon"
+                                ><mwc-icon>menu</mwc-icon>
+                            </paper-button>
+                            <h3>Dismissible</h3>
+                            <b>
+                                <mwc-icon-button icon="file_download"   slot="actionItems"></mwc-icon-button>
+                                <mwc-icon-button icon="print"           slot="actionItems"></mwc-icon-button>
+                                <mwc-icon-button icon="favorite"        slot="actionItems"></mwc-icon-button>
+                            </b>
+                        </header>
+                        <div>
+                            <p>Main Content!</p>
+                        </div>
+                    </div>
+                </mwc-drawer>
+                <hr/>
+                <mwc-drawer hasHeader type="modal" open="{{ demoDrawer4 }}">
+                    <span slot="title">Drawer Title</span>
+                    <span slot="subtitle">subtitle</span>
+                    <div>
+                        <p>Drawer content!</p>
+                        <mwc-icon-button icon="gesture"></mwc-icon-button>
+                        <mwc-icon-button icon="gavel"></mwc-icon-button>
+                    </div>
+                    <div slot="appContent">
+                        <header>
+                            <paper-button toggles active="{{ demoDrawer4 }}" slot="navigationIcon"
+                                ><mwc-icon>menu</mwc-icon>
+                            </paper-button>
+                            <h3> Modal </h3>
+                        </header>
+                        <div> <p>Broken in this demo. It works only in own frame. Like &nbsp;
+                            <a href="https://mwc-demos.glitch.me/demos/drawer/modal.html"> here</a></p> </div>
+                    </div>
+                </mwc-drawer>
+            </section>
+        </details>
+
 
 <!-- content of this file is appended to index.html during build -->
         <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
