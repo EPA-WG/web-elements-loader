@@ -42,6 +42,8 @@ class LoadMaterialWC extends LoadCollection
         init(x=>import('@material/mwc-list/mwc-check-list-item'     )),
         init(x=>import('@material/mwc-list/mwc-list-adapter'        )),
         init(x=>import('@material/mwc-list/mwc-radio-list-item'     )),
+        init(x=>import('@material/mwc-menu'                         )),
+        init(x=>import('@material/mwc-select'                       )),
         ]
     }
 

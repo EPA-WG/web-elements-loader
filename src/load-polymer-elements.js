@@ -20,6 +20,7 @@ class LoadPolymerElements extends LoadCollection
     initDependencies()
     {   const init= i => this.initModule(i);
         return [
+        init(x=>import( "./wel-css-query.js"                                                  )),
         init(x=>import( "./polymer-element.js"                                                  )),
         init(x=>import( "@polymer/app-layout/app-layout"                                        )),
         init(x=>import( "@polymer/paper-tooltip"                                                )),
