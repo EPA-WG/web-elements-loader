@@ -19,12 +19,8 @@ export default class WelCssQuery extends HTMLElement
             v = v[ sp ];
         this.value = v;
         d = $( d );
-        if( d )
-        {   if( dp )
-                d[ dp ] = v;
-            else
-                d = v;
-        }
+        if( d && dp )
+            d[ dp ] = v;
         this.dispatchEvent( new CustomEvent('change') )
 }   }
 window.customElements.define( 'wel-css-query', WelCssQuery );
