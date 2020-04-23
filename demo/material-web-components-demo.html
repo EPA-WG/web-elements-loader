@@ -35,6 +35,7 @@
 @material/mwc-menu,
 @material/mwc-select,
 @epa-wg/web-elemens-loader/wel-css-query,
+@material/mwc-textfield,
 "
         >
         <style>
@@ -59,6 +60,7 @@
             .flex-grid{ display: flex; flex-wrap:wrap; }
             .flex-grid section{ margin: 0.3rem }
             section>h4 { background: aliceblue;padding: 0.5rem 1rem;margin: 0;border-radius: 3rem 0;}
+            mwc-textfield[type="number"]{width: 5em}
         </style>
 
             <app-toolbar>
@@ -891,13 +893,17 @@
             ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
             <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/menu.html"
             ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
-            <main>
-
-                <div style="position:relative;">
+            <main class="flex-grid">
+                <style>
+                    .scrollable { border: solid 1px black;overflow-y: scroll;height: 100px;}
+                    .scrollable .spacer {height: 1000px;}
+                    #absoluteX, #absoluteY {width: 100px;}
+                </style>
+                <section style="position:relative;">
                     <paper-button toggles raised active="{{ demoMenu1 }}" ><mwc-icon>more_vert</mwc-icon>
                         Basic
                     </paper-button>
-                    <mwc-menu open="{{ demoMenu1 }}">
+                    <mwc-menu open="{{ demoMenu1::closed }}">
                         <mwc-list-item>one</mwc-list-item>
                         <mwc-list-item>two</mwc-list-item>
                         <mwc-list-item>three</mwc-list-item>
@@ -906,15 +912,40 @@
                         <mwc-list-item>aaa</mwc-list-item>
                         <mwc-list-item>bbb</mwc-list-item>
                     </mwc-menu>
-                </div>
+                </section>
 
-                <div style="position:relative;">
+                <section style="position:relative;">
+                    <paper-button toggles raised active="{{ demoMenu11 }}" ><mwc-icon>more_vert</mwc-icon>
+                        Styled
+                    </paper-button>
+                    <style>
+                        #menu11 {
+                            --mdc-menu-min-width: 200px;
+                            --mdc-menu-item-height: 30px;
+                            --mdc-theme-surface: aliceblue;
+
+                            /* inherits the styles of mwc-list internally */
+                            --mdc-theme-primary: blue;
+                            --mdc-list-vertical-padding: 0px;
+                            --mdc-list-side-padding: 30px;
+                        }
+                    </style>
+
+                    <mwc-menu activatable multi id="menu11" open="{{ demoMenu11::closed }}">
+                        <mwc-list-item selected activated>Item 0</mwc-list-item>
+                        <mwc-list-item selected activated>Item 1</mwc-list-item>
+                        <mwc-list-item>Item 2</mwc-list-item>
+                        <mwc-list-item>Item 3</mwc-list-item>
+                    </mwc-menu>
+                </section>
+
+                <section style="position:relative;">
 
                     <paper-button  id="cornerButton" toggles raised active="{{ demoMenu2 }}" >
                         <mwc-icon>more_vert</mwc-icon>
-                        Open Menu With Corner
+                        Menu With Corner
                     </paper-button>
-                    <mwc-menu id="menu1" open="{{ demoMenu2 }}" corner="{{ demoMenu1Value }}">
+                    <mwc-menu id="menu1" open="{{ demoMenu2::closed }}" corner="{{ demoMenu1Value }}">
                         <mwc-list-item>one</mwc-list-item>
                         <mwc-list-item>two</mwc-list-item>
                         <mwc-list-item>three</mwc-list-item>
@@ -938,11 +969,10 @@
                         <mwc-list-item value="BOTTOM_END"   >BOTTOM_END     </mwc-list-item>
                     </mwc-select>
 
-                </div>
+                </section>
 
-                <div style="position:relative;">
-                    <mwc-button id="quickButton" raised="" label="Open Quick Menu"></mwc-button>
-                    <mwc-menu quick="" id="quickMenu">
+                <section style="position:relative;">
+                    <mwc-menu quick="" open="{{ demoMenu3::closed }}" >
                         <mwc-list-item>one</mwc-list-item>
                         <mwc-list-item>two</mwc-list-item>
                         <mwc-list-item>three</mwc-list-item>
@@ -951,41 +981,55 @@
                         <mwc-list-item>aaa</mwc-list-item>
                         <mwc-list-item>bbb</mwc-list-item>
                     </mwc-menu>
-                </div>
+                    <paper-button  toggles raised active="{{ demoMenu3 }}" >
+                        <mwc-icon>more_vert</mwc-icon>
+                        Quick Menu
+                    </paper-button>
+                </section>
 
-                <div class="scrollable">
-      <span>
-        <mwc-button id="fixedButton" raised="" label="Open Fixed Menu"></mwc-button>
-        <mwc-menu fixed="" id="fixedMenu">
-          <mwc-list-item>one</mwc-list-item>
-          <mwc-list-item>two</mwc-list-item>
-          <mwc-list-item>three</mwc-list-item>
-          <mwc-list-item disabled=""><div>four</div></mwc-list-item>
-          <li divider=""></li>
-          <mwc-list-item>aaa</mwc-list-item>
-          <mwc-list-item>bbb</mwc-list-item>
-        </mwc-menu>
-      </span>
+                <section class="scrollable">
+                    <span>
+                        <paper-button  toggles raised active="{{ demoMenu4 }}" >
+                            <mwc-icon>more_vert</mwc-icon>
+                            Fixed Menu
+                        </paper-button>
+                        <mwc-menu fixed="" open="{{ demoMenu4::closed }}">
+                            <mwc-list-item>one</mwc-list-item>
+                            <mwc-list-item>two</mwc-list-item>
+                            <mwc-list-item>three</mwc-list-item>
+                            <mwc-list-item disabled=""><div>four</div></mwc-list-item>
+                            <li divider=""></li>
+                            <mwc-list-item>aaa</mwc-list-item>
+                            <mwc-list-item>bbb</mwc-list-item>
+                        </mwc-menu>
+                    </span>
 
                     <span style="position:relative;">
-        <mwc-button id="nonfixedButton" raised="" label="Open Non-Fixed Menu"></mwc-button>
-        <mwc-menu id="nonfixedMenu">
-          <mwc-list-item>one</mwc-list-item>
-          <mwc-list-item>two</mwc-list-item>
-          <mwc-list-item>three</mwc-list-item>
-          <mwc-list-item disabled=""><div>four</div></mwc-list-item>
-          <li divider=""></li>
-          <mwc-list-item>aaa</mwc-list-item>
-          <mwc-list-item>bbb</mwc-list-item>
-        </mwc-menu>
-      </span>
+                        <paper-button  toggles raised active="{{ demoMenu5 }}" >
+                            <mwc-icon>more_vert</mwc-icon>
+                            Non-Fixed Menu
+                        </paper-button>
+                        <mwc-menu open="{{ demoMenu5 }}">
+                            <mwc-list-item>one</mwc-list-item>
+                            <mwc-list-item>two</mwc-list-item>
+                            <mwc-list-item>three</mwc-list-item>
+                            <mwc-list-item disabled=""><div>four</div></mwc-list-item>
+                            <li divider=""></li>
+                            <mwc-list-item>aaa</mwc-list-item>
+                            <mwc-list-item>bbb</mwc-list-item>
+                        </mwc-menu>
+                    </span>
                     <div>Open each menu and then scroll this div</div>
                     <div class="spacer"></div>
-                </div>
+                </section>
 
-                <div>
-                    <mwc-button id="absoluteButton" raised="" label="Open Absolute Menu (no anchor)"></mwc-button>
-                    <mwc-menu absolute="" x="0" y="0" id="absoluteMenu">
+                <section>
+                    <paper-button  toggles raised active="{{ demoMenu6 }}" >
+                        <mwc-icon>more_vert</mwc-icon>
+                        Absolute (no anchor)
+                    </paper-button>
+                    <wel-css-query json='{"x":40, "y":10}' value="{{ menuAbs::change }}" ></wel-css-query>
+                    <mwc-menu absolute="" x$="[[ menuAbs.x ]]" y$="[[ menuAbs.y ]]" open="{{ demoMenu6::closed }}" >
                         <mwc-list-item>one</mwc-list-item>
                         <mwc-list-item>two</mwc-list-item>
                         <mwc-list-item>three</mwc-list-item>
@@ -994,16 +1038,16 @@
                         <mwc-list-item>aaa</mwc-list-item>
                         <mwc-list-item>bbb</mwc-list-item>
                     </mwc-menu>
+                    <mwc-textfield type="number" label="x" outlined=""  value$="{{ menuAbs.x::change }}"></mwc-textfield>
+                    <mwc-textfield type="number" label="y" outlined=""  value$="{{ menuAbs.y::change }}"></mwc-textfield>
+                </section>
 
-                    <mwc-textfield type="number" label="x" outlined="" id="absoluteX" value="0">
-                    </mwc-textfield>
-                    <mwc-textfield type="number" label="y" outlined="" id="absoluteY" value="0">
-                    </mwc-textfield>
-                </div>
-
-                <div style="position:relative;">
-                    <mwc-button id="activatableButton" raised="" label="Open Activatable Menu"></mwc-button>
-                    <mwc-menu activatable="" id="activatableMenu">
+                <section style="position:relative;">
+                    <paper-button  toggles raised active="{{ demoMenu7 }}" >
+                        <mwc-icon>more_vert</mwc-icon>
+                        Activatable
+                    </paper-button>
+                    <mwc-menu activatable="" open="{{ demoMenu7::closed }}">
                         <mwc-list-item>one</mwc-list-item>
                         <mwc-list-item>two</mwc-list-item>
                         <mwc-list-item>three</mwc-list-item>
@@ -1012,11 +1056,14 @@
                         <mwc-list-item>aaa</mwc-list-item>
                         <mwc-list-item>bbb</mwc-list-item>
                     </mwc-menu>
-                </div>
+                </section>
 
-                <div style="position:relative;">
-                    <mwc-button id="multiButton" raised="" label="Open Multi (activatable) Menu"></mwc-button>
-                    <mwc-menu multi="" activatable="" id="multiMenu">
+                <section style="position:relative;">
+                    <paper-button  toggles raised active="{{ demoMenu8 }}" >
+                        <mwc-icon>more_vert</mwc-icon>
+                        Multi (activatable)
+                    </paper-button>
+                    <mwc-menu multi="" activatable="" open="{{ demoMenu8::closed }}">
                         <mwc-list-item selected="" activated="">one</mwc-list-item>
                         <mwc-list-item>two</mwc-list-item>
                         <mwc-list-item selected="" activated="">three</mwc-list-item>
@@ -1025,17 +1072,19 @@
                         <mwc-list-item>aaa</mwc-list-item>
                         <mwc-list-item>bbb</mwc-list-item>
                     </mwc-menu>
-                </div>
+                </section>
 
-                <div style="position:relative;">
+                <section style="position:relative;">
                     <style>
                         #groupedMenu mwc-list-item:not([selected]) mwc-icon {
                             display: none;
                         }
                     </style>
-
-                    <mwc-button id="groupedButton" raised="" label="Open Grouped Menu"></mwc-button>
-                    <mwc-menu multi="" id="groupedMenu">
+                    <paper-button  toggles raised active="{{ demoMenu9 }}" >
+                        <mwc-icon>more_vert</mwc-icon>
+                        Grouped
+                    </paper-button>
+                    <mwc-menu multi="" open="{{ demoMenu9::closed }}" id="groupedMenu">
                         <mwc-list-item selected="" group="a" graphic="icon">
                             <mwc-icon slot="graphic">check</mwc-icon>
                             <span>a-one</span>
@@ -1058,12 +1107,14 @@
                             <span>b-two</span>
                         </mwc-list-item>
                     </mwc-menu>
-                </div>
+                </section>
 
-                <div style="position:relative;">
-                    <mwc-button id="dfsButton" raised="" label="Open Menu With Default Focus">
-                    </mwc-button>
-                    <mwc-menu id="dfsMenu">
+                <section style="position:relative;">
+                    <paper-button  toggles raised active="{{ demoMenu10 }}" >
+                        <mwc-icon>more_vert</mwc-icon>
+                        Default Focus
+                    </paper-button>
+                    <mwc-menu id="dfsMenu" open="{{ demoMenu10::closed }}" defaultFocus$="[[demoMenu10Value]]">
                         <mwc-list-item>one</mwc-list-item>
                         <mwc-list-item>two</mwc-list-item>
                         <mwc-list-item>three</mwc-list-item>
@@ -1072,16 +1123,27 @@
                         <mwc-list-item>aaa</mwc-list-item>
                         <mwc-list-item>bbb</mwc-list-item>
                     </mwc-menu>
-
-                    <mwc-select outlined="" id="dfsSelect" label="Menu Default Focus">
-                        <mwc-list-item value="NONE">NONE</mwc-list-item>
-                        <mwc-list-item value="LIST_ROOT" selected="">LIST_ROOT</mwc-list-item>
-                        <mwc-list-item value="FIRST_ITEM">FIRST_ITEM</mwc-list-item>
-                        <mwc-list-item value="LAST_ITEM">LAST_ITEM</mwc-list-item>
+                    <mwc-select outlined="" label="Menu Default Focus" value="{{demoMenu10Value::action}}" >
+                        <mwc-list-item value="NONE"       >NONE       </mwc-list-item>
+                        <mwc-list-item value="LIST_ROOT"  >LIST_ROOT  </mwc-list-item>
+                        <mwc-list-item value="FIRST_ITEM" >FIRST_ITEM </mwc-list-item>
+                        <mwc-list-item value="LAST_ITEM"  >LAST_ITEM  </mwc-list-item>
                     </mwc-select>
-                </div>
-
-                <div>
+                </section>
+                <section style="position:relative;">
+                    <paper-button  toggles raised active="{{ demoMenu12 }}" >
+                        <mwc-icon>more_vert</mwc-icon>
+                        JSON init
+                    </paper-button>
+                    <wel-css-query json='["from","strings","array"]' value="{{ demoMenu12Value::change }}"></wel-css-query>
+                    <mwc-menu id="menu12" open="{{ demoMenu12::closed }}" >
+                        <template is="dom-repeat" items="[[demoMenu12Value]]">
+                            <mwc-list-item value="[[item]]" > [[item]] </mwc-list-item>
+                        </template>
+                    </mwc-menu>
+                </section>
+<!--
+                <section>
                     <h3>
                         Absolute w/ anchor
                     </h3>
@@ -1099,7 +1161,8 @@
                         <mwc-list-item>aaa</mwc-list-item>
                         <mwc-list-item>bbb</mwc-list-item>
                     </mwc-menu>
-                </div>
+                </section>
+-->
             </main>
         </details>
 
