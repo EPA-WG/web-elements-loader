@@ -37,6 +37,7 @@
 @epa-wg/web-elemens-loader/wel-css-query,
 @material/mwc-textfield,
 @material/mwc-radio,
+@material/mwc-slider,
 "
         >
         <style>
@@ -1253,7 +1254,7 @@
             </main>
         </details>
 
-        <details open>
+        <details>
             <summary>
                 <label> <mwc-icon>toc</mwc-icon> Select </label>
             </summary>
@@ -1369,6 +1370,33 @@
                     <mwc-formfield label="mwc-select.natrualWidth : [[boolNaturalOption1]]">
                         <mwc-checkbox checked="{{boolNaturalOption1::change}}" ></mwc-checkbox>
                     </mwc-formfield>
+                </section>
+            </main>
+        </details>
+        <details open>
+            <summary>
+                <label> <mwc-icon>drag_handle</mwc-icon> Slider </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/slider"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/slider.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <main class="flex-grid">
+                <section>
+                    <h4> Continuous </h4>
+                    <mwc-slider value="{{ slider0::change }}"></mwc-slider>
+                    <br/>
+                    Value:[[slider0]]
+                </section>
+                <section>
+                    <h4> Discrete </h4>
+                    <mwc-slider style="--mdc-theme-secondary: orange;--mdc-theme-text-primary-on-dark: green;"
+                                pin markers max="50" value="10" step="5"
+                                ></mwc-slider>
+                </section>
+                <section>
+                    <h4> Disabled </h4>
+                    <mwc-slider disabled></mwc-slider>
                 </section>
             </main>
         </details>
