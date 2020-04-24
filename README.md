@@ -9,6 +9,11 @@ formatted CDN bundle for Web Components with Polymer + Vaadin Elements, jQuery +
 ( [legacy browsers](https://cdn.xml4jquery.com/web-elements-loader/build/es5-bundled/demo/neon-animation-demo.html) )
 * [Vaadin Elements](https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/demo/vaadin-elements-demo.html) 
 ( [legacy browsers](https://cdn.xml4jquery.com/web-elements-loader/build/es5-bundled/demo/vaadin-elements-demo.html) )
+* [Lunch Time](http://simulationlabs.com/lunchtime/js/) 
+web components demo app served from own domain
+and loading Polymer dependencies from
+<b>https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/node_modules/</b>
+* [Material Web Components Catalog](https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/demo/material-web-components-demo.html) 
 * Play on [JsFiddle](https://jsfiddle.net/suns2015/jms15kn2/)
 * Suggested set TBD 
 
