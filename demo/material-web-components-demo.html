@@ -36,6 +36,7 @@
 @material/mwc-select,
 @epa-wg/web-elemens-loader/wel-css-query,
 @material/mwc-textfield,
+@material/mwc-radio,
 "
         >
         <style>
@@ -885,7 +886,7 @@
                 </section>
             </main>
         </details>
-        <details open>
+        <details>
             <summary>
                 <label> <mwc-icon>menu</mwc-icon> Menu </label>
             </summary>
@@ -1163,6 +1164,212 @@
                     </mwc-menu>
                 </section>
 -->
+            </main>
+        </details>
+        <details >
+            <summary>
+                <label> <mwc-icon>radio_button_checked</mwc-icon> Radio </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/radio"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/radio.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <main class="flex-grid">
+                <section>
+                    <h4> Standard </h4>
+                    <mwc-radio name="myGroup" value="value1"></mwc-radio>
+                    <mwc-radio name="myGroup" value="value2" checked></mwc-radio>
+                    <mwc-formfield label="This is a radio button.">
+                        <mwc-radio name="myGroup" value="value3" ></mwc-radio>
+                    </mwc-formfield>
+                </section>
+                <section>
+                    <h4>Custom color</h4>
+                    <div style="background-color: #763676;
+                                --mdc-theme-secondary: #ff2929;
+                                --mdc-radio-unchecked-color: white;">
+                        <mwc-radio name="myGroup1" checked></mwc-radio>
+                        <mwc-radio name="myGroup1"></mwc-radio>
+                    </div>
+                    <hr/>
+                    <div style="background-color: #363636; color: white;
+                                --mdc-theme-secondary: #ff2929;
+                                  --mdc-radio-disabled-color: #adadad; ">
+                        Disabled<br/>
+                        <mwc-radio disabled  name="myGroup2" checked></mwc-radio>
+                        <mwc-radio disabled name="myGroup2"></mwc-radio>
+                    </div>
+                </section>
+                <section>
+                    <h4>With Form Field</h4>
+                    <mwc-formfield label="Home">
+                        <mwc-radio name="location"></mwc-radio>
+                    </mwc-formfield>
+
+                    <mwc-formfield label="Work">
+                        <mwc-radio name="location"></mwc-radio>
+                    </mwc-formfield>
+                </section>
+            </main>
+        </details>
+
+        <!-- ripple is broken on https://mwc-demos.glitch.me/demos/ripple.html -->
+        <details>
+            <summary>
+                <label> <mwc-icon>contact_support</mwc-icon> Ripple </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/ripple"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/ripple.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <p> Original demo seems broken, hence this one as well </p>
+            <main class="flex-grid">
+                <section>
+                    <h4> Standard </h4>
+                    <mwc-ripple></mwc-ripple>
+                </section>
+                <section>
+                    <h4>Unbounded</h4>
+                    <mwc-ripple unbounded></mwc-ripple>
+                </section>
+                <section>
+                    <style>
+                        .demo-box {
+                            width: 128px;
+                            height: 128px;
+                            border: 1px solid gray;
+                            display: inline-flex;
+                            justify-content: center;
+                            text-align: center;
+                            flex-direction: column;
+                            padding: 8px;
+                        }
+                    </style>
+                    <div class="demo-box">Primary<mwc-ripple primary></mwc-ripple></div>
+                    <div class="demo-box">Accent<mwc-ripple accent></mwc-ripple></div>
+                    <div class="demo-box"><input placeholder="Say something..."><mwc-ripple></mwc-ripple></div>
+                    <div class="demo-box">Unbounded<mwc-ripple unbounded></mwc-ripple></div>
+                </section>
+            </main>
+        </details>
+
+        <details open>
+            <summary>
+                <label> <mwc-icon>toc</mwc-icon> Select </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/select"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/select.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <main class="flex-grid">
+                <section>
+                    <h4> Basic (filled) </h4>
+                    <mwc-select label="filled">
+                        <mwc-list-item></mwc-list-item>
+                        <mwc-list-item value="0">Item 0</mwc-list-item>
+                        <mwc-list-item value="1">Item 1</mwc-list-item>
+                        <mwc-list-item value="2">Item 2</mwc-list-item>
+                        <mwc-list-item value="3">Item 3</mwc-list-item>
+                    </mwc-select>
+                </section>
+                <section>
+                    <h4>Outlined</h4>
+                    <mwc-select outlined label="outlined">
+                        <mwc-list-item></mwc-list-item>
+                        <mwc-list-item value="0">Item 0</mwc-list-item>
+                        <mwc-list-item value="1">Item 1</mwc-list-item>
+                        <mwc-list-item value="2">Item 2</mwc-list-item>
+                        <mwc-list-item value="3">Item 3</mwc-list-item>
+                    </mwc-select>
+                </section>
+                <section>
+                    <h4>Preselected</h4>
+                    <mwc-select label="preselected">
+                        <mwc-list-item></mwc-list-item>
+                        <mwc-list-item selected value="0">Item 0</mwc-list-item>
+                        <mwc-list-item value="1">Item 1</mwc-list-item>
+                        <mwc-list-item value="2">Item 2</mwc-list-item>
+                        <mwc-list-item value="3">Item 3</mwc-list-item>
+                    </mwc-select>
+                </section>
+                <section>
+                    <h4>Icon</h4>
+                    <mwc-select label="has icon" icon="event">
+                        <mwc-list-item graphic="icon" value="1">Option 1</mwc-list-item>
+                        <mwc-list-item graphic="icon" value="2">Option 2</mwc-list-item>
+                        <mwc-list-item graphic="icon" value="3">Option 3</mwc-list-item>
+                    </mwc-select>
+                </section>
+                <section>
+                    <h4>Required</h4>
+                    <mwc-select
+                            required
+                            validationMessage="This Field is Required"
+                            label="required (error)">
+                        <mwc-list-item selected></mwc-list-item>
+                        <mwc-list-item value="0">Item 0</mwc-list-item>
+                        <mwc-list-item value="1">Item 1</mwc-list-item>
+                        <mwc-list-item value="2">Item 2</mwc-list-item>
+                        <mwc-list-item value="3">Item 3</mwc-list-item>
+                    </mwc-select>
+                    <mwc-select
+                            required
+                            validationMessage="This Field is Required"
+                            outlined
+                            label="required (error)">
+                        <mwc-list-item selected></mwc-list-item>
+                        <mwc-list-item value="0">Item 0</mwc-list-item>
+                        <mwc-list-item value="1">Item 1</mwc-list-item>
+                        <mwc-list-item value="2">Item 2</mwc-list-item>
+                        <mwc-list-item value="3">Item 3</mwc-list-item>
+                    </mwc-select>
+                </section>
+                <section>
+                    <h4>Disabled</h4>
+                    <mwc-select disabled label="disabled">
+                        <mwc-list-item></mwc-list-item>
+                        <mwc-list-item disabled value="1">Option 1</mwc-list-item>
+                        <mwc-list-item value="2">Option 2</mwc-list-item>
+                        <mwc-list-item value="3">Option 3</mwc-list-item>
+                    </mwc-select>
+                </section>
+                <section>
+                    <h4> Disabled Options </h4>
+                    <mwc-select label="disabled" id="disabledOptions" value="{{ disabledOptionsvalue::selected }}">
+                        <mwc-list-item></mwc-list-item>
+                        <mwc-list-item value="1">Option 1</mwc-list-item>
+                        <mwc-list-item disabled value="2"><div>Option 2</div></mwc-list-item>
+                        <mwc-list-item value="3">Option 3</mwc-list-item>
+                    </mwc-select>
+                    <div>Value: [[disabledOptionsvalue]]</div>
+                </section>
+                <section>
+                    <h4> Natural Menu Width </h4>
+                    <mwc-select label="natural width (long)" style="{ max-width: 200px; }"
+                                naturalWidth$="{{ boolNaturalOption }}"
+                    >
+                        <mwc-list-item></mwc-list-item>
+                        <mwc-list-item value="1">Some Really Really Really long text</mwc-list-item>
+                        <mwc-list-item value="2">Some Really Really Really long text</mwc-list-item>
+                        <mwc-list-item value="3">Some Really Really Really long text</mwc-list-item>
+                    </mwc-select>
+                    <br/>
+                    <mwc-formfield label="mwc-select.natrualWidth : [[boolNaturalOption]]">
+                        <mwc-checkbox checked="{{boolNaturalOption::change}}" ></mwc-checkbox>
+                    </mwc-formfield>
+                    <br/>
+                    <mwc-select label="natural width (short)" id="shortNaturalOptions"
+                                naturalWidth$="{{ boolNaturalOption1 }}"
+                    >
+                        <mwc-list-item></mwc-list-item>
+                        <mwc-list-item value="1">Short text</mwc-list-item>
+                        <mwc-list-item value="2">Short text</mwc-list-item>
+                        <mwc-list-item value="3">Short text</mwc-list-item>
+                    </mwc-select>
+                    <mwc-formfield label="mwc-select.natrualWidth : [[boolNaturalOption1]]">
+                        <mwc-checkbox checked="{{boolNaturalOption1::change}}" ></mwc-checkbox>
+                    </mwc-formfield>
+                </section>
             </main>
         </details>
 
