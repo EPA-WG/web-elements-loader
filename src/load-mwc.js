@@ -51,6 +51,7 @@ class LoadMaterialWC extends LoadCollection
         init(x=>import('@material/mwc-tab'                          )),
         init(x=>import('@material/mwc-tab-bar'                      )),
         init(x=>import('@material/mwc-textarea'                     )),
+        init(x=>import('@material/mwc-top-app-bar'                  )),
         ]
     }
 
