@@ -46,6 +46,8 @@ class LoadMaterialWC extends LoadCollection
         init(x=>import('@material/mwc-select'                       )),
         init(x=>import('@material/mwc-textfield'                    )),
         init(x=>import('@material/mwc-slider'                       )),
+        init(x=>import('@material/mwc-snackbar'                     )),
+        init(x=>import('@material/mwc-switch'                       )),
         ]
     }
 

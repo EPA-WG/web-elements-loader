@@ -38,6 +38,8 @@
 @material/mwc-textfield,
 @material/mwc-radio,
 @material/mwc-slider,
+@material/mwc-snackbar,
+@material/mwc-switch,
 "
         >
         <style>
@@ -1373,7 +1375,7 @@
                 </section>
             </main>
         </details>
-        <details open>
+        <details>
             <summary>
                 <label> <mwc-icon>drag_handle</mwc-icon> Slider </label>
             </summary>
@@ -1400,8 +1402,67 @@
                 </section>
             </main>
         </details>
+        <details>
+            <summary>
+                <label> <mwc-icon>sms</mwc-icon> Snackbar </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/snackbar"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/snackbar.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/issues/1212" style="color: red"
+            ><mwc-button label="Demo Unavailable due to bug " icon="error" outlined ></mwc-button></a>
+            <main class="flex-grid">
+                <mwc-snackbar labelText="Can't send photo. Retry in 5 seconds." open="{{ snack1::closed }}">
+                    <mwc-button id="actionButton" slot="action">RETRY</mwc-button>
+                    <mwc-icon-button id="iconButton" icon="close" slot="dismiss"></mwc-icon-button>
+                </mwc-snackbar>
+                <paper-button toggles raised active="{{ snack1 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                    Actions
+                </paper-button>
+            </main>
+        </details>
+        <details open>
+            <summary>
+                <label> <mwc-icon>toggle_on</mwc-icon> Switch </label>
+            </summary>
+            <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/switch"
+            ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+            <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/switch.html"
+            ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+            <main class="flex-grid">
+                <section>
+                    <h4> Standard </h4>
+                    <mwc-switch checked="{{ switch0::change }}"></mwc-switch>
+                    <br/>
+                    Value:[[switch0]]
+                </section>
+                <section>
+                    <h4> Checked  </h4>
+                    <mwc-switch checked></mwc-switch>
+                </section>
+                <section>
+                    <h4> Disabled </h4>
+                    <mwc-switch disabled></mwc-switch>
+                    <mwc-switch checked disabled></mwc-switch>
+                </section>
+                <section style="--mdc-theme-surface: blue;
+                                --mdc-theme-on-surface: blue;
+                                --mdc-theme-secondary: red;">
+                    <h4> Styled </h4>
+                    <mwc-switch></mwc-switch>
+                    <mwc-switch checked></mwc-switch>
+                </section>
+                <section>
+                    <h4> With Form Field </h4>
+                    <mwc-formfield label="Airplane mode">
+                        <mwc-switch checked></mwc-switch>
+                    </mwc-formfield>
+                </section>
+            </main>
+        </details>
 
-<!-- content of this file is appended to index.html during build -->
+            <!-- content of this file is appended to index.html during build -->
         <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
         <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
         <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
