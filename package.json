@@ -64,6 +64,7 @@
     "@material/mwc-textarea": "^0.14.1",
     "@material/mwc-textfield": "^0.14.1",
     "@material/mwc-top-app-bar": "^0.14.1",
+    "@material/mwc-top-app-bar-fixed": "^0.14.1",
     "@polymer/app-layout": "^3.1.0",
     "@polymer/app-route": "^3.0.2",
     "@polymer/app-storage": "^3.0.3",

@@ -44,6 +44,7 @@
 @material/mwc-tab-bar,
 @material/mwc-textarea,
 @material/mwc-top-app-bar,
+@material/mwc-top-app-bar-fixed,
 "
         >
         <style>
@@ -1786,7 +1787,7 @@
                     </section>
                 </main>
             </details>
-            <details open>
+            <details>
                 <summary>
                     <label> <mwc-icon>calendar_today</mwc-icon> Top App Bar </label>
                 </summary>
@@ -1874,6 +1875,94 @@
                         </mwc-top-app-bar>
                     </template>
                 </section>
+            </details>
+            <details>
+                <summary>
+                    <label> <mwc-icon>calendar_today</mwc-icon> Top App Bar Fixed </label>
+                </summary>
+                <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/top-app-bar"
+                ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+                <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/top-app-bar.html"
+                ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+                <p> Select one, try to scroll. </p>
+                <section class="flex-grid">
+                    <mwc-formfield label="Basic (filled)">
+                        <mwc-radio id="one" name="a" checked="{{ appBarFixed0::checked }}"></mwc-radio>
+                    </mwc-formfield>
+                    <mwc-formfield label="Center Title">
+                        <mwc-radio id="two" name="a" checked="{{ appBarFixed1::checked }}"></mwc-radio>
+                    </mwc-formfield>
+                    <mwc-formfield label="Dense">
+                        <mwc-radio id="two" name="a" checked="{{ appBarFixed2::checked }}"></mwc-radio>
+                    </mwc-formfield>
+                    <mwc-formfield label="Prominent">
+                        <mwc-radio id="two" name="a" checked="{{ appBarFixed3::checked }}"></mwc-radio>
+                    </mwc-formfield>
+                    <mwc-formfield label="Prominent and Dense">
+                        <mwc-radio id="two" name="a" checked="{{ appBarFixed4::checked }}"></mwc-radio>
+                    </mwc-formfield>
+                    <mwc-formfield label="Color">
+                        <mwc-radio id="two" name="a" checked="{{ appBarFixed5::checked }}"></mwc-radio>
+                    </mwc-formfield>
+                </section>
+                <template is="dom-if" if="[[appBarFixed0]]">
+                    <mwc-top-app-bar-fixed>
+                        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+                        <div slot="title">Title</div>
+                        <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                        <div><!-- content --></div>
+                    </mwc-top-app-bar-fixed>
+                </template>
+                <template is="dom-if" if="[[appBarFixed1]]">
+                    <mwc-top-app-bar-fixed centerTitle>
+                        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+                        <div slot="title">Title</div>
+                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                        <div><!-- content --></div>
+                    </mwc-top-app-bar-fixed>
+                </template>
+                <template is="dom-if" if="[[appBarFixed2]]">
+                    <mwc-top-app-bar-fixed dense>
+                        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+                        <div slot="title">Title</div>
+                        <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                        <div><!-- content --></div>
+                    </mwc-top-app-bar-fixed>
+                </template>
+                <template is="dom-if" if="[[appBarFixed3]]">
+                    <mwc-top-app-bar-fixed prominent>
+                        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+                        <div slot="title">Title</div>
+                        <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                        <div><!-- content --></div>
+                    </mwc-top-app-bar-fixed>
+                </template>
+                <template is="dom-if" if="[[appBarFixed4]]">
+                    <mwc-top-app-bar-fixed prominent dense>
+                        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+                        <div slot="title">Title</div>
+                        <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                        <div><!-- content --></div>
+                    </mwc-top-app-bar-fixed>
+                </template>
+                <template is="dom-if" if="[[appBarFixed5]]">
+                    <mwc-top-app-bar-fixed style="--mdc-theme-primary: orange; --mdc-theme-on-primary: black;">
+                        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+                        <div slot="title">Title</div>
+                        <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                        <div><!-- content --></div>
+                    </mwc-top-app-bar-fixed>
+                </template>
             </details>
         </main>
 
