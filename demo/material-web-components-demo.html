@@ -69,6 +69,7 @@
             section>h4 { background: aliceblue;padding: 0.5rem 1rem;margin: 0;border-radius: 3rem 0;}
             mwc-textfield[type="number"]{width: 5em}
             .section-100 section{ min-width: 40rem}
+            mwc-textarea{ display:block; margin: 0.5rem 0 0.5rem 0 }
         </style>
 
             <app-toolbar>
@@ -1634,7 +1635,40 @@
                 <section>
                     <h4> Standard </h4>
                     <mwc-textarea label="Standard"></mwc-textarea><br/><br/>
-                    <mwc-textarea outlined label="outlined"></mwc-textarea>
+                    <mwc-textarea outlined label="outlined + primary color"
+                        style="--mdc-theme-primary: green;"
+                    ></mwc-textarea>
+                </section>
+                <section>
+                    <h4> Shaping Outlined </h4>
+                    <style>
+
+                        mwc-textarea.left {
+                            --mdc-notched-outline-leading-width: 28px;
+                            --mdc-notched-outline-leading-border-radius: 28px 0 0 28px;
+                        }
+
+                        mwc-textarea.right {
+                            --mdc-notched-outline-trailing-border-radius: 0 28px 28px 0;
+                        }
+                    </style>
+                    <mwc-textarea
+                            class="left";
+                            label="My Textarea"
+                            outlined>
+                    </mwc-textarea>
+
+                    <mwc-textarea
+                            class="right";
+                            label="My Textarea"
+                            outlined>
+                    </mwc-textarea>
+
+                    <mwc-textarea
+                            class="left right"
+                            label="My Textarea"
+                            outlined>
+                    </mwc-textarea>
                 </section>
                 <section>
                     <h4> Character Counter </h4>
