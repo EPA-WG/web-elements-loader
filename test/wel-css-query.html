@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="module" src="../src/wel-css-query.js"></script>
+</head>
+<body>
+<input name="byName" value="byName"/>
+<input id="byId" value="byId"/>
+<input class="by-class" value="by-class"/>
+<wel-css-query id="s1" for="byId" ></wel-css-query>
+<wel-css-query id="s2" href="#byId" ></wel-css-query>
+<wel-css-query id="s3" href="input[name=byName]" ></wel-css-query>
+<wel-css-query id="s4" href=".by-class" ></wel-css-query>
+<wel-css-query id="s5" css=".by-class" ></wel-css-query>
+</body>
+</html>

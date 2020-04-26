@@ -41,6 +41,7 @@
     "test:integration": "polymer build # test that psk builds without error with the CLI"
   },
   "dependencies": {
+    "@ionic-native/action-sheet": "^5.24.0",
     "@material/mwc-button": "^0.14.1",
     "@material/mwc-checkbox": "^0.14.1",
     "@material/mwc-dialog": "^0.14.1",
