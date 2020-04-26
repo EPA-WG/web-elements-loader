@@ -128,6 +128,7 @@
     "@vaadin/vaadin": "^15.0.4",
     "@vaadin/vaadin-lumo-styles": "^1.6.0",
     "@webcomponents/webcomponentsjs": "^2.4.3",
+    "jquery-ui": "^1.12.1",
     "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
