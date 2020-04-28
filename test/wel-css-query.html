@@ -9,10 +9,16 @@
 <input name="byName" value="byName"/>
 <input id="byId" value="byId"/>
 <input class="by-class" value="by-class"/>
-<wel-css-query id="s1" for="byId" ></wel-css-query>
-<wel-css-query id="s2" href="#byId" ></wel-css-query>
-<wel-css-query id="s3" href="input[name=byName]" ></wel-css-query>
-<wel-css-query id="s4" href=".by-class" ></wel-css-query>
-<wel-css-query id="s5" css=".by-class" ></wel-css-query>
+<wel-css-query id="s1" src="byId" ></wel-css-query>
+<wel-css-query id="s2" src="#byId" ></wel-css-query>
+<wel-css-query id="s3" src="input[name=byName]" ></wel-css-query>
+<wel-css-query id="s4" src=".by-class" ></wel-css-query>
+<wel-css-query id="s5" src=".by-class" ></wel-css-query>
+<span>from s8</span>
+<div>
+    <span id="s6">from s7</span>
+    <wel-css-query id="s7" src="div|span" ></wel-css-query>
+    <wel-css-query id="s8" src="body|span" ></wel-css-query>
+</div>
 </body>
 </html>
