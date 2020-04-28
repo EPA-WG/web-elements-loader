@@ -20,7 +20,9 @@ class LoadIonic extends LoadCollection
     initDependencies()
     {   const init= i => this.initModule(i);
         return [
-        init(x=>import('@ionic-native/action-sheet'                )),
+        // init(x=>import("@stencil/core/"                                                      )),
+        init(x=>import("@ionic/core/dist/ionic/ionic.esm.js"                )),
+        // init(x=>import("@ionic/core/dist/esm/ionic.mjs"                )),
         ]
     }
 
