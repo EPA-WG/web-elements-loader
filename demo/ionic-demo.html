@@ -1,5 +1,85 @@
 <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="module" src="../src/web-elemens-loader.js"></script>
+<ion-app>
+    <ion-menu side="start" menu-id="first" content-id="main">
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Start Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <ion-menu side="start" menu-id="custom" class="my-custom-menu" content-id="main">
+        <ion-header>
+            <ion-toolbar color="tertiary">
+                <ion-title>Custom Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <ion-menu side="end" type="push" content-id="main">
+        <ion-header>
+            <ion-toolbar color="danger">
+                <ion-title>End Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="main">
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start"><a href="./"><paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button></a></ion-buttons>
+                <ion-title > Ionic elements from CDN demo </ion-title>
+                <ion-buttons slot="end"
+                    ><a  title="git source"
+                         href="https://github.com/EPA-WG/web-elements-loader/blob/master/demo/ionic-demo.html" >
+                    <img src="octocat.svg"/>
+                </a></ion-buttons>
+
+            </ion-toolbar>
+        </ion-header>
+        <ion-footer>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-menu-button menu="start"></ion-menu-button>
+                </ion-buttons>
+                <ion-title>  Menus </ion-title>
+                <ion-buttons slot="end">
+                    <ion-menu-button menu="end"></ion-menu-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-footer>
+        <ion-content class="ion-padding">
+
+
+
 <dom-bind>
     <template>
 
@@ -7,33 +87,37 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     @import url('https://fonts.googleapis.com/css?family=Material+Icons&display=block');
-    body{font-family: 'Roboto', sans-serif; margin: 0 }
-    body>*>*{ padding: 0 0.5rem }
+    body{font-family: 'Roboto', sans-serif; margin: 0;position: initial!important;overflow: auto!important;}
     details[open]{width: 100%}
     app-toolbar, header
     {   color: white; background-color: var(--google-blue-500); min-height: 3rem; display: flex;
         justify-content: space-between; align-items:center;
     }
     app-toolbar a{color: white;}
+    h3>a{ display: flex; }
     header h3{ flex-grow: 4; padding-left: 1rem }
     img{ height: 2rem }
     app-toolbar h1{ flex-grow: 4; }
     details p{ display: flex; flex-wrap:wrap; }
     .flex-grid{ display: flex; flex-wrap:wrap; }
     .flex-grid>*{ margin: 0.3rem }
+    summary { padding: 0.3rem; }
+    label { min-width:10em; display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
+
 
     ion-col { background-color: azure;border: dashed green;  margin: 0.3rem; border-radius: 0.3rem;  }
 </style>
-<app-toolbar>
-    <a href="./"><paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button></a>
-    <h1> Ionic elements from CDN demo </h1>
-    <a  title="git source"
-        href="https://github.com/material-components/material-components-web-components/" >
-        <img src="octocat.svg"/>
-    </a>
-</app-toolbar>
 
-<main>
+<h3>
+    <a href="https://ionicframework.com/docs/api">
+        <img src="ionic.svg"/>
+        Ionic Components - full set demo
+    </a>
+</h3>
+<p>
+    This page is a demonstration of declarative programming of Ionic components on polymer bound page.
+</p>
+<main class="flex-grid">
     <details open>
         <summary>
             <label> <ion-icon name="tablet-landscape-outline"></ion-icon> Button </label>
@@ -86,6 +170,17 @@
             <ion-button size="large">Large</ion-button>
             <ion-button>Default</ion-button>
             <ion-button size="small">Small</ion-button>
+        </section>
+    </details>
+    <details >
+        <summary>
+            <label> <ion-icon name="menu-outline"></ion-icon> Menu </label>
+        </summary>
+        <section>
+            Look bellow on footer sides for start/end menus. Or open
+            <ion-menu-toggle menu="custom">
+                <ion-button><ion-icon  name="person-circle"></ion-icon> Custom Menu </ion-button>
+            </ion-menu-toggle>
         </section>
     </details>
     <details >
@@ -252,7 +347,7 @@
     </details>
     <details >
         <summary>
-            <label> <ion-icon name="close-circle"></ion-icon> Floating action button (fab) </label>
+            <label> <ion-icon name="close-circle"></ion-icon> Floating action </label>
         </summary>
         <section>
             <ion-content>
@@ -338,7 +433,7 @@
     </details>
     <details >
         <summary>
-            <label> <ion-icon name="plus-circle"></ion-icon> Fab Button  </label>
+            <label> <ion-icon name="alert-circle"></ion-icon> Fab Button  </label>
         </summary>
         <section class="flex-grid">
 
@@ -1054,6 +1149,11 @@
         </script>
     </template>
 </dom-bind>
+
+        </ion-content>
+    </div>
+</ion-app>
+
 <script type="module" src="../node_modules/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="../node_modules/@ionic/core/dist/ionic/ionic.js"></script>
 <link rel="stylesheet" href="../node_modules/@ionic/core/css/ionic.bundle.css"/>
