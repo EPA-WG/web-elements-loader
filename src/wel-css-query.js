@@ -6,7 +6,10 @@ export default class WelCssQuery extends HTMLElement
     static get observedAttributes(){ return ['src','dst','srcprop','dstprop'] }
     connectedCallback()
     {   let  a = x=>x && this.getAttribute(x)
-        ,    $ = x=>document.querySelector(x)
+        ,    $ = x=>{   let [a,b] = x? x.split('|') :[]
+                        , c = ( b ? this.closest(a) : this.getRootNode() ) ;
+                        return c && c.querySelector( b || a )
+                    }
         ,    s = a('src'    )
         ,   sp = a('srcprop')
         ,    d = a('dst'    )

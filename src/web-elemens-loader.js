@@ -7,6 +7,7 @@ import "./load-paper-behaviors";
 import "./load-paper-elements";
 import "./load-vaadin-elements";
 import "./load-mwc";
+import "./load-ionic";
 
 /**
  * Current web-elemens-loader version in Semver notation.
@@ -49,6 +50,7 @@ class WebcomponentsElement extends PolymerElement
 <load-iron-elements     disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-iron-elements>
 <load-vaadin-elements   disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-vaadin-elements>
 <load-mwc               disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-mwc>
+<load-ionic             disabled$="[[disabled]]" selection=[[selection]] on-selection-changed='onCollectionChanged' class="load-collection" visible$="[[visible]]"></load-ionic>
     `;
     }
 
