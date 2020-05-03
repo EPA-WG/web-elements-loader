@@ -1,5 +1,37 @@
 <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="module" src="../src/web-elemens-loader.js"></script>
+<meta name="color-scheme" content="light dark" />
+
+<style is="custom-style">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+    @import url('https://fonts.googleapis.com/css?family=Material+Icons&display=block');
+    @import "darkmode.css";
+    body{font-family: 'Roboto', sans-serif; margin: 0;position: initial!important;overflow: auto!important;}
+    details[open]{width: 100%}
+    ion-toolbar ion-icon { height: 2rem; width: 2rem; }
+    h3>a{ display: flex; }
+    header h3{ flex-grow: 4; padding-left: 1rem }
+    img{ height: 2rem }
+    details p{ display: flex; flex-wrap:wrap; }
+    .flex-grid{ display: flex; flex-wrap:wrap; justify-content:space-between; align-items:center; }
+    .flex-grid>*{ margin: 0.3rem }
+    summary { padding: 0.3rem; }
+    label { min-width:10em; display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
+    label ion-icon, details section{ padding: 0.3rem; }
+
+    ion-item ion-button{height: 2rem;}
+    .component-icon { border-radius: 50%; padding: 7px; height: 18px; width: 18px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .component-icon-dark {
+        background: var(--ion-color-step-850, #27323e);
+        color: var(--ion-item-background, #fff);
+    }
+    ion-col { background-color: azure;border: dashed green;  margin: 0.3rem; border-radius: 0.3rem;  }
+</style>
+
 <ion-app>
     <ion-menu side="start" menu-id="first" content-id="main">
         <ion-header>
@@ -55,7 +87,7 @@
     <div class="ion-page" id="main">
         <ion-header>
             <ion-toolbar>
-                <ion-buttons slot="start"><a href="./"><paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button></a></ion-buttons>
+                <ion-buttons slot="start"><a href="./"><ion-icon name="arrow-undo"></ion-icon></a></ion-buttons>
                 <ion-title > Ionic elements from CDN demo </ion-title>
                 <ion-buttons slot="end"
                     ><a  title="git source"
@@ -80,43 +112,35 @@
 
 
 
-<dom-bind>
-    <template>
-
-<style is="custom-style">
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-    @import url('https://fonts.googleapis.com/css?family=Material+Icons&display=block');
-    body{font-family: 'Roboto', sans-serif; margin: 0;position: initial!important;overflow: auto!important;}
-    details[open]{width: 100%}
-    app-toolbar, header
-    {   color: white; background-color: var(--google-blue-500); min-height: 3rem; display: flex;
-        justify-content: space-between; align-items:center;
-    }
-    app-toolbar a{color: white;}
-    h3>a{ display: flex; }
-    header h3{ flex-grow: 4; padding-left: 1rem }
-    img{ height: 2rem }
-    app-toolbar h1{ flex-grow: 4; }
-    details p{ display: flex; flex-wrap:wrap; }
-    .flex-grid{ display: flex; flex-wrap:wrap; }
-    .flex-grid>*{ margin: 0.3rem }
-    summary { padding: 0.3rem; }
-    label { min-width:10em; display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
-
-
-    ion-col { background-color: azure;border: dashed green;  margin: 0.3rem; border-radius: 0.3rem;  }
-</style>
-
 <h3>
     <a href="https://ionicframework.com/docs/api">
         <img src="ionic.svg"/>
         Ionic Components - full set demo
     </a>
 </h3>
+<h4>Demonstration of declarative programming of Ionic page.</h4>
 <p>
-    This page is a demonstration of declarative programming of Ionic components on polymer bound page.
+     You still would need to empower it with business logic
+    either in old fashion by JS or declaratively like by Polymer binding.
+
+    Right menu  in this demo is filled from JSON declaratively,
+    dark mode is triggered by JS.
+<!--    <ion-menu-button menu="end"><ion-icon name="menu-outline"></ion-icon></ion-menu-button>-->
 </p>
+<ion-list>
+    <ion-item>
+        <ion-label >Show right menu </ion-label>
+        <ion-button slot="end"><ion-menu-button menu="end"></ion-menu-button></ion-button>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="moon" slot="start" class="component-icon component-icon-dark ios hydrated"></ion-icon>
+        <ion-label >Dark Mode</ion-label>
+        <ion-toggle slot="end" role="checkbox"
+                    id="toggleDarkMode"
+                    class="ios in-item interactive hydrated">
+        </ion-toggle>
+    </ion-item>
+</ion-list>
 <main class="flex-grid">
     <details open>
         <summary>
@@ -349,7 +373,7 @@
         <summary>
             <label> <ion-icon name="close-circle"></ion-icon> Floating action </label>
         </summary>
-        <section>
+        <section style="height: 15rem">
             <ion-content>
                 <!-- fab placed to the top end -->
                 <ion-fab vertical="top" horizontal="end" slot="fixed">
@@ -668,7 +692,7 @@
         <summary>
             <label> <ion-icon name="swap-horizontal"></ion-icon> Sliding  </label>
         </summary>
-        <p>Swipe text to right/left</p>
+        <i>Swipe text bellow to right/left</i>
         <section >
             <ion-list>
                 <!-- Sliding item with text options on both sides -->
@@ -1130,25 +1154,6 @@
     </details>
 </main>
 
-<!-- content of this file is appended to index.html during build -->
-        <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
-        <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
-        <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
-
-        <web-elemens-loader visible="true" id="webcomponentsElement" selection="{{sel}}"></web-elemens-loader>
-        <script>
-            webcomponentsElement.selection = `
-@polymer/paper-styles/paper-styles,
-@polymer/app-layout,
-@polymer/iron-icon,
-@polymer/paper-icon-button,
-@vaadin/vaadin-lumo-styles/icons,
-@vaadin/vaadin-icons,
-
-            `;
-        </script>
-    </template>
-</dom-bind>
 
         </ion-content>
     </div>
@@ -1157,3 +1162,8 @@
 <script type="module" src="../node_modules/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="../node_modules/@ionic/core/dist/ionic/ionic.js"></script>
 <link rel="stylesheet" href="../node_modules/@ionic/core/css/ionic.bundle.css"/>
+<script>
+    toggleDarkMode.addEventListener('ionChange', (ev) => {
+        document.body.classList.toggle('dark', ev.detail.checked);
+    });
+</script>

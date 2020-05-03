@@ -8,6 +8,8 @@
   ],
   "extraDependencies": [
     "manifest.json",
+    "node_modules/@ionic/core/dist/ionic/**/*",
+    "node_modules/@ionic/core/css/**/*",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
     "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
@@ -30,7 +32,8 @@
         "minify": true
       },
       "bundle": false,
-      "addServiceWorker": false
+      "addServiceWorker": false,
+      "stripComments": true
     },
     {
       "name": "esm-debug",
@@ -66,7 +69,8 @@
         "minify": true
       },
       "bundle": false,
-      "addServiceWorker": false
+      "addServiceWorker": false,
+      "stripComments": true
     }
   ],
   "lint": {
