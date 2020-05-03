@@ -19,18 +19,19 @@
     summary { padding: 0.3rem; }
     label { min-width:10em; display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
     label ion-icon, details section{ padding: 0.3rem; }
-
+    ion-list-header { font-size: x-large;font-weight: bold; }
     ion-item ion-button{height: 2rem;}
-    .component-icon { border-radius: 50%; padding: 7px; height: 18px; width: 18px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-    .component-icon-dark {
-        background: var(--ion-color-step-850, #27323e);
-        color: var(--ion-item-background, #fff);
-    }
+    .component-icon { border-radius: 50%; padding: 0.3rem; height: 1.2rem; width: 1.2rem; margin: 0.3rem; }
+    .component-icon-dark { background: var(--ion-color-step-850, #27323e); color: var(--ion-item-background, #fff); }
     ion-col { background-color: azure;border: dashed green;  margin: 0.3rem; border-radius: 0.3rem;  }
 </style>
+<dom-bind>
+    <template>
+    <iron-ajax url='data:text/json;charset=utf-8,
+                            ["primary","secondary","tertiary","success"
+                            ,"warning","danger","light","medium","dark"
+                            ]'
+        last-response="{{themeColors}}" auto handle-as="json"></iron-ajax>
 
 <ion-app>
     <ion-menu side="start" menu-id="first" content-id="main">
@@ -74,13 +75,12 @@
             </ion-toolbar>
         </ion-header>
         <ion-content>
-            <ion-list>
-                <ion-item>Menu Item</ion-item>
-                <ion-item>Menu Item</ion-item>
-                <ion-item>Menu Item</ion-item>
-                <ion-item>Menu Item</ion-item>
-                <ion-item>Menu Item</ion-item>
-            </ion-list>
+                    <ion-list>
+                        <ion-list-header>Theme Colors</ion-list-header>
+                        <template is="dom-repeat" items="[[ themeColors ]]" as="tColor">
+                            <ion-item color="[[ tColor ]]">[[ tColor ]]</ion-item>
+                        </template>
+                    </ion-list>
         </ion-content>
     </ion-menu>
 
@@ -135,10 +135,7 @@
     <ion-item>
         <ion-icon name="moon" slot="start" class="component-icon component-icon-dark ios hydrated"></ion-icon>
         <ion-label >Dark Mode</ion-label>
-        <ion-toggle slot="end" role="checkbox"
-                    id="toggleDarkMode"
-                    class="ios in-item interactive hydrated">
-        </ion-toggle>
+        <ion-toggle slot="end"   id="toggleDarkMode" ></ion-toggle>
     </ion-item>
 </ion-list>
 <main class="flex-grid">
@@ -153,6 +150,9 @@
             <ion-button href="#">Anchor</ion-button>
 
             <!-- Colors -->
+            <template is="dom-repeat" items="[[ themeColors ]]" as="tColor">
+                <ion-button color="[[ tColor ]]">[[ tColor ]]</ion-button>
+            </template>
             <ion-button color="primary">Primary</ion-button>
             <ion-button color="secondary">Secondary</ion-button>
             <ion-button color="tertiary">Tertiary</ion-button>
@@ -201,9 +201,9 @@
             <label> <ion-icon name="menu-outline"></ion-icon> Menu </label>
         </summary>
         <section>
-            Look bellow on footer sides for start/end menus. Or open
+            Look bellow on footer sides for start/end menus.
             <ion-menu-toggle menu="custom">
-                <ion-button><ion-icon  name="person-circle"></ion-icon> Custom Menu </ion-button>
+                <ion-button><ion-icon  name="person-circle"></ion-icon> Open Custom Menu </ion-button>
             </ion-menu-toggle>
         </section>
     </details>
@@ -1159,11 +1159,16 @@
     </div>
 </ion-app>
 
+    </template>
+</dom-bind>
+
 <script type="module" src="../node_modules/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="../node_modules/@ionic/core/dist/ionic/ionic.js"></script>
 <link rel="stylesheet" href="../node_modules/@ionic/core/css/ionic.bundle.css"/>
 <script>
-    toggleDarkMode.addEventListener('ionChange', (ev) => {
-        document.body.classList.toggle('dark', ev.detail.checked);
-    });
+    window.addEventListener
+    (   'load'
+    ,   ev => document.getElementById('toggleDarkMode')
+                .addEventListener('ionChange', ev => document.body.classList.toggle('dark', ev.detail.checked) )
+    );
 </script>
