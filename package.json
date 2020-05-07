@@ -41,6 +41,7 @@
     "test:integration": "polymer build # test that psk builds without error with the CLI"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@ionic-native/action-sheet": "^5.24.0",
     "@ionic/core": "^5.0.7",
     "@material/mwc-button": "^0.14.1",

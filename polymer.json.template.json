@@ -10,6 +10,7 @@
     "manifest.json",
     "node_modules/@ionic/core/dist/ionic/**/*",
     "node_modules/@ionic/core/css/**/*",
+    "node_modules/@fortawesome/fontawesome-free/**/*",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
     "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"

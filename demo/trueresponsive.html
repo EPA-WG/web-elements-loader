@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> True responsive page </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet" />
+    <style>
+        header{ }
+        header h1{margin: 0;}
+        header form{ display: flex; justify-content:space-between; align-items:center; }
+    </style>
+</head>
+<body>
+<header>
+    <form method="GET" action="#">
+        <a href="./" title="home"><i class="fas fa-reply"></i></a>
+
+        <input type="checkbox" id="menu-cb"/>
+        <input type="search" name="q" placeholder="Search" title="Search" id="search"/>
+        <i class="fas fa-chevron-right"></i>
+        <label for="search"><i class="fas fa-search"></i></label>
+        <button ><i class="fas fa-search"></i></button>
+
+        <h1> True responsive page </h1>
+
+        <label>
+            Patients
+            <ul>
+                <li> Shop Plans         </li>
+                <li> Services           </li>
+                <li> Health & Wellness  </li>
+            </ul>
+        </label>
+        <label>
+            Professionals
+            <ul>
+                <li> Careers        </li>
+                <li> Training       </li>
+                <li> Broker Support </li>
+            </ul>
+        </label>
+
+        <a href="#" ><i class="fas fa-user"></i> Log in </a>
+        <label for="menu-cb"><i class="fas fa-bars"></i></label>
+
+    </form>
+</header>
+<nav>
+    <ul>
+        <li><a href="#" ><i class="fas fa-home"                 ></i> Home                  </a></li>
+        <li><a href="#" ><i class="fas fa-calendar-alt"         ></i> Schedule Appointment  </a></li>
+        <li><a href="#" ><i class="fas fa-map-marker-alt"       ></i> Find Clinic           </a></li>
+        <li><a href="#" ><i class="fas fa-user-nurse"           ></i> Find Doctor           </a></li>
+        <li><a href="#" ><i class="fas fa-file-invoice-dollar"  ></i> Billing               </a></li>
+        <li><a href="#" ><i class="fas fa-phone-volume"         ></i> Contact               </a></li>
+    </ul>
+</nav>
+<main>
+    <section>
+        <h2>Responsive First</h2>
+        <p> Page is designed for mobile UI and adopted to wider desktop layout</p>
+        <p> CSS rules are defined for smallest supported screen and adjusted with media queries for wider screen </p>
+    </section>
+    <section></section>
+</main>
+</body>
+</html>
