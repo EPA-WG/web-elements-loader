@@ -11,17 +11,15 @@
         body{   display: flex; justify-content: space-between; flex-direction: column;
                 width: 100vw; height: 100vh;
             }
-        body>*{flex-grow: 1;}
         header{ }
-        header h1{margin: 0;}
+        header h1{ margin: 0; }
         header form{ display: flex; justify-content:space-between; align-items:center; }
 
         nav{ display: flex; justify-content:space-between;order:100;}
         nav>*{ padding:0.3rem;display: flex;flex-direction: column; align-items:center; text-align: center; }
 
-        main{   flex-grow: 10;
-                display: flex; flex-wrap: wrap;flex: 1 1 auto;
-                overflow-y: auto; min-height: 0px;
+        main{   flex-grow: 100; overflow: auto;
+                display: flex; flex-wrap: wrap;
             }
         section{ display: flex;flex-wrap: wrap; justify-content:space-between; }
         section h1{ width: 100%; }
@@ -122,6 +120,29 @@
                 <li> &dash;&dash; <b>header</b>         </li>
             </ul>
         </article>
+        <article>
+            <h2>Responsive layout</h2>
+            <h3>html body</h3>
+            <p>For <b>html</b> and <b>body</b> padding and margins are eliminated
+                as those would be responsibility of immediate content:
+                <b>header</b>, <b>nav</b>, <b>main</b>
+            </p>
+            <p>Vertical flex layout on <b>body</b> level defined top, main, and toolbar zones.
+                Header resides on top, toolbar in mobile mode sits on bottom, leaving main zone
+                scrollable.
+            </p>
+            <h3> Main section scrolling </h3>
+            <p>Achieved by <code> flex-grow: 100; overflow: auto; </code>
+                for main content;
+            </p>
+            <h3> Toolbar position </h3>
+            <p> in default (mobile) layout it is set on the bottom for one-hand
+                operations convenience. For same reason the most frequent operations
+                like "schedule" in sample are set closer to right side.
+                <sub>Apologies to left-handed folks.</sub>
+            </p>
+        </article>
+
     </section>
     <section>
         <h1> header </h1>
