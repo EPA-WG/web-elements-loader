@@ -7,9 +7,24 @@
 
     <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet" />
     <style>
+        html,body{ padding: 0;margin: 0; }
+        body{   display: flex; justify-content: space-between; flex-direction: column;
+                width: 100vw; height: 100vh;
+            }
+        body>*{flex-grow: 1;}
         header{ }
         header h1{margin: 0;}
         header form{ display: flex; justify-content:space-between; align-items:center; }
+
+        nav{ display: flex; justify-content:space-between;order:100;}
+        nav>*{ padding:0.3rem;display: flex;flex-direction: column; align-items:center; text-align: center; }
+
+        main{   flex-grow: 10;
+                display: flex; flex-wrap: wrap;flex: 1 1 auto;
+                overflow-y: auto; min-height: 0px;
+            }
+        section{ display: flex;flex-wrap: wrap; justify-content:space-between; }
+        section h1{ width: 100%; }
     </style>
 </head>
 <body>
@@ -48,24 +63,37 @@
     </form>
 </header>
 <nav>
-    <ul>
-        <li><a href="#" ><i class="fas fa-home"                 ></i> Home                  </a></li>
-        <li><a href="#" ><i class="fas fa-calendar-alt"         ></i> Schedule Appointment  </a></li>
-        <li><a href="#" ><i class="fas fa-map-marker-alt"       ></i> Find Clinic           </a></li>
-        <li><a href="#" ><i class="fas fa-user-nurse"           ></i> Find Doctor           </a></li>
-        <li><a href="#" ><i class="fas fa-file-invoice-dollar"  ></i> Billing               </a></li>
-        <li><a href="#" ><i class="fas fa-phone-volume"         ></i> Contact               </a></li>
-    </ul>
+    <a href="#" >
+        <i class="fas fa-phone-volume" ></i>
+        Contact
+    </a>
+    <a href="#" >
+        <i class="fas fa-file-invoice-dollar" ></i>
+        Billing
+    </a>
+    <a href="#" >
+        <i class="fas fa-map-marked-alt" ></i>
+        Find Clinic
+    </a>
+    <a href="#" >
+        <i class="fas fa-user-nurse" ></i>
+        Find Doctor
+    </a>
+    <a href="#" >
+        <i class="fas fa-calendar-alt" ></i>
+        Schedule Appointment
+    </a>
 </nav>
 <main>
     <section>
-        <h2>Responsive First</h2>
+        <h1>Responsive First</h1>
         <p> Page is designed for mobile UI and adopted to wider desktop layout</p>
         <p> CSS rules are defined for smallest supported screen and adjusted with media queries for wider screen </p>
     </section>
     <section>
-        <h2>Main Layout</h2>
-        <p> <b>header</b> acts as toolbar with title:
+        <h1> Layout </h1>
+        <article>
+            <header><b>header</b> acts as toolbar with title:   </header>
             <ul>
                 <li> back nav link          </li>
                 <li> search controls        </li>
@@ -74,8 +102,38 @@
                 <li> login/account controls </li>
                 <li> mobile menu controls   </li>
             </ul>
-
-        </p>
+        </article>
+        <article>
+            <header><b>nav</b> main navigation toolbar:     </header>
+            <ul>
+                <li> back nav link          </li>
+                <li> search controls        </li>
+                <li> logo &amp title        </li>
+                <li> main menu entries      </li>
+                <li> login/account controls </li>
+                <li> mobile menu controls   </li>
+            </ul>
+        </article>
+        <article>
+            <header><b>main</b> content:    </header>
+            <ul>
+                <li> <b>section</b>s with own topics    </li>
+                <li> &dash; <b>article</b>s             </li>
+                <li> &dash;&dash; <b>header</b>         </li>
+            </ul>
+        </article>
+    </section>
+    <section>
+        <h1> header </h1>
+        <article> ZZZZ </article>
+    </section>
+    <section>
+        <h1> nav </h1>
+        <article> ZZZZ </article>
+    </section>
+    <section>
+        <h1> main </h1>
+        <article> ZZZZ </article>
     </section>
 </main>
 </body>
