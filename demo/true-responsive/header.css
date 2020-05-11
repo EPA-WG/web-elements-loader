@@ -1,12 +1,13 @@
 header{ }
-header h1{ margin: 0; }
-header form{ display: flex; justify-content:space-between; align-items:center; transition: all 0.3s ease-in-out;}
+header h1{ margin: 0;}
+header h1{ font-size: 4.5vw; }
+header form{ display: flex; justify-content:space-between; align-items:center; }
 
 #tr-menu-cb, .tr-search-close-btn,
 header button,
 header label{ display: none;}
 header label[for]{ display: block;}
-.tr-expand{ flex-grow: 3; }
+.tr-expand{ flex-grow: 3; display: none; }
 .tr-o1{ order:1; }
 .tr-o2{ order:2; }
 .tr-o3{ order:3; }
@@ -17,9 +18,10 @@ header label[for]{ display: block;}
 .tr-o8{ order:8; }
 .tr-o9{ order:9; }
 header form>*{ padding: 1rem; }
+header form>h1{ padding: 0; }
 
 header input[type="search"]{ opacity: 0;width: 0; flex-grow: 0;padding: 0;}
-header input[type="search"]:focus{ opacity: 1;flex-grow: 3; padding: 1rem;}
+header input[type="search"]:focus{ opacity: 1;flex-grow: 3; padding: 1rem;transition: all 0.3s ease-in-out;}
 
 header input{  }
 header input:focus{ flex-grow: 10; order:2; }
@@ -37,3 +39,9 @@ header input:focus+*+*+*+*+*+*+*+*+*+*
 
 header a dd{display: none; }
 label>ul{ display: none; }
+
+@media (min-width: 45rem)
+{
+    header h1{ font-size: xx-large;}
+
+}

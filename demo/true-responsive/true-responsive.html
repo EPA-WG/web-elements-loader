@@ -61,25 +61,30 @@
     </form>
 </header>
 <nav>
-    <a href="#" >
+    <a href="#" title="Send us a message, call over phone">
         <i class="fas fa-phone-volume" ></i>
-        Contact
+        <abbr> Contact </abbr>
+        <dfn>  Contact </dfn>
     </a>
     <a href="#" >
         <i class="fas fa-file-invoice-dollar" ></i>
-        Billing
+        <abbr> Billing </abbr>
+        <dfn>  Billing </dfn>
     </a>
-    <a href="#" >
+    <a href="#" title="Find Clinic">
         <i class="fas fa-map-marked-alt" ></i>
-        Find Clinic
+        <abbr> Clinic </abbr>
+        <dfn> Find Clinic </dfn>
     </a>
-    <a href="#" >
+    <a href="#" title="Find Doctor">
         <i class="fas fa-user-nurse" ></i>
-        Find Doctor
+        <abbr> Doctor </abbr>
+        <dfn> Find Doctor </dfn>
     </a>
-    <a href="#" >
+    <a href="#" title="Schedule Appointment">
         <i class="fas fa-calendar-alt" ></i>
-        Schedule Appointment
+        <abbr> Schedule </abbr>
+        <dfn> Schedule Appointment </dfn>
     </a>
 </nav>
 <main>
@@ -146,7 +151,13 @@
     </section>
     <section>
         <h1> header </h1>
-        <article> ZZZZ </article>
+        <article> To make H1 text scale down the <b>font-size</b> is set relative to viewport width.<br/>
+            The initial value <code>4.5vw</code> is set to make font size growing till the moment
+            the height matches default browser one: <code>2em</code> or <code>xx-large</code>. <br/>
+            The default font size and view-port width relative equality defines the breakpoint when
+            <b>@media(min-width: 45rem)</b> (720px in 100% zoom)  would set the H1 font size to default one.
+
+        </article>
     </section>
     <section>
         <h1> nav </h1>
@@ -155,6 +166,43 @@
     <section>
         <h1> main </h1>
         <article> ZZZZ </article>
+    </section>
+    <section>
+        <h1> Responsive breakpoints </h1>
+        <article>
+            <p> Overriding the browser font side on page is a disrespectful to user and
+                breaks the accessibility of page. User could change the default page font size
+                according to own vision or situation. It could be also changed dynamically reflecting
+                say user preferences in portrait/landscape mode or connecting external screen like TV.
+            </p>
+            <p> Since the letter size could vary from user to user, the pixel defined breakpoints do not
+                reflect the visual design which in most of web applications rely on text dimensions.
+            </p>
+            <h2>How to define true responsive breakpoints?</h2>
+
+            <dl>
+                <dt> By visual design </dt>
+                <dd> Usually mockups are created for targeted devices which reflect as physical dimensions
+                     as conditions the user observing and interacts with UI. <br/>
+                     Sometimes mockup is created per UX component instead of page which created.
+                     It is natural to use component-aware and component-specific breakpoints.
+                     Which could lead to inconsistent across page and applications series of breakpoints.
+                     Leading to user confusion, additional effort of test automation, customer support issues, etc.<br/>
+
+                    <em>It is up to product to enforce media breakpoints</em> across applications/pages/components.<br/>
+                    By reducing the number of media breakpoints UX will reduce the number of UX variations
+                    for the cost of per-component UX polish.
+                </dd>
+
+                <dt>REM match to pixel</dt>
+                <dd></dd>
+
+
+                <dt>Owlman</dt>
+                <dd>A giant owl-like creature.</dd>
+            </dl>
+
+        </article>
     </section>
 </main>
 </body>
