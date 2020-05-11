@@ -1,9 +1,11 @@
 header{ }
 header h1{ margin: 0; }
-header form{ display: flex; justify-content:space-between; align-items:center; }
+header form{ display: flex; justify-content:space-between; align-items:center; transition: all 0.3s ease-in-out;}
 
-ZZ#tr-menu-cb, .tr-search-close-btn,
-header button{ display: none;}
+#tr-menu-cb, .tr-search-close-btn,
+header button,
+header label{ display: none;}
+header label[for]{ display: block;}
 .tr-expand{ flex-grow: 3; }
 .tr-o1{ order:1; }
 .tr-o2{ order:2; }
@@ -16,10 +18,13 @@ header button{ display: none;}
 .tr-o9{ order:9; }
 header form>*{ padding: 1rem; }
 
+header input[type="search"]{ opacity: 0;width: 0; flex-grow: 0;padding: 0;}
+header input[type="search"]:focus{ opacity: 1;flex-grow: 3; padding: 1rem;}
+
 header input{  }
 header input:focus{ flex-grow: 10; order:2; }
 header input:focus+*{ display: block; order:3; }
-header input:focus+*+.tr-search-close-btn{ display: block; order:1; }
+header input:focus+*+*{ display: block; order:1; }
 header input:focus+*+*+*,
 header input:focus+*+*+*+*,
 header input:focus+*+*+*+*+*,
@@ -30,4 +35,5 @@ header input:focus+*+*+*+*+*+*+*+*+*,
 header input:focus+*+*+*+*+*+*+*+*+*+*
 { display: none; }
 
+header a dd{display: none; }
 label>ul{ display: none; }
