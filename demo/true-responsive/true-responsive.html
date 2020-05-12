@@ -17,9 +17,13 @@
 
         body{font-family: 'Roboto', sans-serif; }
 
-        main{ flex-wrap: wrap; }
+        main{ flex-wrap: wrap; padding: 1rem; }
         section{ display: flex;flex-wrap: wrap; justify-content:space-between; }
         section h1{ width: 100%; }
+        td{ padding: 0.3rem; border-bottom: 1px solid silver;}
+        dt{ padding-top: 1rem; }
+        .fas{ font-size: 2rem; }
+
     </style>
 </head>
 <body>
@@ -190,17 +194,37 @@
                      Leading to user confusion, additional effort of test automation, customer support issues, etc.<br/>
 
                     <em>It is up to product to enforce media breakpoints</em> across applications/pages/components.<br/>
-                    By reducing the number of media breakpoints UX will reduce the number of UX variations
-                    for the cost of per-component UX polish.
+                    By reducing the number of media breakpoints app will reduce the number of UX variations
+                    at expense of per-component UX polishing.
                 </dd>
 
-                <dt>REM match to pixel</dt>
-                <dd></dd>
-
-
-                <dt>Owlman</dt>
-                <dd>A giant owl-like creature.</dd>
+                <dt> REM match to pixel </dt>
+                <dd> "classic" pixel-perfect approach operates in pixels and responsive breakpoints
+                     usually defined same way. To define same size in REM units, the simplest way is to set
+                     two sibling DOM nodes and assign the width in PX and REM accordingly. In given page
+                     45rem breakpoint matches 720px taken in Desktop Chrome.
+                    <h5>Popular Breakpoints in REM & PX</h5>
+                     <table>
+                         <tr><th> pixels    </th><th> REM   </th><th> Description         </th></tr>
+                         <tr><td> 320px     </td><td> 20rem </td><td> small mobile screen </td></tr>
+                         <tr><td> 720px     </td><td> 45rem </td><td> large mobile screen, in this page used as mobile breakpoint </td></tr>
+                         <tr><td> 1024px    </td><td> 64rem </td><td> tablet screen       </td></tr>
+                         <tr><td> 1152px    </td><td> 72rem </td><td> small desktop       </td></tr>
+                     </table>
+                     <h5> List of resolutions by Sause Labs : </h5>
+                     <code>
+                        800x600 1024x768 1152x864 1280x768 1280x800 1280x960 1440x900 1280x1024
+                        1400x1050 1600x1200 1680x1050 1920x1080 1920x1200 2560x1600
+                     </code>
+                </dd>
             </dl>
+        </article>
+    </section>
+    <section>
+        <h1> Icons </h1>
+        <article> Even simplified image in order to be clearly recognized has to be at least 2x larger than
+            than letter symbols next to it. Perhaps with exception of large title text.<br/>
+            That is why icon font size here is set to <code>2rem</code>
 
         </article>
     </section>
