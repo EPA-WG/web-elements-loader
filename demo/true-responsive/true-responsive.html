@@ -156,10 +156,14 @@
     <section>
         <h1> header </h1>
         <article> To make H1 text scale down the <b>font-size</b> is set relative to viewport width.<br/>
-            The initial value <code>4.5vw</code> is set to make font size growing till the moment
+            The initial value <code>6vw</code> is set to make font size growing till the moment
             the height matches default browser one: <code>2em</code> or <code>xx-large</code>. <br/>
             The default font size and view-port width relative equality defines the breakpoint when
-            <b>@media(min-width: 45rem)</b> (720px in 100% zoom)  would set the H1 font size to default one.
+            <b>@media(min-width: 34.35rem)</b> (550px in 100% zoom)  would set the H1 font size to default one.<br/>
+            Two paramerters above are critical to a) keep increasing the font not more than default while expanding
+            the width, b) keep header from changing the height when text become 2-liner on narrow view or
+            font size increased in wide view. <br/>
+            Those numbers would need adjustment to accommodate the header text length change.
 
         </article>
     </section>
@@ -222,8 +226,8 @@
     </section>
     <section>
         <h1> Icons </h1>
-        <article> Even simplified image in order to be clearly recognized has to be at least 2x larger than
-            than letter symbols next to it. Perhaps with exception of large title text.<br/>
+        <article> Even simplified image in order to be clearly recognized has to be at least 2x
+            larger than than letter symbols next to it with exception of large title text.<br/>
             That is why icon font size here is set to <code>2rem</code>
 
         </article>
