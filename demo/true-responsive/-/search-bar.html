@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> True responsive page </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+        @import url('https://fonts.googleapis.com/css?family=Material+Icons&display=block');
+
+        @import "../page-layout.css";
+        @import "../header.css";
+
+        body{font-family: 'Roboto', sans-serif; }
+
+        main{ flex-wrap: wrap; padding: 1rem; }
+        section{ display: flex;flex-wrap: wrap; justify-content:space-between; }
+        section h1{ width: 100%; }
+        td{ padding: 0.3rem; border-bottom: 1px solid silver;}
+        dt{ padding-top: 1rem; }
+        .fas{ font-size: 2rem; }
+
+
+
+        body>header{ background-color: #4285f4; color: #fff;  box-shadow: inset 0px -2px 4px 0px rgba(0,0,0,0.25); }
+        body>header a{ color: #fff;  }
+        header h1{ margin: 0;}
+        header h1{ font-size: 6vw; font-weight: 500;}
+        header form{ display: flex; justify-content:space-between; align-items:center; }
+
+        #tr-menu-cb, .tr-search-close-btn,
+        header button,
+        header label{ display: none;}
+        header label[for]{ display: block;}
+        .tr-expand{ flex-grow: 3; display: none; }
+        .tr-o1{ order:1; }
+        .tr-o2{ order:2; }
+        .tr-o3{ order:3; }
+        .tr-o4{ order:4; }
+        .tr-o5{ order:5; }
+        .tr-o6{ order:6; }
+        .tr-o7{ order:7; }
+        .tr-o8{ order:8; }
+        .tr-o9{ order:9; }
+        header form>*{ padding: 0.5rem; }
+        header form>h1{ padding: 0; flex-grow: 1; }
+
+        header input[type="search"]{ opacity: 0;width: 0; flex-grow: 0;padding: 0; }
+        header input[type="search"]:focus{ opacity: 1;flex-grow: 3; padding: 1rem;transition: all 0.3s ease-in-out;}
+
+        header input{  }
+        header input:focus{ flex-grow: 10; order:2; }
+        header input:focus+*{ display: block; order:3; }
+        header input:focus+*+*{ display: block; order:1; }
+        header input:focus+*+*+*,
+        header input:focus+*+*+*+*,
+        header input:focus+*+*+*+*+*,
+        header input:focus+*+*+*+*+*+*,
+        header input:focus+*+*+*+*+*+*+*,
+        header input:focus+*+*+*+*+*+*+*+*,
+        header input:focus+*+*+*+*+*+*+*+*+*,
+        header input:focus+*+*+*+*+*+*+*+*+*+*
+        { display: none; }
+
+        header a dd{display: none; }
+        label>ul{ display: none; }
+
+        @media ( min-width: 34.35rem )
+        {
+            header h1{ font-size: xx-large;}
+            .tr-expand{ display: block; }
+        }
+
+        code{ display: block; color: yellow;background: black; padding: 0.3em; }
+    </style>
+</head>
+<body>
+<header>
+    <form method="GET" action="#">
+
+        <input type="checkbox" id="tr-menu-cb"/>
+        <input type="search" name="q" placeholder="TAB breaks the search, ENTER still works though" title="Search" id="search" class="tr-o6"/>
+        <button ><i class="fas fa-search"></i></button>
+        <label class="tr-search-close-btn"><i class="fas fa-chevron-right"></i></label>
+        <label for="search" class="tr-o7"><i class="fas fa-search"></i></label>
+
+        <a href="../true-responsive.html" title="home" class="tr-o1"><i class="fas fa-reply"></i></a>
+        <h1 class="tr-o3"> Click Search </h1>
+
+        <label class="tr-o3">
+            Patients
+            <ul>
+                <li> Shop Plans         </li>
+                <li> Services           </li>
+                <li> Health & Wellness  </li>
+            </ul>
+        </label>
+        <label class="tr-o4">
+            Professionals
+            <ul>
+                <li> Careers        </li>
+                <li> Training       </li>
+                <li> Broker Support </li>
+            </ul>
+        </label>
+        <i class="tr-expand tr-o5"></i>
+        <a href="#" class="tr-o8"
+            ><i class="fas fa-user"></i>
+            <dd>Log in</dd>
+        </a>
+        <label for="tr-menu-cb" class="tr-o9"><i class="fas fa-bars"></i></label>
+
+    </form>
+</header>
+
+<main>
+    <section>
+        <h1>Unadvised - order-dependent selectors</h1>
+        <p> This is a sample of CSS-only visibility switch between two sets of components.
+            On "search" icon click the header controls visually replaced with with search controls:
+            collapse back, search input, and submit button.
+        </p>
+        <p> Visibility and collapsing is driven by focus status on search <b>input</b> field.
+            The <code>input:focus</code> selector triggers visibility of groups by hiding primary and showing search controls.
+            That requires all controls to be paced <u>after</u> the <b>input</b> field to be selectable by "next sibling" selector:
+            <code>input:focus+*</code>. Since we need to control multiple siblings the number of `+` selectors would be equal
+            to total number of controls. The longest in selector list in this sample is
+            <code>input:focus+*+*+*+*+*+*+*+*+*+*</code>
+            COST: extra css complexity.
+        </p>
+        <p> The order change for "sibling" rules would need the compensation by redefining the rendering order by class:
+            <code>.tr-o1{ order:1; }... .tr-o9{ order:9; }</code>
+            COST: extra html complexity.
+        </p>
+        <p> <b>Acessibility.</b> Keyboard navigation would be broken if only input field focus would be the trigger
+            for groups visibility: tab from <b>input</b> field would lose the focus resulting in hiding the search group
+            instead of setting the focus on submit button.
+
+        </p>
+    </section>
+    <section>
+        <h1> Conclusion </h1>
+        <p> The usual class-on-parent switch by JS would be simpler and accessible. See the
+            <a href="../true-responsive.html">true-responsive.html</a> as sample. </p>
+    </section>
+
+</main>
+</body>
+</html>
