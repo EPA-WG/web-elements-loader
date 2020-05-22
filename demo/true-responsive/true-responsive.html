@@ -58,7 +58,14 @@
         <input  class="search-gr" type="search" name="q" placeholder="Search" title="Search" id="search" />
         <button   class="search-gr" ><i class="fas fa-search"></i></button>
         <label for="search"><i class="fas fa-search"></i></label>
-
+        <script>
+            window.addEventListener('load', () => {
+                document.querySelector( 'header input[type="search"]')
+                    .addEventListener('focus',ev=>ev.target.closest('form').classList.add('search-gr'));
+                document.querySelector( 'header .tr-search-close-btn')
+                    .addEventListener('click', ev=>ev.target.closest('form').classList.remove('search-gr'));
+            });
+        </script>
 
         <a href="#"
             ><i class="fas fa-user"></i>

@@ -14,7 +14,7 @@ header form>*{ padding: 0.5rem; }
 header form>h1{ padding: 0;  flex-grow: 1; }
 
 header input[type="search"]{ opacity: 0;width: 0; flex-grow: 0;padding: 0; }
-header>.search-gr>input{ opacity: 1;flex-grow: 3; padding: 1rem;transition: all 0.3s ease-in-out;}
+header>.search-gr>input,input[type="search"]:focus{ opacity: 1;flex-grow: 3; padding: 1rem;transition: all 0.3s ease-in-out;}
 
 header input{  }
 header>.search-gr>*, header>.search-gr label[for]{ display: none; }
