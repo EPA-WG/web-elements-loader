@@ -16,6 +16,7 @@
         @import "nav.css";
 
         body{font-family: 'Roboto', sans-serif; }
+        *:focus{ box-shadow: inset 0px 0px 3px 3px rgba(191,40,168,1);  transition: all 1s ease-out; }
 
         main{ flex-wrap: wrap; padding: 1rem; }
         section{ display: flex;flex-wrap: wrap; justify-content:space-between; }
@@ -35,43 +36,52 @@
         <a href=".." title="home" ><i class="fas fa-reply"></i></a>
         <h1> True responsive </h1>
 
-        <label>
-            Patients
-            <ul>
-                <li> Shop Plans         </li>
-                <li> Services           </li>
-                <li> Health & Wellness  </li>
-            </ul>
-        </label>
-        <label>
-            Professionals
-            <ul>
-                <li> Careers        </li>
-                <li> Training       </li>
-                <li> Broker Support </li>
-            </ul>
-        </label>
+        <section id="headerMenu">
+            <label>
+                Patients
+                <ul>
+                    <li> Shop Plans         </li>
+                    <li> Services           </li>
+                    <li> Health & Wellness  </li>
+                </ul>
+            </label>
+            <label>
+                Professionals
+                <ul>
+                    <li> Careers        </li>
+                    <li> Training       </li>
+                    <li> Broker Support </li>
+                </ul>
+            </label>
+        </section>
         <i class="tr-expand"></i>
 
 
-        <label class="search-gr tr-search-close-btn"><i class="fas fa-chevron-right"></i></label>
-        <input  class="search-gr" type="search" name="q" placeholder="Search" title="Search" id="search" />
+        <a class="search-gr tr-search-close-btn" href="#login-btn"><i class="fas fa-chevron-right"></i></a>
+        <input  class="search-gr" type="search" name="q" placeholder="Search" title="Search"
+                id="hdrSearch" tabindex="-1"/>
         <button   class="search-gr" ><i class="fas fa-search"></i></button>
-        <label for="search"><i class="fas fa-search"></i></label>
+        <a href="#hdrSearch"><i class="fas fa-search"></i></a>
         <script>
             window.addEventListener('load', () => {
                 document.querySelector( 'header input[type="search"]')
-                    .addEventListener('focus',ev=>ev.target.closest('form').classList.add('search-gr'));
+                    .addEventListener('focus',ev=>
+                    {   ev.target.closest('form').classList.add('search-gr');
+                        hdrSearch.removeAttribute('tabindex');
+                    });
                 document.querySelector( 'header .tr-search-close-btn')
-                    .addEventListener('click', ev=>ev.target.closest('form').classList.remove('search-gr'));
+                    .addEventListener('click', ev=>
+                    {   ev.target.closest('form').classList.remove('search-gr');
+                        hdrSearch.setAttribute('tabindex','-1');
+                    });
             });
         </script>
 
-        <a href="#"
+        <a href="#" id="login-btn"
             ><i class="fas fa-user"></i>
             <dd>Log in</dd>
         </a>
-        <label for="tr-menu-cb" ><i class="fas fa-bars"></i></label>
+        <a for="tr-menu-cb" href="#headerMenu"><i class="fas fa-bars"></i></a>
 
     </form>
 </header>
@@ -244,9 +254,27 @@
         </article>
     </section>
     <section>
+        <h1> Accessibility </h1>
+        <article> <b>Keyboard navigation</b> is supported by DOM order of focus-able components.
+            <p>
+                <b>Focus UX</b> should be distinctive and do not hide the outline. In this page it is
+                done by radical pink color and visually destructive inset shadow with 1 second transition animation.<br/>
+                The shadow is used instead of border color to <br/>
+                a) avoid collision with styles of navigation components which often use borders ( i.e. button links )
+            </p>
+            <p>
+                Frameworks with component set always have own way of making focused elements visually and dynamically
+                exposed.
+            </p>
+        </article>
+    </section>
+    <section>
         <h1> Unadvised </h1>
         <article>
             <a href="-/search-bar.html">order-dependent selectors</a> for groups visibility switch<br/>
+            <p><b>Use LABEL for visibility group change</b>. I.e. do not use LABEL for focus to input field if it
+                leads to components group visibility change like in case of search input. It prevents to focus on
+                triggering element and breaks the keyboard navigation. Instead, use A link with in-page navigation.   </p>
         </article>
     </section>
 </main>
