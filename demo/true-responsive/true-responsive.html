@@ -30,30 +30,11 @@
 <body>
 <header>
     <form method="GET" action="#">
-
-        <input type="checkbox" id="tr-menu-cb"/>
-
         <a href=".." title="home" ><i class="fas fa-reply"></i></a>
         <h1> True responsive </h1>
 
-        <section id="headerMenu">
-            <label>
-                Patients
-                <ul>
-                    <li> Shop Plans         </li>
-                    <li> Services           </li>
-                    <li> Health & Wellness  </li>
-                </ul>
-            </label>
-            <label>
-                Professionals
-                <ul>
-                    <li> Careers        </li>
-                    <li> Training       </li>
-                    <li> Broker Support </li>
-                </ul>
-            </label>
-        </section>
+
+
         <i class="tr-expand"></i>
 
 
@@ -81,7 +62,27 @@
             ><i class="fas fa-user"></i>
             <dd>Log in</dd>
         </a>
-        <a for="tr-menu-cb" href="#headerMenu"><i class="fas fa-bars"></i></a>
+        <div>
+            <input type="checkbox" class="fas tf-menu-btn" tabindex="0"  />
+            <aside>
+                <div>
+                    Patients
+                    <ul>
+                        <li><a href="true-responsive.html">Shop Plans</a>          </li>
+                        <li> Services           </li>
+                        <li> Health & Wellness  </li>
+                    </ul>
+                </div>
+                <div>
+                    Professionals
+                    <ul>
+                        <li> Careers        </li>
+                        <li> Training       </li>
+                        <li> Broker Support </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
 
     </form>
 </header>
@@ -186,6 +187,17 @@
             font size increased in wide view. <br/>
             Those numbers would need adjustment to accommodate the header text length change.
 
+        </article>
+        <article>
+            <h1> menu </h1>
+            <details>
+                <summary tabindex="0">
+                    <i class="fas fa-bars"></i>
+                </summary>
+                <aside>
+                    Menu is located in HTML5 ASIDE tag
+                </aside>
+            </details>
         </article>
     </section>
     <section>

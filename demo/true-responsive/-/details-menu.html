@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> True responsive page </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+        @import url('https://fonts.googleapis.com/css?family=Material+Icons&display=block');
+
+        @import "../page-layout.css";
+        @import "../header.css";
+        @import "../nav.css";
+
+        body{font-family: 'Roboto', sans-serif; }
+        *:focus{ box-shadow: inset 0px 0px 3px 3px rgba(191,40,168,1);  transition: all 1s ease-out; }
+
+        main{ flex-wrap: wrap; padding: 1rem; }
+        section h1{ width: 100%; }
+        td{ padding: 0.3rem; border-bottom: 1px solid silver;}
+        dt{ padding-top: 1rem; }
+        .fas{ font-size: 2rem; }
+
+        header details{ padding: 0; position: relative; }
+        header details>summary { list-style: none;padding: 0.5rem; }
+        header details>summary::-webkit-details-marker {
+            display: none;
+        }
+        header aside{ position: fixed; right: 0; top: 3rem; background-color: cadetblue; padding: 1rem; }
+
+    </style>
+</head>
+<body>
+<header>
+    <form method="GET" action="#">
+        <a href="../true-responsive.html" title="home" ><i class="fas fa-reply"></i></a>
+        <h1> True responsive </h1>
+
+
+
+        <i class="tr-expand"></i>
+
+
+        <a class="search-gr tr-search-close-btn" href="#login-btn"><i class="fas fa-chevron-right"></i></a>
+        <input  class="search-gr" type="search" name="q" placeholder="Search" title="Search"
+                id="hdrSearch" tabindex="-1"/>
+        <button   class="search-gr" ><i class="fas fa-search"></i></button>
+        <a href="#hdrSearch"><i class="fas fa-search"></i></a>
+        <script>
+            window.addEventListener('load', () => {
+                document.querySelector( 'header input[type="search"]')
+                    .addEventListener('focus',ev=>
+                    {   ev.target.closest('form').classList.add('search-gr');
+                        hdrSearch.removeAttribute('tabindex');
+                    });
+                document.querySelector( 'header .tr-search-close-btn')
+                    .addEventListener('click', ev=>
+                    {   ev.target.closest('form').classList.remove('search-gr');
+                        hdrSearch.setAttribute('tabindex','-1');
+                    });
+            });
+        </script>
+
+        <a href="#" id="login-btn"
+            ><i class="fas fa-user"></i>
+            <dd>Log in</dd>
+        </a>
+        <details>
+            <summary tabindex="0">
+                <i class="fas fa-bars"></i>
+            </summary>
+            <aside>
+                <div>
+                    Patients
+                    <ul>
+                        <li><a href="true-responsive.html">Shop Plans</a>          </li>
+                        <li> Services           </li>
+                        <li> Health & Wellness  </li>
+                    </ul>
+                </div>
+                <div>
+                    Professionals
+                    <ul>
+                        <li> Careers        </li>
+                        <li> Training       </li>
+                        <li> Broker Support </li>
+                    </ul>
+                </div>
+            </aside>
+        </details>
+    </form>
+</header>
+<nav>
+    <a href="#" title="Send us a message, call over phone">
+        <i class="fas fa-phone-volume" ></i>
+        <abbr> Contact </abbr>
+        <dfn>  Contact </dfn>
+    </a>
+    <a href="#" >
+        <i class="fas fa-file-invoice-dollar" ></i>
+        <abbr> Billing </abbr>
+        <dfn>  Billing </dfn>
+    </a>
+    <a href="#" title="Find Clinic">
+        <i class="fas fa-map-marked-alt" ></i>
+        <abbr> Clinic </abbr>
+        <dfn> Find Clinic </dfn>
+    </a>
+    <a href="#" title="Find Doctor">
+        <i class="fas fa-user-nurse" ></i>
+        <abbr> Doctor </abbr>
+        <dfn> Find Doctor </dfn>
+    </a>
+    <a href="#" title="Schedule Appointment">
+        <i class="fas fa-calendar-alt" ></i>
+        <abbr> Schedule </abbr>
+        <dfn> Schedule Appointment </dfn>
+    </a>
+</nav>
+<main>
+    <section>
+        <h1>DETAILS/SUMMARY for menu</h1>
+        <p> Fully works only in Chrome and Firefox. In Edge there is no collapsible behavior.
+            Check level up for advised solution. </p>
+        <p> The triangle which reflects the open state could be hidden but there is no standard way.
+            In this page Chrome and Firefox code co-exist:
+<pre>
+header details>summary { list-style: none;padding: 0.5rem; }
+header details>summary::-webkit-details-marker {
+    display: none;
+}
+</pre>
+        </p>
+        <p>Note: Unfortunately, at this time there's no built-in way to animate the transition between open and closed.</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">Mozilla Docs</a></p>
+    </section>
+    <section>
+        <h1> nav </h1>
+        <article> kept in place to make sure the main layout is not broken and for keyboard navigation test </article>
+    </section>
+</main>
+</body>
+</html>
