@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="../../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet" />
+    <link href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
         @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
         @import url('https://fonts.googleapis.com/css?family=Material+Icons&display=block');
 
-        @import "page-layout.css";
-        @import "header.css";
-        @import "nav.css";
+        @import "../page-layout.css";
+        @import "../header.css";
+        @import "../nav.css";
 
         body{font-family: 'Roboto', sans-serif; }
         *:focus{ box-shadow: inset 0px 0px 3px 3px rgba(191,40,168,1);  transition: all 1s ease-out; }
@@ -24,6 +24,18 @@
         td{ padding: 0.3rem; border-bottom: 1px solid silver;}
         dt{ padding-top: 1rem; }
         .fas{ font-size: 2rem; }
+
+
+        header input:checked+aside{ display: flex; }
+        header aside{ display:none;  right: 0; top: 3rem; background-color: cadetblue; padding: 1rem; }
+        .tf-menu-btn{ -moz-appearance: none; -webkit-appearance: none;  appearance: none; display:inline-block; width:3rem; height:3rem; margin: 0; padding: 0; }
+        .tf-menu-btn:checked:before { content:"\f102"; }
+        .tf-menu-btn:before
+        {   visibility: visible; content:"\f0c9"; color: white;
+            display: inline-flex;justify-content: center; align-items: center; width: 3rem; height: 3rem;
+        }
+        header aside li{ padding: .5em;}
+        .tf-menu-btn:checked+aside { position: fixed; }
 
     </style>
 </head>
@@ -63,8 +75,7 @@
             <dd>Log in</dd>
         </a>
         <div>
-            <input type="checkbox" class="fas tf-menu-btn" id="tr-menu-trigger" />
-            <label for="tr-menu-trigger"><i class="fas fa-bars" ></i></label><!-- fix for Edge & IE -->
+            <input type="checkbox" class="fas tf-menu-btn" tabindex="0"  />
             <aside>
                 <div>
                     Patients
