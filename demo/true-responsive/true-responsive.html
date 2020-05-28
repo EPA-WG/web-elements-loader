@@ -37,26 +37,12 @@
 
         <i class="tr-expand"></i>
 
+        <input type="checkbox" class="fas" id="tr-search-trigger"
+               onchange="document.querySelector('header').classList.toggle( 'search-gr-on', document.getElementById('tr-search-trigger').checked )" />
+        <label for="tr-search-trigger"><i class="fas fa-search" ></i></label><!-- fix for Edge & IE -->
+        <input  class="search-gr" type="search" name="q" placeholder="Search" title="Search" id="hdrSearch" />
+        <button class="search-gr" ><i class="fas fa-search"></i></button>
 
-        <a class="search-gr tr-search-close-btn" href="#login-btn"><i class="fas fa-chevron-right"></i></a>
-        <input  class="search-gr" type="search" name="q" placeholder="Search" title="Search"
-                id="hdrSearch" tabindex="-1"/>
-        <button   class="search-gr" ><i class="fas fa-search"></i></button>
-        <a href="#hdrSearch"><i class="fas fa-search"></i></a>
-        <script>
-            window.addEventListener('load', () => {
-                document.querySelector( 'header input[type="search"]')
-                    .addEventListener('focus',ev=>
-                    {   ev.target.closest('form').classList.add('search-gr');
-                        hdrSearch.removeAttribute('tabindex');
-                    });
-                document.querySelector( 'header .tr-search-close-btn')
-                    .addEventListener('click', ev=>
-                    {   ev.target.closest('form').classList.remove('search-gr');
-                        hdrSearch.setAttribute('tabindex','-1');
-                    });
-            });
-        </script>
 
         <a href="#" id="login-btn"
             ><i class="fas fa-user"></i>
@@ -183,7 +169,7 @@
             the height matches default browser one: <code>2em</code> or <code>xx-large</code>. <br/>
             The default font size and view-port width relative equality defines the breakpoint when
             <b>@media(min-width: 34.35rem)</b> (550px in 100% zoom)  would set the H1 font size to default one.<br/>
-            Two paramerters above are critical to a) keep increasing the font not more than default while expanding
+            Two parameters above are critical to a) keep increasing the font not more than default while expanding
             the width, b) keep header from changing the height when text become 2-liner on narrow view or
             font size increased in wide view. <br/>
             Those numbers would need adjustment to accommodate the header text length change.
@@ -192,16 +178,24 @@
         <article>
             <h1> <i class="fas fa-bars"></i> menu </h1>
             <p> Menu is triggered by restyled checkbox.<br/>
-                For browser without support of checkbox restyling the LABEL tag would hover and mimic UI.   </p>
+                For browser without support of checkbox restyling the LABEL tag would hover and mimic checkbox UI. </p>
+            <p> <b>onchange</b> checkbox event handler triggers <b>search-gr-on</b> header class which changes search
+                group visibility. </p>
         </article>
     </section>
     <section>
         <h1> nav </h1>
-        <article> ZZZZ </article>
+        <article> Serves as primary actions toolbar along with menu floating over page content.
+        </article>
     </section>
     <section>
         <h1> main </h1>
-        <article> ZZZZ </article>
+        <article>
+            <p> <b>main</b> content is surrounded by header and actions bar. It has own scroll area which replaces the
+                page scrolling. <b>flex</b> css styling helps to stretch main content to view area remaining after
+                header and action bar.
+            </p>
+        </article>
     </section>
     <section>
         <h1> Responsive breakpoints </h1>
