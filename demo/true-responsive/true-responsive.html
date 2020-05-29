@@ -53,7 +53,9 @@
             <label for="tr-menu-trigger"><i class="fas fa-bars" ></i></label><!-- fix for Edge & IE -->
             <aside>
                 <div>
-                    Patients
+                    <a href="#"
+                       aria-expanded="true" aria-haspopup="true" role="menuitem"
+                    > Patients </a>
                     <ul>
                         <li><a href="true-responsive.html">Shop Plans</a>          </li>
                         <li> Services           </li>
@@ -61,7 +63,7 @@
                     </ul>
                 </div>
                 <div>
-                    Professionals
+                    <a href="#"> Professionals </a>
                     <ul>
                         <li> Careers        </li>
                         <li> Training       </li>
@@ -182,6 +184,24 @@
             <p> <b>onchange</b> checkbox event handler triggers <b>search-gr-on</b> header class which changes search
                 group visibility. </p>
         </article>
+        <article>
+            <h1> <i class="fas fa-search"></i> search </h1>
+            <p> <b>mobile</b> behavior<br/>
+                By default (mobile) the search UI is hidden behind of icon button( same as in menu ).
+                Once triggered, search group expands and takes over whole header space.
+                The trigger icon changes to <i class="fas fa-angle-right"></i> on the left,
+                the center is taken by search input field, and "search" button on the right.<br/>
+                Since trigger button stays same, SPACE multiple times would trigger search group on and off.
+                To get into input field use TAB (as expected).
+            </p>
+            <p> <b>Desktop</b> behavior<br/>
+                Enabled by "large mobile screen" breakpoint. Search group in this mode comprise the input field and button.
+            </p>
+            <p> <b>unfocused</b> input filed is translucent and takes small width just barely sufficient for hint text.
+                On <b>focus</b> input became opaque and expands, covering the menu space. Menu is kept 3 chars wide to
+                keeping ability to use menu and unfocus the search.
+            </p>
+        </article>
     </section>
     <section>
         <h1> nav </h1>
@@ -282,6 +302,14 @@
                 leads to components group visibility change like in case of search input. It prevents to focus on
                 triggering element and breaks the keyboard navigation. Instead, use A link with in-page navigation.   </p>
         </article>
+    </section>
+    <section>
+        <h1> Not covered </h1>
+        <ul>
+            <li> Dark mode          </li>
+            <li> Voice navigation   </li>
+            <li> Screen Reader      </li>
+        </ul>
     </section>
 </main>
 </body>
