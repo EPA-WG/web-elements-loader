@@ -1,0 +1,9 @@
+{   "source": [ "semantic-theme/**/*.json" ],
+    "platforms":
+    {   "css":
+        {   "transformGroup": "css",
+            "files": [  {    "format": "css/variables"
+                        ,    "destination": "semantic-theme/variables.css"
+                        }
+                     ]
+}   }   }

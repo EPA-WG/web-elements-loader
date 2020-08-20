@@ -34,7 +34,8 @@
   },
   "scripts": {
     "start": "polymer serve",
-    "build": "cross-env NODE_OPTIONS=--max_old_space_size=4098 polymer build && node post-build.mjs",
+    "build": "npm run build:theme && cross-env NODE_OPTIONS=--max_old_space_size=4098 polymer build && node post-build.mjs",
+    "build:theme": "style-dictionary build -c ./semantic-theme/config.json",
     "lint": "polymer lint",
     "postinstall": "echo export>packages.js && echo default>>packages.js && cat package-lock.json>>packages.js",
     "test": "polymer test",
@@ -149,6 +150,7 @@
     "marked": "^0.8.2",
     "mocha": "^6.1.4",
     "sinon": "^9.0.2",
+    "style-dictionary": "^2.10.1",
     "wct-mocha": "^1.0.1"
   }
 }
