@@ -1,9 +1,20 @@
 {   "source": [ "semantic-theme/**/*.json" ],
     "platforms":
-    {   "css":
-        {   "transformGroup": "css",
-            "files": [  {    "format": "css/variables"
-                        ,    "destination": "semantic-theme/variables.css"
+    {   "less": 
+        {   "transformGroup": "less"
+        ,   "buildPath": "semantic-theme/"
+        ,   "files": 
+            [   {   "destination": "_icons.less"
+                ,   "format": "less/icons"
+                }
+            ,   {   "destination": "_variables.less"
+                ,    "format": "less/variables"
+        }   ]   }
+    ,   "css":
+        {   "transformGroup": "css"
+        ,   "buildPath": "semantic-theme/"
+        ,   "files": [  {    "format": "css/variables"
+                        ,    "destination": "variables.css"
                         }
                      ]
 }   }   }

@@ -443,9 +443,7 @@
         <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
         <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
 
-        <web-elemens-loader visible="true" id="webcomponentsElement" selection="{{sel}}"></web-elemens-loader>
-        <script>
-            webcomponentsElement.selection = `
+        <web-elemens-loader visible="true" id="webcomponentsElement" selection="
 @polymer/paper-styles/paper-styles,
 @polymer/app-layout,
 @polymer/iron-icon,
@@ -494,7 +492,6 @@
 @polymer/app-layout/app-layout,
 @polymer/app-layout/app-header-layout/app-header-layout,
 @polymer/app-layout/app-toolbar/app-toolbar,
-            `;
-        </script>
+        "></web-elemens-loader>
     </template>
 </dom-bind>
