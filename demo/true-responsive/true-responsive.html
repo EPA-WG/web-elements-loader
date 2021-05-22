@@ -25,6 +25,8 @@
         dt{ padding-top: 1rem; }
         .fas{ font-size: 2rem; }
 
+        /* action semantic dimensions */
+        button{ font-size: 2rem; padding: 0.5rem; }
     </style>
 </head>
 <body>
@@ -272,6 +274,45 @@
         <article> Even simplified image in order to be clearly recognized has to be at least 2x
             larger than than letter symbols next to it with exception of large title text.<br/>
             That is why icon font size here is set to <code>2rem</code>
+            <p><i class="fas fa-kiwi-bird"></i></p>
+
+        </article>
+    </section>
+    <section id="actions">
+        <h1> <a href="http://blog.firsov.net/2020/11/semantic-theming-buttons-and-actions.html"
+            > Actions </a> / Buttons </h1>
+        <article>
+            <button> button </button>
+            <button class="icon"><i class="fas fa-camera"></i></button>
+            <button class="icon square"><i class="fas fa-camera"></i></button>
+            <p> Responsive behavior applies to semantic dimensions in <i>action</i> UI components. </p>
+
+            <h3>Vertical rhythm</h3>
+
+            <p>For horizontal writing languages vertical rhythm allows scanning
+            structured content without going into details or skipping inessential
+            content like ads ;) , comments, illustrations. It is especially
+            important when people would return to the page more than once and need
+            to visually find the last focus point or skip already seen content.
+            </p>
+            <p>
+            The interactive page with forms and actions has its own vertical
+                rhythm rules tied to ergonomics and emphasis on accessibility.
+                In forms the actions and input fields are mixed with additional
+                UI like help hints, labels, warning/error annotations, etc.
+                Depending on the approach the form complimentary UI could take
+                its own vertical space or not. Material UI concept shifts the
+                labels above of input fields and errors beneath.
+            </p>
+            <h3> What is a part of semantic dimensions and what is not? </h3>
+            <p>
+                The width and height of buttons/actions, form input fields; margins, font size
+                are <b>not part</b> of semantic dimensions.
+                Hence those should not be defined by css rules.
+                Instead, browsers would use semantic dimensions to generate UX in desired sizes. It could feel more complex but it is actually given the simplest rules which account for a minimal and complete set of UX nuances in scope of the themed page.Semantic dimensions for form fields and actions:* line-height 1.2em* padding-v 1em* padding-h 1emThe EM units refer to current font size. By default in the whole page is NOT defined by CSS and equals 1REM. In scaled variations they altered by defining font-size for semantic component in fractions of REM:* tiny (0.5rem)* small (0.75rem)* normal (omitted, hence 1 rem)* large* huge* giant( same font size in tiny and small, large and huge are OK, in this case padding should be in rems and decoupled from font-size)
+                Margins are not participating in vertical rhythm, those reflected on UI blocks. 
+
+            </p>
 
         </article>
     </section>
@@ -306,9 +347,9 @@
     <section>
         <h1> Not covered </h1>
         <ul>
-            <li> Dark mode          </li>
-            <li> Voice navigation   </li>
-            <li> Screen Reader      </li>
+            <li> Dark/High Contrast mode    </li>
+            <li> Voice navigation           </li>
+            <li> Screen Reader              </li>
         </ul>
     </section>
 </main>
